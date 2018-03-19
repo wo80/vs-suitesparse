@@ -21,7 +21,7 @@ namespace suitesparse
             }
 
             string task = args[0].ToLowerInvariant();
-            
+
             if (task.Equals("clean") || task.Equals("c"))
             {
                 Cleaner.Run(args.Slice(1));
@@ -42,7 +42,7 @@ namespace suitesparse
     class Updater
     {
         const string URL = "http://faculty.cse.tamu.edu/davis/suitesparse.html";
-        const string RX = "href=\"([^\"]*)\">SuiteSparse v([\\.\\d]+)</a>";
+        const string RX = "href=\"([^\"]*)\"><span class=\"style_1\">SuiteSparse</span><span> v([\\.\\d]+)</span></a>";
 
         public static void Run(string[] args)
         {
@@ -93,7 +93,7 @@ namespace suitesparse
 
             installedVersion = "n/a";
 
-            string root = Path.GetFullPath("..\\SuiteSparse\\");
+            string root = Helper.GetRootDirectory("SuiteSparse");
             string path = Path.Combine(root, "README.txt");
 
             if (File.Exists(path))
@@ -140,10 +140,10 @@ namespace suitesparse
             {
                 return;
             }
-            
+
             var uri = new Uri(downloadUrl);
 
-            string root = Path.GetFullPath("..\\");
+            string root = Helper.GetRootDirectory();
             string path = Path.Combine(root, Path.GetFileName(uri.LocalPath));
 
             using (var client = new WebClient())
@@ -245,74 +245,64 @@ namespace suitesparse
         {
             Console.WriteLine("Running clean -default ...");
 
-            var root = Path.GetFullPath("..\\SuiteSparse\\");
+            string root;
 
-            if (!Directory.Exists(root))
+            if (Helper.TryGetRootDirectory(out root, "SuiteSparse"))
             {
-                throw new Exception();
+                DeleteDirectories(root, directories);
+                DeleteFiles(root, files);
             }
-
-            DeleteDirectories(root, directories);
-            DeleteFiles(root, files);
         }
 
         void CleanupDocs()
         {
             Console.WriteLine("Running clean -docs ...");
 
-            var root = Path.GetFullPath("..\\SuiteSparse\\");
+            string root;
 
-            if (!Directory.Exists(root))
+            if (Helper.TryGetRootDirectory(out root, "SuiteSparse"))
             {
-                throw new Exception();
+                DeleteDirectories(Directory.EnumerateDirectories(root), new string[] { "Doc" });
             }
-
-            DeleteDirectories(Directory.EnumerateDirectories(root), new string[] { "Doc" });
         }
 
         void CleanupTests()
         {
             Console.WriteLine("Running clean -tests ...");
 
-            var root = Path.GetFullPath("..\\SuiteSparse\\");
+            string root;
 
-            if (!Directory.Exists(root))
+            if (Helper.TryGetRootDirectory(out root, "SuiteSparse"))
             {
-                throw new Exception();
+                DeleteDirectories(Directory.EnumerateDirectories(root), new string[] { "Tcov" });
             }
-
-            DeleteDirectories(Directory.EnumerateDirectories(root), new string[] { "Tcov" });
         }
 
         void CleanupMatlab()
         {
             Console.WriteLine("Running clean -matlab ...");
 
-            var root = Path.GetFullPath("..\\SuiteSparse\\");
+            string root;
 
-            if (!Directory.Exists(root))
+            if (Helper.TryGetRootDirectory(out root, "SuiteSparse"))
             {
-                throw new Exception();
+                DeleteDirectories(Directory.EnumerateDirectories(root), new string[] { "MATLAB" });
             }
-
-            DeleteDirectories(Directory.EnumerateDirectories(root), new string[] { "MATLAB" });
         }
 
         void CleanupBuild()
         {
             Console.WriteLine("Running clean -build ...");
+            
+            string root;
 
-            var root = Path.GetFullPath("..\\Visual Studio\\");
-
-            if (!Directory.Exists(root))
+            if (Helper.TryGetRootDirectory(out root, "Visual Studio"))
             {
-                throw new Exception();
+                var subDirectories = new string[] { "Release", "Debug", "x64" };
+
+                DeleteDirectories(Directory.EnumerateDirectories(Path.Combine(root, "shared")), subDirectories);
+                DeleteDirectories(Directory.EnumerateDirectories(Path.Combine(root, "static")), subDirectories);
             }
-
-            var subDirectories = new string[] { "Release", "Debug", "x64" };
-
-            DeleteDirectories(Directory.EnumerateDirectories(Path.Combine(root, "shared")), subDirectories);
-            DeleteDirectories(Directory.EnumerateDirectories(Path.Combine(root, "static")), subDirectories);
         }
 
         private void DeleteFiles(string baseDirectory, IEnumerable<string> files)
@@ -380,5 +370,42 @@ namespace suitesparse
         }
     }
 
+    #endregion
+
+    #region Helper
+
+    static class Helper
+    {
+        public static string GetRootDirectory(string subDirectory = null)
+        {
+            // By default, expect the program to be run from "src/Tools"
+            string root = Path.GetFullPath("..");
+
+            if (subDirectory != null)
+            {
+                root = Path.Combine(root, subDirectory);
+            }
+
+            return root;
+        }
+
+        public static bool TryGetRootDirectory(out string root, string subDirectory = null)
+        {
+            root = GetRootDirectory(subDirectory);
+
+            if (!Directory.Exists(root))
+            {
+                var color = Console.ForegroundColor;
+
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Couldn't find directory \"{0}\"", root);
+                Console.ForegroundColor = color;
+
+                return false;
+            }
+
+            return true;
+        }
+    }
     #endregion
 }
