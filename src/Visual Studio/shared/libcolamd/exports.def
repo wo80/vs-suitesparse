@@ -1,6 +1,0 @@
-LIBRARY libcolamd
-EXPORTS
-    colamd_recommended
-    colamd_set_defaults
-    colamd
-    colamd_report

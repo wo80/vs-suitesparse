@@ -5,3 +5,27 @@ EXPORTS
     amd_defaults
     amd_control
     amd_info
+    amd_2
+    amd_aat
+    amd_postorder
+
+    camd_order
+    camd_valid
+    camd_cvalid
+    camd_defaults
+    camd_control
+    camd_info
+    camd_2
+    
+    colamd_recommended
+    colamd_set_defaults
+    colamd
+    colamd_report
+    symamd_report
+
+    ccolamd_recommended
+    ccolamd_set_defaults
+    ccolamd
+    ccolamd_report
+    csymamd
+    csymamd_report
