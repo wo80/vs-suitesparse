@@ -93,7 +93,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
-      <AdditionalDependencies>libf2c.lib;blas.lib;lapack.lib;SuiteSparse_config.lib;AMD.lib;COLAMD.lib;BTF.lib;KLU.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libf2c.lib;blas.lib;lapack.lib;SuiteSparse_config.lib;libamd.lib;BTF.lib;KLU.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -104,7 +104,7 @@
     </ClCompile>
     <Link>
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
-      <AdditionalDependencies>libf2c.lib;blas.lib;lapack.lib;SuiteSparse_config.lib;AMD.lib;COLAMD.lib;BTF.lib;KLU.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libf2c.lib;blas.lib;lapack.lib;SuiteSparse_config.lib;libamd.lib;BTF.lib;KLU.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -115,7 +115,7 @@
     </ClCompile>
     <Link>
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
-      <AdditionalDependencies>libf2c.lib;blas.lib;lapack.lib;SuiteSparse_config.lib;AMD.lib;COLAMD.lib;BTF.lib;KLU.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libf2c.lib;blas.lib;lapack.lib;SuiteSparse_config.lib;libamd.lib;BTF.lib;KLU.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -130,7 +130,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
-      <AdditionalDependencies>libf2c.lib;blas.lib;lapack.lib;SuiteSparse_config.lib;AMD.lib;COLAMD.lib;BTF.lib;KLU.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>libf2c.lib;blas.lib;lapack.lib;SuiteSparse_config.lib;libamd.lib;BTF.lib;KLU.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

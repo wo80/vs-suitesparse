@@ -29,7 +29,3 @@ EXPORTS
     btf_maxtrans
     btf_order
     btf_strongcomp
-    amd_order
-    colamd
-    colamd_recommended
-    colamd_set_defaults

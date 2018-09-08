@@ -1,21 +1,73 @@
 LIBRARY libcholmod
 EXPORTS
+    cholmod_check_common
+    cholmod_check_sparse
+    cholmod_check_dense
+    cholmod_check_factor
+    cholmod_check_triplet
+    cholmod_check_subset
+    cholmod_check_perm
+    cholmod_check_parent
+    cholmod_print_common
+    cholmod_print_sparse
+    cholmod_print_dense
+    cholmod_print_factor
+    cholmod_print_triplet
+    cholmod_print_subset
+    cholmod_print_perm
+    cholmod_print_parent
+    cholmod_print_common
+    cholmod_read_triplet
+    cholmod_read_sparse
+    cholmod_read_dense
+    cholmod_write_sparse
+    cholmod_write_dense
+
+    cholmod_analyze
+    cholmod_factorize
+    cholmod_solve
+    cholmod_solve2
+    cholmod_spsolve
+
+    cholmod_analyze_p
+    cholmod_analyze_p2
+    cholmod_factorize_p
+    cholmod_analyze_ordering
+    cholmod_etree
+    cholmod_rowcolcounts
+    cholmod_amd
+    cholmod_colamd
+    cholmod_rowfac
+    cholmod_rowfac_mask
+    cholmod_rowfac_mask2
+    cholmod_row_subtree
+    cholmod_resymbol
+    cholmod_resymbol_noperm
+    cholmod_postorder
+
     cholmod_start
     cholmod_finish
+
     cholmod_defaults
     cholmod_maxrank
     cholmod_allocate_work
     cholmod_free_work
-    cholmod_dbound
+    cholmod_clear_flag
+    cholmod_error
     cholmod_hypot
+    cholmod_divcomplex
+
+    cholmod_allocate_sparse
     cholmod_free_sparse
+
+    cholmod_reallocate_sparse
     cholmod_nnz
     cholmod_speye
     cholmod_spzeros
     cholmod_transpose
+    cholmod_ptranspose
     cholmod_transpose_unsym
     cholmod_transpose_sym
-    cholmod_ptranspose
     cholmod_sort
     cholmod_band
     cholmod_band_inplace
@@ -24,64 +76,44 @@ EXPORTS
     cholmod_copy
     cholmod_add
     cholmod_sparse_xtype
-    cholmod_allocate_factor
+
     cholmod_free_factor
+    cholmod_allocate_factor
+    cholmod_reallocate_factor
     cholmod_change_factor
     cholmod_pack_factor
+    cholmod_reallocate_column
     cholmod_factor_to_sparse
     cholmod_copy_factor
     cholmod_factor_xtype
+
     cholmod_allocate_dense
+    cholmod_free_dense
+
     cholmod_zeros
     cholmod_ones
     cholmod_eye
-    cholmod_free_dense
-    cholmod_ensure_dense
     cholmod_sparse_to_dense
     cholmod_dense_to_sparse
     cholmod_copy_dense
     cholmod_copy_dense2
     cholmod_dense_xtype
+    cholmod_ensure_dense
+
     cholmod_allocate_triplet
-    cholmod_free_triplet
-    cholmod_sparse_to_triplet
     cholmod_triplet_to_sparse
+    cholmod_free_triplet
+    cholmod_reallocate_triplet
+    cholmod_sparse_to_triplet
     cholmod_copy_triplet
     cholmod_triplet_xtype
+
+    cholmod_malloc
+    cholmod_calloc
     cholmod_free
-    cholmod_version
-    cholmod_ccolamd
-    cholmod_csymamd
-    cholmod_camd
-    cholmod_check_common
-    cholmod_check_sparse
-    cholmod_check_dense
-    cholmod_check_factor
-    cholmod_check_triplet
-    cholmod_check_perm
-    cholmod_analyze
-    cholmod_analyze_p
-    cholmod_analyze_p2
-    cholmod_factorize
-    cholmod_factorize_p
-    cholmod_solve
-    cholmod_solve2
-    cholmod_spsolve
-    cholmod_etree
-    cholmod_rowcolcounts
-    cholmod_analyze_ordering
-    cholmod_amd
-    cholmod_colamd
-    cholmod_rowfac
-    cholmod_rowfac_mask
-    cholmod_rowfac_mask2
-    cholmod_row_subtree
-    cholmod_lsolve_pattern
-    cholmod_row_lsubtree
-    cholmod_resymbol
-    cholmod_resymbol_noperm
-    cholmod_rcond
-    cholmod_postorder
+    cholmod_realloc
+    cholmod_realloc_multiple
+
     cholmod_drop
     cholmod_norm_dense
     cholmod_norm_sparse
@@ -91,25 +123,26 @@ EXPORTS
     cholmod_ssmult
     cholmod_submatrix
     cholmod_vertcat
-    cholmod_symmetry
+
     cholmod_updown
+    cholmod_rowadd
+    cholmod_rowdel
+
     cholmod_updown_solve
     cholmod_updown_mark
     cholmod_updown_mask
     cholmod_updown_mask2
-    cholmod_rowadd
     cholmod_rowadd_solve
     cholmod_rowadd_mark
-    cholmod_rowdel
     cholmod_rowdel_solve
     cholmod_rowdel_mark
+
     cholmod_nested_dissection
     cholmod_metis
     cholmod_bisect
     cholmod_metis_bisector
-    cholmod_collapse_septree
+
     cholmod_super_symbolic
-    cholmod_super_symbolic2
     cholmod_super_numeric
     cholmod_super_lsolve
     cholmod_super_ltsolve

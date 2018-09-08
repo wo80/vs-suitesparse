@@ -30,6 +30,7 @@ EXPORTS
     umfpack_di_transpose
     umfpack_di_triplet_to_col
     umfpack_di_wsolve
+
     umfpack_zi_col_to_triplet
     umfpack_zi_defaults
     umfpack_zi_free_numeric

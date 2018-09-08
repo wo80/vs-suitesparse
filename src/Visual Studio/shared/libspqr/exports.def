@@ -1,5 +1,6 @@
 LIBRARY libspqr
 EXPORTS
+    SuiteSparse_free
     SuiteSparseQR_C
     SuiteSparseQR_C_QR
     SuiteSparseQR_C_backslash
@@ -11,42 +12,3 @@ EXPORTS
     SuiteSparseQR_C_free
     SuiteSparseQR_C_solve
     SuiteSparseQR_C_qmult
-    cholmod_l_free
-    cholmod_l_start
-    cholmod_l_finish
-    cholmod_l_defaults
-    cholmod_l_nnz
-    cholmod_l_speye
-    cholmod_l_spzeros
-    cholmod_l_sort
-    cholmod_l_copy_sparse
-    cholmod_l_copy
-    cholmod_l_add
-    cholmod_l_sparse_xtype
-    cholmod_l_allocate_dense
-    cholmod_l_allocate_factor
-    cholmod_l_allocate_triplet
-    cholmod_l_free_dense
-    cholmod_l_free_factor
-    cholmod_l_free_sparse
-    cholmod_l_free_triplet
-    cholmod_l_change_factor
-    cholmod_l_pack_factor
-    cholmod_l_factor_to_sparse
-    cholmod_l_copy_factor
-    cholmod_l_factor_xtype
-    cholmod_l_zeros
-    cholmod_l_ones
-    cholmod_l_eye
-    cholmod_l_ensure_dense
-    cholmod_l_sparse_to_dense
-    cholmod_l_dense_to_sparse
-    cholmod_l_copy_dense
-    cholmod_l_copy_dense2
-    cholmod_l_sparse_to_triplet
-    cholmod_l_triplet_to_sparse
-    cholmod_l_copy_triplet
-    cholmod_l_version
-    cholmod_l_check_common
-    cholmod_l_check_sparse
-    cholmod_l_check_dense
