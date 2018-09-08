@@ -1,0 +1,14 @@
+LIBRARY libmetis
+EXPORTS
+    METIS_PartGraphRecursive
+    METIS_PartGraphKway
+    METIS_MeshToDual
+    METIS_MeshToNodal
+    METIS_PartMeshNodal
+    METIS_PartMeshDual
+    METIS_NodeND
+    METIS_Free
+    METIS_SetDefaultOptions
+    METIS_NodeNDP
+    METIS_ComputeVertexSeparator
+    METIS_NodeRefine
