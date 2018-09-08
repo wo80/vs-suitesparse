@@ -32,18 +32,18 @@ template <typename Entry> void spqr_freenum
     ns = QRnum->ns ;
     maxstack = QRnum->maxstack ;
 
-    cholmod_l_free (nf, sizeof (Entry *), QRnum->Rblock, cc) ;
-    cholmod_l_free (n,  sizeof (char),    QRnum->Rdead,  cc) ;
+    CHOLMOD(free) (nf, sizeof (Entry *), QRnum->Rblock, cc) ;
+    CHOLMOD(free) (n,  sizeof (char),    QRnum->Rdead,  cc) ;
 
     if (QRnum->keepH)
     {
         // QRnum->H* items are present only if H is kept
-        cholmod_l_free (rjsize, sizeof (Long),  QRnum->HStair,  cc) ;
-        cholmod_l_free (rjsize, sizeof (Entry), QRnum->HTau,    cc) ;
-        cholmod_l_free (nf,     sizeof (Long),  QRnum->Hm,      cc) ;
-        cholmod_l_free (nf,     sizeof (Long),  QRnum->Hr,      cc) ;
-        cholmod_l_free (hisize, sizeof (Long),  QRnum->Hii,     cc) ;
-        cholmod_l_free (m,      sizeof (Long),  QRnum->HPinv,   cc) ;
+        CHOLMOD(free) (rjsize, sizeof (Long),  QRnum->HStair,  cc) ;
+        CHOLMOD(free) (rjsize, sizeof (Entry), QRnum->HTau,    cc) ;
+        CHOLMOD(free) (nf,     sizeof (Long),  QRnum->Hm,      cc) ;
+        CHOLMOD(free) (nf,     sizeof (Long),  QRnum->Hr,      cc) ;
+        CHOLMOD(free) (hisize, sizeof (Long),  QRnum->Hii,     cc) ;
+        CHOLMOD(free) (m,      sizeof (Long),  QRnum->HPinv,   cc) ;
     }
 
     // free each stack
@@ -53,13 +53,13 @@ template <typename Entry> void spqr_freenum
         for (stack = 0 ; stack < ns ; stack++)
         {
             size_t s = Stack_size ? (Stack_size [stack]) : maxstack ;
-            cholmod_l_free (s, sizeof (Entry), QRnum->Stacks [stack], cc) ;
+            CHOLMOD(free) (s, sizeof (Entry), QRnum->Stacks [stack], cc) ;
         }
     }
-    cholmod_l_free (ns, sizeof (Entry *), QRnum->Stacks, cc) ;
-    cholmod_l_free (ns, sizeof (Long), QRnum->Stack_size, cc) ;
+    CHOLMOD(free) (ns, sizeof (Entry *), QRnum->Stacks, cc) ;
+    CHOLMOD(free) (ns, sizeof (Long), QRnum->Stack_size, cc) ;
 
-    cholmod_l_free (1, sizeof (spqr_numeric<Entry>), QRnum, cc) ;
+    CHOLMOD(free) (1, sizeof (spqr_numeric<Entry>), QRnum, cc) ;
     *QRnum_handle = NULL ;
 }
 

@@ -40,20 +40,20 @@
 
 #define FREE_ALL \
         spqr_freefac (&QR, cc) ; \
-        cholmod_l_free (rjsize+1, sizeof (Long),  H2p, cc) ; \
-        cholmod_l_free_dense  (&HTau, cc) ; \
-        cholmod_l_free_sparse (&H, cc) ; \
-        cholmod_l_free_sparse (&R, cc) ; \
-        cholmod_l_free_sparse (&Xsparse, cc) ; \
-        cholmod_l_free_sparse (&Zsparse, cc) ; \
-        cholmod_l_free_dense  (&Zdense, cc) ; \
-        cholmod_l_free (xsize, sizeof (Entry), Xwork, cc) ; \
-        cholmod_l_free (csize, sizeof (Entry), C, cc) ; \
-        cholmod_l_free (wsize, sizeof (Entry), W, cc) ; \
-        cholmod_l_free (maxfrank, sizeof (Long), Rlive, cc) ; \
-        cholmod_l_free (maxfrank, sizeof (Entry *), Rcolp, cc) ; \
-        cholmod_l_free (n+bncols, sizeof (Long), E, cc) ; \
-        cholmod_l_free (m, sizeof (Long), HP1inv, cc) ;
+        CHOLMOD(free) (rjsize+1, sizeof (Long),  H2p, cc) ; \
+        CHOLMOD(free_dense)  (&HTau, cc) ; \
+        CHOLMOD(free_sparse) (&H, cc) ; \
+        CHOLMOD(free_sparse) (&R, cc) ; \
+        CHOLMOD(free_sparse) (&Xsparse, cc) ; \
+        CHOLMOD(free_sparse) (&Zsparse, cc) ; \
+        CHOLMOD(free_dense)  (&Zdense, cc) ; \
+        CHOLMOD(free) (xsize, sizeof (Entry), Xwork, cc) ; \
+        CHOLMOD(free) (csize, sizeof (Entry), C, cc) ; \
+        CHOLMOD(free) (wsize, sizeof (Entry), W, cc) ; \
+        CHOLMOD(free) (maxfrank, sizeof (Long), Rlive, cc) ; \
+        CHOLMOD(free) (maxfrank, sizeof (Entry *), Rcolp, cc) ; \
+        CHOLMOD(free) (n+bncols, sizeof (Long), E, cc) ; \
+        CHOLMOD(free) (m, sizeof (Long), HP1inv, cc) ;
 
 // returns rank(A) estimate if successful, EMPTY otherwise
 template <typename Entry> Long SuiteSparseQR
@@ -315,7 +315,7 @@ template <typename Entry> Long SuiteSparseQR
     if (getZ)
     {
         // Zsparse is zm-by-zn, but with no entries so far
-        Zsparse = cholmod_l_allocate_sparse (zm, zn, 0, TRUE, TRUE, 0, xtype,
+        Zsparse = CHOLMOD(allocate_sparse) (zm, zn, 0, TRUE, TRUE, 0, xtype,
             cc) ;
         Zp = Zsparse ? ((Long *) Zsparse->p) : NULL ;
         PR (("Z is zm %ld by zn %ld\n", zm, zn)) ;
@@ -324,7 +324,7 @@ template <typename Entry> Long SuiteSparseQR
     if (getR)
     {
         // R is econ-by-n, but with no entries so far
-        R = cholmod_l_allocate_sparse (econ, n, 0, TRUE, TRUE, 0, xtype, cc) ;
+        R = CHOLMOD(allocate_sparse) (econ, n, 0, TRUE, TRUE, 0, xtype, cc) ;
         Rp = R ? ((Long *) R->p) : NULL ;
         Rap = Rp + n1cols ;
     }
@@ -333,7 +333,7 @@ template <typename Entry> Long SuiteSparseQR
 
     if (getH)
     {
-        H2p = (Long *) cholmod_l_malloc (rjsize+1, sizeof (Long), cc) ;
+        H2p = (Long *) CHOLMOD(malloc) (rjsize+1, sizeof (Long), cc) ;
     }
 
     if (cc->status < CHOLMOD_OK)
@@ -448,7 +448,7 @@ template <typename Entry> Long SuiteSparseQR
     if (getR)
     {
         // R now has space for rnz entries
-        cholmod_l_reallocate_sparse (rnz, R, cc) ;
+        CHOLMOD(reallocate_sparse) (rnz, R, cc) ;
         Ri = (Long  *) R->i ;
         Rx = (Entry *) R->x ;
     }
@@ -456,7 +456,7 @@ template <typename Entry> Long SuiteSparseQR
     if (getZ)
     {
         // Zsparse now has space for znz entries
-        cholmod_l_reallocate_sparse (znz, Zsparse, cc) ;
+        CHOLMOD(reallocate_sparse) (znz, Zsparse, cc) ;
         Zi = (Long  *) Zsparse->i ;
         Zx = (Entry *) Zsparse->x ;
     }
@@ -465,7 +465,7 @@ template <typename Entry> Long SuiteSparseQR
     {
         // H is m-by-nh with hnz entries, where nh <= rjsize
         Long hnz = H2p [nh] ;
-        H = cholmod_l_allocate_sparse (m, nh, hnz, TRUE, TRUE, 0, xtype, cc) ;
+        H = CHOLMOD(allocate_sparse) (m, nh, hnz, TRUE, TRUE, 0, xtype, cc) ;
         // copy the column pointers from H2p to Hp
         if (cc->status == CHOLMOD_OK)
         {
@@ -478,9 +478,9 @@ template <typename Entry> Long SuiteSparseQR
             }
         }
         // free the H2p workspace, and allocate HTau
-        cholmod_l_free (rjsize+1, sizeof (Long), H2p, cc) ;
+        CHOLMOD(free) (rjsize+1, sizeof (Long), H2p, cc) ;
         H2p = NULL ;
-        HTau = cholmod_l_allocate_dense (1, nh, 1, xtype, cc) ;
+        HTau = CHOLMOD(allocate_dense) (1, nh, 1, xtype, cc) ;
     }
 
     if (cc->status < CHOLMOD_OK)
@@ -613,7 +613,7 @@ template <typename Entry> Long SuiteSparseQR
             // -----------------------------------------------------------------
 
             // ask for space for n+1 entries; this is increased later if needed
-            Xsparse = cholmod_l_allocate_sparse (n, bncols, n+1, TRUE, TRUE, 0,
+            Xsparse = CHOLMOD(allocate_sparse) (n, bncols, n+1, TRUE, TRUE, 0,
                 xtype, cc) ;
             xncol = 0 ;
 
@@ -638,9 +638,9 @@ template <typename Entry> Long SuiteSparseQR
 
             if (ok)
             {
-                Xwork = (Entry *) cholmod_l_malloc (xsize, sizeof (Entry), cc) ;
-                C = (Entry *) cholmod_l_calloc (csize, sizeof (Entry), cc) ;
-                W = (Entry *) cholmod_l_malloc (wsize, sizeof (Entry), cc) ;
+                Xwork = (Entry *) CHOLMOD(malloc) (xsize, sizeof (Entry), cc) ;
+                C = (Entry *) CHOLMOD(calloc) (csize, sizeof (Entry), cc) ;
+                W = (Entry *) CHOLMOD(malloc) (wsize, sizeof (Entry), cc) ;
             }
 
             // -----------------------------------------------------------------
@@ -652,16 +652,16 @@ template <typename Entry> Long SuiteSparseQR
                 // PUNT: out of memory; try again with xchunk = 1
                 cc->status = CHOLMOD_OK ;
                 ok = TRUE ;
-                cholmod_l_free (xsize, sizeof (Entry), Xwork, cc) ;
-                cholmod_l_free (csize, sizeof (Entry), C, cc) ;
-                cholmod_l_free (wsize, sizeof (Entry), W, cc) ;
+                CHOLMOD(free) (xsize, sizeof (Entry), Xwork, cc) ;
+                CHOLMOD(free) (csize, sizeof (Entry), C, cc) ;
+                CHOLMOD(free) (wsize, sizeof (Entry), W, cc) ;
                 xchunk = 1 ;
                 xsize = n ;
                 csize = rank ;
                 wsize = maxfrank ;
-                Xwork = (Entry *) cholmod_l_malloc (xsize, sizeof (Entry), cc) ;
-                C = (Entry *) cholmod_l_calloc (csize, sizeof (Entry), cc) ;
-                W = (Entry *) cholmod_l_malloc (wsize, sizeof (Entry), cc) ;
+                Xwork = (Entry *) CHOLMOD(malloc) (xsize, sizeof (Entry), cc) ;
+                C = (Entry *) CHOLMOD(calloc) (csize, sizeof (Entry), cc) ;
+                W = (Entry *) CHOLMOD(malloc) (wsize, sizeof (Entry), cc) ;
             }
 
             // -----------------------------------------------------------------
@@ -688,17 +688,17 @@ template <typename Entry> Long SuiteSparseQR
 
             if (ok)
             {
-                C = (Entry *) cholmod_l_calloc (csize, sizeof (Entry), cc) ;
-                W = (Entry *) cholmod_l_malloc (wsize, sizeof (Entry), cc) ;
+                C = (Entry *) CHOLMOD(calloc) (csize, sizeof (Entry), cc) ;
+                W = (Entry *) CHOLMOD(malloc) (wsize, sizeof (Entry), cc) ;
             }
 
             // allocate the dense X and use it for the solve
-            Zdense = cholmod_l_allocate_dense (n, bncols, n, xtype, cc) ;
+            Zdense = CHOLMOD(allocate_dense) (n, bncols, n, xtype, cc) ;
             X2 = Zdense ? ((Entry *) Zdense->x) : NULL ;
         }
 
-        Rlive = (Long *)   cholmod_l_malloc (maxfrank, sizeof (Long),    cc) ;
-        Rcolp = (Entry **) cholmod_l_malloc (maxfrank, sizeof (Entry *), cc) ;
+        Rlive = (Long *)   CHOLMOD(malloc) (maxfrank, sizeof (Long),    cc) ;
+        Rcolp = (Entry **) CHOLMOD(malloc) (maxfrank, sizeof (Entry *), cc) ;
 
         if (!ok || cc->status < CHOLMOD_OK)
         {
@@ -798,17 +798,17 @@ template <typename Entry> Long SuiteSparseQR
         // free workspace
         // ---------------------------------------------------------------------
 
-        C     = (Entry *)  cholmod_l_free (csize,    sizeof (Entry), C, cc) ;
-        W     = (Entry *)  cholmod_l_free (wsize,    sizeof (Entry), W, cc) ;
-        Rlive = (Long *)   cholmod_l_free (maxfrank, sizeof (Long),  Rlive, cc);
-        Rcolp = (Entry **) cholmod_l_free (maxfrank, sizeof (Entry *), Rcolp,
+        C     = (Entry *)  CHOLMOD(free) (csize,    sizeof (Entry), C, cc) ;
+        W     = (Entry *)  CHOLMOD(free) (wsize,    sizeof (Entry), W, cc) ;
+        Rlive = (Long *)   CHOLMOD(free) (maxfrank, sizeof (Long),  Rlive, cc);
+        Rcolp = (Entry **) CHOLMOD(free) (maxfrank, sizeof (Entry *), Rcolp,
             cc) ;
 
         // ---------------------------------------------------------------------
         // free the sparse Z
         // ---------------------------------------------------------------------
 
-        cholmod_l_free_sparse (&Zsparse, cc) ;
+        CHOLMOD(free_sparse) (&Zsparse, cc) ;
 
         // ---------------------------------------------------------------------
         // finalize the sparse X
@@ -821,8 +821,8 @@ template <typename Entry> Long SuiteSparseQR
             // reduce X in size so that nnz(X) == nzmax(X)
             // -----------------------------------------------------------------
 
-            znz = cholmod_l_nnz (Xsparse, cc) ;
-            cholmod_l_reallocate_sparse (znz, Xsparse, cc) ;
+            znz = CHOLMOD(nnz) (Xsparse, cc) ;
+            CHOLMOD(reallocate_sparse) (znz, Xsparse, cc) ;
             ASSERT (cc->status == CHOLMOD_OK) ;
 
             // -----------------------------------------------------------------
@@ -836,7 +836,7 @@ template <typename Entry> Long SuiteSparseQR
             // free the dense Xwork
             // -----------------------------------------------------------------
 
-            cholmod_l_free (xsize, sizeof (Entry), Xwork, cc) ;
+            CHOLMOD(free) (xsize, sizeof (Entry), Xwork, cc) ;
             Xwork = NULL ;
             xsize = 0 ;
         }
@@ -849,8 +849,8 @@ template <typename Entry> Long SuiteSparseQR
         // convert C or C' to full
         // ---------------------------------------------------------------------
 
-        Zdense = cholmod_l_sparse_to_dense (Zsparse, cc) ;
-        cholmod_l_free_sparse (&Zsparse, cc) ;
+        Zdense = CHOLMOD(sparse_to_dense) (Zsparse, cc) ;
+        CHOLMOD(free_sparse) (&Zsparse, cc) ;
 
         if (cc->status < CHOLMOD_OK)
         {
@@ -928,10 +928,10 @@ template <typename Entry> Long SuiteSparseQR
             // trapezoidal form)
 
             // free the old R and Q1fill
-            cholmod_l_free (n+1,      sizeof (Long),  Rp, cc) ;
-            cholmod_l_free (rnz,      sizeof (Long),  Ri, cc) ;
-            cholmod_l_free (rnz,      sizeof (Entry), Rx, cc) ;
-            cholmod_l_free (n+bncols, sizeof (Long),  E,  cc) ;
+            CHOLMOD(free) (n+1,      sizeof (Long),  Rp, cc) ;
+            CHOLMOD(free) (rnz,      sizeof (Long),  Ri, cc) ;
+            CHOLMOD(free) (rnz,      sizeof (Entry), Rx, cc) ;
+            CHOLMOD(free) (n+bncols, sizeof (Long),  E,  cc) ;
 
             // replace R and Q1fill with Rtrap and Qtrap
             R->p = Rtrapp ;
@@ -1187,10 +1187,10 @@ template <typename Entry> Long SuiteSparseQR     // returns rank(A) estimate
     RETURN_IF_NULL_COMMON (EMPTY) ;
     RETURN_IF_NULL (A, EMPTY) ;
     Long m = A->nrow ;
-    I = cholmod_l_speye (m, m, xtype, cc) ;
+    I = CHOLMOD(speye) (m, m, xtype, cc) ;
     Long rank = (I == NULL) ? EMPTY : SuiteSparseQR <Entry> (ordering, tol,
         econ, 1, A, I, NULL, Q, NULL, R, E, NULL, NULL, NULL, cc) ;
-    cholmod_l_free_sparse (&I, cc) ;
+    CHOLMOD(free_sparse) (&I, cc) ;
     return (rank) ;
 }
 

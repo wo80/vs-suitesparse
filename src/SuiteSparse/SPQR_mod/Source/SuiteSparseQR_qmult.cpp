@@ -102,7 +102,7 @@ template <typename Entry> cholmod_dense *SuiteSparseQR_qmult
     // allocate result Y
     // -------------------------------------------------------------------------
 
-    Ydense = cholmod_l_allocate_dense (m, n, m, xtype, cc) ;
+    Ydense = CHOLMOD(allocate_dense) (m, n, m, xtype, cc) ;
     if (cc->status < CHOLMOD_OK)
     {
         // out of memory
@@ -125,7 +125,7 @@ template <typename Entry> cholmod_dense *SuiteSparseQR_qmult
     if (method == SPQR_QX || method ==  SPQR_XQT)
     {
         // Z is needed only for methods SPQR_QX and SPQR_XQT
-        Z = (Entry *) cholmod_l_malloc (zsize, sizeof (Entry), cc) ;
+        Z = (Entry *) CHOLMOD(malloc) (zsize, sizeof (Entry), cc) ;
     }
 
     hchunk = MIN (HCHUNK_DENSE, nh) ;
@@ -134,15 +134,15 @@ template <typename Entry> cholmod_dense *SuiteSparseQR_qmult
     ASSERT (vmax <= mh) ;
 
     wisize = mh + vmax ;
-    Wi = (Long *) cholmod_l_malloc (wisize, sizeof (Long), cc) ;
+    Wi = (Long *) CHOLMOD(malloc) (wisize, sizeof (Long), cc) ;
     Wmap = Wi + vmax ;              // Wmap is of size mh, Wi of size vmax
 
     if (cc->status < CHOLMOD_OK)
     {
         // out of memory; free workspace and result Y
-        cholmod_l_free_dense (&Ydense, cc) ;
-        cholmod_l_free (zsize,  sizeof (Entry), Z,  cc) ;
-        cholmod_l_free (wisize, sizeof (Long), Wi, cc) ;
+        CHOLMOD(free_dense) (&Ydense, cc) ;
+        CHOLMOD(free) (zsize,  sizeof (Entry), Z,  cc) ;
+        CHOLMOD(free) (wisize, sizeof (Long), Wi, cc) ;
         return (NULL) ;
     }
 
@@ -177,7 +177,7 @@ template <typename Entry> cholmod_dense *SuiteSparseQR_qmult
 
     if (ok)
     {
-        CV = (Entry *) cholmod_l_malloc (cvsize, sizeof (Entry), cc) ;
+        CV = (Entry *) CHOLMOD(malloc) (cvsize, sizeof (Entry), cc) ;
     }
 
     // -------------------------------------------------------------------------
@@ -197,14 +197,14 @@ template <typename Entry> cholmod_dense *SuiteSparseQR_qmult
         cvsize = spqr_add (csize, vsize, &ok) ;
         if (ok)
         {
-            CV = (Entry *) cholmod_l_malloc (cvsize, sizeof (Entry), cc) ;
+            CV = (Entry *) CHOLMOD(malloc) (cvsize, sizeof (Entry), cc) ;
         }
         if (!ok || cc->status < CHOLMOD_OK)
         {
             // out of memory (or problem too large); free workspace and result Y
-            cholmod_l_free_dense (&Ydense, cc) ;
-            cholmod_l_free (zsize,  sizeof (Entry), Z,  cc) ;
-            cholmod_l_free (wisize, sizeof (Long), Wi, cc) ;
+            CHOLMOD(free_dense) (&Ydense, cc) ;
+            CHOLMOD(free) (zsize,  sizeof (Entry), Z,  cc) ;
+            CHOLMOD(free) (wisize, sizeof (Long), Wi, cc) ;
             ERROR (CHOLMOD_OUT_OF_MEMORY, "out of memory") ;
             return (NULL) ;
         }
@@ -332,14 +332,14 @@ template <typename Entry> cholmod_dense *SuiteSparseQR_qmult
     // free workspace and return Y
     // -------------------------------------------------------------------------
 
-    cholmod_l_free (cvsize, sizeof (Entry), CV, cc) ;
-    cholmod_l_free (zsize,  sizeof (Entry), Z,  cc) ;
-    cholmod_l_free (wisize, sizeof (Long), Wi, cc) ;
+    CHOLMOD(free) (cvsize, sizeof (Entry), CV, cc) ;
+    CHOLMOD(free) (zsize,  sizeof (Entry), Z,  cc) ;
+    CHOLMOD(free) (wisize, sizeof (Long), Wi, cc) ;
 
     if (CHECK_BLAS_INT && !cc->blas_ok)
     {
         ERROR (CHOLMOD_INVALID, "problem too large for the BLAS") ;
-        cholmod_l_free_dense (&Ydense, cc) ;
+        CHOLMOD(free_dense) (&Ydense, cc) ;
         return (NULL) ;
     }
 
@@ -452,12 +452,12 @@ template <typename Entry> cholmod_sparse *SuiteSparseQR_qmult
     if (method == SPQR_XQT || method == SPQR_XQ)
     {
         cholmod_sparse *XT, *YT ;
-        XT = cholmod_l_transpose (Xsparse, 2, cc) ;
+        XT = CHOLMOD(transpose) (Xsparse, 2, cc) ;
         YT = SuiteSparseQR_qmult <Entry>
             ((method == SPQR_XQT) ? SPQR_QX : SPQR_QTX, H, HTau, HPinv, XT, cc);
-        cholmod_l_free_sparse (&XT, cc) ;
-        Ysparse = cholmod_l_transpose (YT, 2, cc) ;
-        cholmod_l_free_sparse (&YT, cc) ;
+        CHOLMOD(free_sparse) (&XT, cc) ;
+        Ysparse = CHOLMOD(transpose) (YT, 2, cc) ;
+        CHOLMOD(free_sparse) (&YT, cc) ;
         return (Ysparse) ;
     }
 
@@ -489,7 +489,7 @@ template <typename Entry> cholmod_sparse *SuiteSparseQR_qmult
         &vmax, &vsize, &csize) ;
 
     wisize = m + vmax ;
-    Wi = (Long *) cholmod_l_malloc (wisize, sizeof (Long), cc) ;
+    Wi = (Long *) CHOLMOD(malloc) (wisize, sizeof (Long), cc) ;
     Wmap = Wi + vmax ;              // Wmap is of size m, Wi is of size vmax
 
     if (cc->status < CHOLMOD_OK)
@@ -517,7 +517,7 @@ template <typename Entry> cholmod_sparse *SuiteSparseQR_qmult
 
     if (ok)
     {
-        CVW = (Entry *) cholmod_l_malloc (cvwsize, sizeof (Entry), cc) ;
+        CVW = (Entry *) CHOLMOD(malloc) (cvwsize, sizeof (Entry), cc) ;
     }
 
     // -------------------------------------------------------------------------
@@ -539,13 +539,13 @@ template <typename Entry> cholmod_sparse *SuiteSparseQR_qmult
         cvwsize = spqr_add (cvwsize, vsize, &ok) ;
         if (ok)
         {
-            CVW = (Entry *) cholmod_l_malloc (cvwsize, sizeof (Entry), cc) ;
+            CVW = (Entry *) CHOLMOD(malloc) (cvwsize, sizeof (Entry), cc) ;
         }
         if (!ok || cc->status < CHOLMOD_OK)
         {
             // still out of memory (or problem too large)
             ERROR (CHOLMOD_OUT_OF_MEMORY, "out of memory") ;
-            cholmod_l_free (wisize, sizeof (Long), Wi, cc) ;
+            CHOLMOD(free) (wisize, sizeof (Long), Wi, cc) ;
             return (NULL) ;
         }
     }
@@ -563,12 +563,12 @@ template <typename Entry> cholmod_sparse *SuiteSparseQR_qmult
     // -------------------------------------------------------------------------
 
     // Y is a sparse matrix of size m-ny-n with space for m+1 entries
-    Ysparse = cholmod_l_allocate_sparse (m, n, m+1, TRUE, TRUE, 0, xtype, cc) ;
+    Ysparse = CHOLMOD(allocate_sparse) (m, n, m+1, TRUE, TRUE, 0, xtype, cc) ;
     if (cc->status < CHOLMOD_OK)
     {
         // out of memory
-        cholmod_l_free (cvwsize, sizeof (Entry), CVW, cc) ;
-        cholmod_l_free (wisize,  sizeof (Long),  Wi,  cc) ;
+        CHOLMOD(free) (cvwsize, sizeof (Entry), CVW, cc) ;
+        CHOLMOD(free) (wisize,  sizeof (Long),  Wi,  cc) ;
         return (NULL) ;
     }
     ny = 0 ;
@@ -619,9 +619,9 @@ template <typename Entry> cholmod_sparse *SuiteSparseQR_qmult
                 if (cc->status < CHOLMOD_OK)
                 {
                     // out of memory
-                    cholmod_l_free_sparse (&Ysparse, cc) ;
-                    cholmod_l_free (cvwsize, sizeof (Entry), CVW, cc) ;
-                    cholmod_l_free (wisize,  sizeof (Long),  Wi,  cc) ;
+                    CHOLMOD(free_sparse) (&Ysparse, cc) ;
+                    CHOLMOD(free) (cvwsize, sizeof (Entry), CVW, cc) ;
+                    CHOLMOD(free) (wisize,  sizeof (Long),  Wi,  cc) ;
                     return (NULL) ;
                 }
 
@@ -670,9 +670,9 @@ template <typename Entry> cholmod_sparse *SuiteSparseQR_qmult
                 if (cc->status < CHOLMOD_OK)
                 {
                     // out of memory
-                    cholmod_l_free_sparse (&Ysparse, cc) ;
-                    cholmod_l_free (cvwsize, sizeof (Entry), CVW, cc) ;
-                    cholmod_l_free (wisize,  sizeof (Long),  Wi,  cc) ;
+                    CHOLMOD(free_sparse) (&Ysparse, cc) ;
+                    CHOLMOD(free) (cvwsize, sizeof (Entry), CVW, cc) ;
+                    CHOLMOD(free) (wisize,  sizeof (Long),  Wi,  cc) ;
                     return (NULL) ;
                 }
                 W1 += m ;
@@ -684,14 +684,14 @@ template <typename Entry> cholmod_sparse *SuiteSparseQR_qmult
     // free workspace and reduce Y in size so that nnz (Y) == nzmax (Y)
     // -------------------------------------------------------------------------
 
-    cholmod_l_free (cvwsize, sizeof (Entry), CVW, cc) ;
-    cholmod_l_free (wisize,  sizeof (Long),  Wi,  cc) ;
-    cholmod_l_reallocate_sparse (cholmod_l_nnz (Ysparse,cc), Ysparse, cc) ;
+    CHOLMOD(free) (cvwsize, sizeof (Entry), CVW, cc) ;
+    CHOLMOD(free) (wisize,  sizeof (Long),  Wi,  cc) ;
+    CHOLMOD(reallocate_sparse) (CHOLMOD(nnz) (Ysparse,cc), Ysparse, cc) ;
 
     if (CHECK_BLAS_INT && !cc->blas_ok)
     {
         ERROR (CHOLMOD_INVALID, "problem too large for the BLAS") ;
-        cholmod_l_free_sparse (&Ysparse, cc) ;
+        CHOLMOD(free_sparse) (&Ysparse, cc) ;
         return (NULL) ;
     }
 

@@ -95,7 +95,7 @@ template <typename Entry> int spqr_append       // TRUE/FALSE if OK or not
                     // nznew = 2*nzmax + m ;
                     nznew = spqr_mult (2, nzmax, &ok) ;
                     nznew = spqr_add (nznew, m, &ok) ;
-                    if (!ok || !cholmod_l_reallocate_sparse (nznew, A, cc))
+                    if (!ok || !CHOLMOD(reallocate_sparse) (nznew, A, cc))
                     {
                         // out of memory
                         ERROR (CHOLMOD_OUT_OF_MEMORY, "out of memory") ;

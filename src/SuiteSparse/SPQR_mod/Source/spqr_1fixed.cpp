@@ -68,14 +68,14 @@ template <typename Entry> int spqr_1fixed
     // allocate workspace
     // -------------------------------------------------------------------------
 
-    Mark = (char *) cholmod_l_calloc (m, sizeof (char), cc) ;
-    Qrows = (Long *) cholmod_l_malloc (n, sizeof (Long), cc) ;
+    Mark = (char *) CHOLMOD(calloc) (m, sizeof (char), cc) ;
+    Qrows = (Long *) CHOLMOD(malloc) (n, sizeof (Long), cc) ;
 
     if (cc->status < CHOLMOD_OK)
     {
         // out of memory
-        cholmod_l_free (m, sizeof (char), Mark, cc) ;
-        cholmod_l_free (n, sizeof (Long), Qrows, cc) ;
+        CHOLMOD(free) (m, sizeof (char), Mark, cc) ;
+        CHOLMOD(free) (n, sizeof (Long), Qrows, cc) ;
         return (FALSE) ;
     }
 
@@ -150,14 +150,14 @@ template <typename Entry> int spqr_1fixed
         // ---------------------------------------------------------------------
 
         // Y has no entries yet; nnz(Y) will be determined later
-        Y = cholmod_l_allocate_sparse (m, n+bncols, 0,
+        Y = CHOLMOD(allocate_sparse) (m, n+bncols, 0,
             FALSE, TRUE, 0, xtype, cc) ;
 
         if (cc->status < CHOLMOD_OK)
         {
             // out of memory
-            cholmod_l_free (m, sizeof (char), Mark, cc) ;
-            cholmod_l_free (n, sizeof (Long), Qrows, cc) ;
+            CHOLMOD(free) (m, sizeof (char), Mark, cc) ;
+            CHOLMOD(free) (n, sizeof (Long), Qrows, cc) ;
             return (FALSE) ;
         }
 
@@ -186,19 +186,19 @@ template <typename Entry> int spqr_1fixed
         // ---------------------------------------------------------------------
 
         // Y has no entries yet; nnz(Y) will be determined later
-        Y = cholmod_l_allocate_sparse (m-n1rows, n-n1cols+bncols, 0,
+        Y = CHOLMOD(allocate_sparse) (m-n1rows, n-n1cols+bncols, 0,
             TRUE, TRUE, 0, xtype, cc) ;
-        P1inv = (Long *) cholmod_l_malloc (m, sizeof (Long), cc) ;
-        R1p   = (Long *) cholmod_l_calloc (n1rows+1, sizeof (Long), cc) ;
+        P1inv = (Long *) CHOLMOD(malloc) (m, sizeof (Long), cc) ;
+        R1p   = (Long *) CHOLMOD(calloc) (n1rows+1, sizeof (Long), cc) ;
 
         if (cc->status < CHOLMOD_OK)
         {
             // out of memory
-            cholmod_l_free_sparse (&Y, cc) ;
-            cholmod_l_free (m, sizeof (Long), P1inv, cc) ;
-            cholmod_l_free (n1rows+1, sizeof (Long), R1p, cc) ;
-            cholmod_l_free (m, sizeof (char), Mark, cc) ;
-            cholmod_l_free (n, sizeof (Long), Qrows, cc) ;
+            CHOLMOD(free_sparse) (&Y, cc) ;
+            CHOLMOD(free) (m, sizeof (Long), P1inv, cc) ;
+            CHOLMOD(free) (n1rows+1, sizeof (Long), R1p, cc) ;
+            CHOLMOD(free) (m, sizeof (char), Mark, cc) ;
+            CHOLMOD(free) (n, sizeof (Long), Qrows, cc) ;
             return (FALSE) ;
         }
 
@@ -286,8 +286,8 @@ template <typename Entry> int spqr_1fixed
     // free workspace and return results
     // -------------------------------------------------------------------------
 
-    cholmod_l_free (n, sizeof (Long), Qrows, cc) ;
-    cholmod_l_free (m, sizeof (char), Mark, cc) ;
+    CHOLMOD(free) (n, sizeof (Long), Qrows, cc) ;
+    CHOLMOD(free) (m, sizeof (char), Mark, cc) ;
 
     *p_R1p    = R1p ;
     *p_P1inv  = P1inv ;

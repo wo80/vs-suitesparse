@@ -15,11 +15,11 @@
 // =============================================================================
 
 #define FREE_WORK \
-    cholmod_l_free_factor (&Sc, cc) ; \
-    cholmod_l_free (2*(nf+1), sizeof (double), Flops,         cc) ; \
-    cholmod_l_free (ns+2,     sizeof (Long),    Stack_stack,   cc) ; \
-    cholmod_l_free (nf,       sizeof (Long),    Rh,            cc) ; \
-    cholmod_l_free (ntasks,   sizeof (Long),    TaskParent,    cc) ;
+    CHOLMOD(free_factor) (&Sc, cc) ; \
+    CHOLMOD(free) (2*(nf+1), sizeof (double), Flops,         cc) ; \
+    CHOLMOD(free) (ns+2,     sizeof (Long),    Stack_stack,   cc) ; \
+    CHOLMOD(free) (nf,       sizeof (Long),    Rh,            cc) ; \
+    CHOLMOD(free) (ntasks,   sizeof (Long),    TaskParent,    cc) ;
 
 // =============================================================================
 // === spqr_analyze ============================================================
@@ -143,15 +143,15 @@ spqr_symbolic *spqr_analyze
     // cc->for_GPU = (int) useGPU ;    // keep track of if we are using the GPU
 
     // -------------------------------------------------------------------------
-    // allocate workspace for this function and cholmod_l_postorder
+    // allocate workspace for this function and CHOLMOD(postorder)
     // -------------------------------------------------------------------------
 
     // the number of frontal matrices (nf) is not yet known, but nf <= n will
-    // hold.  cholmod_l_analyze_p2, below, will allocate m+6*n in cc->Iwork.
+    // hold.  CHOLMOD(analyze_p2,) below, will allocate m+6*n in cc->Iwork.
 
     nf = n ;    // just a placeholder; will be changed later to some nf <= n
 
-    cholmod_l_allocate_work (n+1, MAX (m, 2*(n+1) + 2*(nf+2)) + 1, 0, cc) ;
+    CHOLMOD(allocate_work) (n+1, MAX (m, 2*(n+1) + 2*(nf+2)) + 1, 0, cc) ;
 
     // workspace allocated later:
     Rh = NULL ;
@@ -174,7 +174,7 @@ spqr_symbolic *spqr_analyze
     // supernodal Cholesky ordering and analysis of A'A
     // -------------------------------------------------------------------------
 
-    AT = cholmod_l_transpose (A, 0, cc) ;   // AT = spones (A') [
+    AT = CHOLMOD(transpose) (A, 0, cc) ;   // AT = spones (A') [
 
     // save the current CHOLMOD settings
     Long save [6] ;
@@ -282,9 +282,9 @@ spqr_symbolic *spqr_analyze
 
     // multifrontal QR ordering and analysis.
     // The GPU-accelerated SPQR requires additional supernodal analysis.
-    Sc = cholmod_l_analyze_p2 (
+    Sc = CHOLMOD(analyze_p2) (
         useGPU ? CHOLMOD_ANALYZE_FOR_SPQRGPU : CHOLMOD_ANALYZE_FOR_SPQR,
-        AT, (SuiteSparse_long *) Quser, NULL, 0, cc) ;
+        AT, (Long *) Quser, NULL, 0, cc) ;
 
     // record the actual ordering used
     if (Sc != NULL)
@@ -309,7 +309,7 @@ spqr_symbolic *spqr_analyze
     cc->method [1].ordering     = save [4] ;
     cc->method [2].ordering     = save [5] ;
 
-    cholmod_l_free_sparse (&AT, cc) ;       // ]
+    CHOLMOD(free_sparse) (&AT, cc) ;       // ]
 
     if (cc->status < CHOLMOD_OK)
     {
@@ -320,7 +320,7 @@ spqr_symbolic *spqr_analyze
 
     if (Sc == NULL || !(Sc->is_super) || !(Sc->is_ll))
     {
-        cholmod_l_free_factor (&Sc, cc) ;
+        CHOLMOD(free_factor) (&Sc, cc) ;
         FREE_WORK ;
         ERROR (CHOLMOD_INVALID,
             "SuiteSparseQR requires the CHOLMOD/Supernodal module") ;
@@ -333,7 +333,7 @@ spqr_symbolic *spqr_analyze
     // extract the contents of CHOLMOD's supernodal factorization
     // -------------------------------------------------------------------------
 
-    QRsym = (spqr_symbolic *) cholmod_l_malloc (1, sizeof (spqr_symbolic), cc) ;
+    QRsym = (spqr_symbolic *) CHOLMOD(malloc) (1, sizeof (spqr_symbolic), cc) ;
 
     if (cc->status < CHOLMOD_OK)
     {
@@ -368,27 +368,27 @@ spqr_symbolic *spqr_analyze
     QRsym->ColCount = (Long *) Sc->ColCount ;
     Sc->ColCount = NULL ;
 
-    cholmod_l_free_factor (&Sc, cc) ;
+    CHOLMOD(free_factor) (&Sc, cc) ;
 
     // -------------------------------------------------------------------------
     // allocate the rest of QRsym
     // -------------------------------------------------------------------------
 
     ASSERT (nf <= n) ;
-    QRsym->Parent = Parent = (Long *) cholmod_l_malloc (nf+1, sizeof(Long), cc);
-    QRsym->Childp = Childp = (Long *) cholmod_l_calloc (nf+2, sizeof(Long), cc);
-    QRsym->Child  = Child  = (Long *) cholmod_l_calloc (nf+1, sizeof(Long), cc);
-    QRsym->Post   = Post   = (Long *) cholmod_l_malloc (nf+1, sizeof(Long), cc);
-    QRsym->PLinv           = (Long *) cholmod_l_malloc (m,    sizeof(Long), cc);
-    QRsym->Sleft  = Sleft  = (Long *) cholmod_l_malloc (n+2,  sizeof(Long), cc);
-    QRsym->Sp     = Sp     = (Long *) cholmod_l_malloc (m+1,  sizeof(Long), cc);
-    QRsym->Sj     = Sj     = (Long *) cholmod_l_malloc (anz,  sizeof(Long), cc);
-    QRsym->Fm              = (Long *) cholmod_l_malloc (nf+1, sizeof(Long), cc);
-    QRsym->Cm              = (Long *) cholmod_l_malloc (nf+1, sizeof(Long), cc);
+    QRsym->Parent = Parent = (Long *) CHOLMOD(malloc) (nf+1, sizeof(Long), cc);
+    QRsym->Childp = Childp = (Long *) CHOLMOD(calloc) (nf+2, sizeof(Long), cc);
+    QRsym->Child  = Child  = (Long *) CHOLMOD(calloc) (nf+1, sizeof(Long), cc);
+    QRsym->Post   = Post   = (Long *) CHOLMOD(malloc) (nf+1, sizeof(Long), cc);
+    QRsym->PLinv           = (Long *) CHOLMOD(malloc) (m,    sizeof(Long), cc);
+    QRsym->Sleft  = Sleft  = (Long *) CHOLMOD(malloc) (n+2,  sizeof(Long), cc);
+    QRsym->Sp     = Sp     = (Long *) CHOLMOD(malloc) (m+1,  sizeof(Long), cc);
+    QRsym->Sj     = Sj     = (Long *) CHOLMOD(malloc) (anz,  sizeof(Long), cc);
+    QRsym->Fm              = (Long *) CHOLMOD(malloc) (nf+1, sizeof(Long), cc);
+    QRsym->Cm              = (Long *) CHOLMOD(malloc) (nf+1, sizeof(Long), cc);
 
     if (keepH)
     {
-        QRsym->Hip = Hip = (Long *) cholmod_l_malloc (nf+1, sizeof (Long), cc) ;
+        QRsym->Hip = Hip = (Long *) CHOLMOD(malloc) (nf+1, sizeof (Long), cc) ;
     }
     else
     {
@@ -429,14 +429,14 @@ spqr_symbolic *spqr_analyze
     if (useGPU)
     {
         // use calloc so that the pointers inside are all NULL
-        QRgpu = (spqr_gpu *) cholmod_l_calloc (1, sizeof(spqr_gpu), cc) ;
+        QRgpu = (spqr_gpu *) CHOLMOD(calloc) (1, sizeof(spqr_gpu), cc) ;
         QRsym->QRgpu = QRgpu ;
         if(QRgpu)
         {
-            RimapOffsets = (Long*) cholmod_l_malloc(nf, sizeof(Long), cc) ;
+            RimapOffsets = (Long*) CHOLMOD(malloc)(nf, sizeof(Long), cc) ;
             QRgpu->RimapOffsets = RimapOffsets  ;
 
-            RjmapOffsets = (Long*) cholmod_l_malloc(nf, sizeof(Long), cc) ;
+            RjmapOffsets = (Long*) CHOLMOD(malloc)(nf, sizeof(Long), cc) ;
             QRgpu->RjmapOffsets = RjmapOffsets ;
 
             // allocated later
@@ -471,12 +471,12 @@ spqr_symbolic *spqr_analyze
     if (do_parallel_analysis)
     {
         // allocate Flops and Flops_subtree, each of size nf+1
-        Flops = (double *) cholmod_l_malloc (2*(nf+1), sizeof (double), cc) ;
+        Flops = (double *) CHOLMOD(malloc) (2*(nf+1), sizeof (double), cc) ;
         Flops_subtree = Flops + (nf+1) ;
         if (keepH)
         {
             // Rh, size nf; Rh [f] is the size of R and H for front f
-            Rh = (Long *) cholmod_l_malloc (nf, sizeof (Long), cc) ;
+            Rh = (Long *) CHOLMOD(malloc) (nf, sizeof (Long), cc) ;
         }
     }
 
@@ -563,8 +563,8 @@ spqr_symbolic *spqr_analyze
 
     // uses CHOLMOD workspace: Head (nf+1), Iwork (2*(nf+1)).  Guaranteed
     // to succeed since enough workspace has already been allocated above.
-    cholmod_l_postorder ((SuiteSparse_long *) Parent, nf+1,
-        (SuiteSparse_long *) Weight, (SuiteSparse_long *) Post, cc) ;
+    CHOLMOD(postorder) ((Long *) Parent, nf+1,
+        (Long *) Weight, (Long *) Post, cc) ;
 
     ASSERT (cc->status == CHOLMOD_OK) ;
     ASSERT (Post [nf] == nf) ;          // placeholder is last
@@ -1073,14 +1073,14 @@ spqr_symbolic *spqr_analyze
     if(useGPU)
     {
         /* Compute a schedule based on memory requirements. */
-        QRgpu->Stagingp = (Long*)   cholmod_l_malloc(nf+2, sizeof(Long), cc);
-        QRgpu->StageMap = (Long*)   cholmod_l_malloc(nf, sizeof(Long), cc);
-        QRgpu->FSize    = (size_t*) cholmod_l_malloc(nf+1, sizeof(size_t), cc);
-        QRgpu->RSize    = (size_t*) cholmod_l_malloc(nf+1, sizeof(size_t), cc);
-        QRgpu->SSize    = (size_t*) cholmod_l_malloc(nf+1, sizeof(size_t), cc);
-        QRgpu->FOffsets = (Long*)   cholmod_l_malloc(nf, sizeof(Long), cc);
-        QRgpu->ROffsets = (Long*)   cholmod_l_malloc(nf, sizeof(Long), cc);
-        QRgpu->SOffsets = (Long*)   cholmod_l_malloc(nf, sizeof(Long), cc);
+        QRgpu->Stagingp = (Long*)   CHOLMOD(malloc)(nf+2, sizeof(Long), cc);
+        QRgpu->StageMap = (Long*)   CHOLMOD(malloc)(nf, sizeof(Long), cc);
+        QRgpu->FSize    = (size_t*) CHOLMOD(malloc)(nf+1, sizeof(size_t), cc);
+        QRgpu->RSize    = (size_t*) CHOLMOD(malloc)(nf+1, sizeof(size_t), cc);
+        QRgpu->SSize    = (size_t*) CHOLMOD(malloc)(nf+1, sizeof(size_t), cc);
+        QRgpu->FOffsets = (Long*)   CHOLMOD(malloc)(nf, sizeof(Long), cc);
+        QRgpu->ROffsets = (Long*)   CHOLMOD(malloc)(nf, sizeof(Long), cc);
+        QRgpu->SOffsets = (Long*)   CHOLMOD(malloc)(nf, sizeof(Long), cc);
 
         Stagingp = QRgpu->Stagingp ;
         StageMap = QRgpu->StageMap ;
@@ -1423,7 +1423,7 @@ spqr_symbolic *spqr_analyze
 #endif
 
     // Flops no longer needed
-    cholmod_l_free (2*(nf+1), sizeof (double), Flops, cc) ;
+    CHOLMOD(free) (2*(nf+1), sizeof (double), Flops, cc) ;
     Flops = NULL ;
     Flops_subtree = NULL ;
 
@@ -1444,14 +1444,14 @@ spqr_symbolic *spqr_analyze
     // During factorization, just get On_stack [f] for first f in the task.
 
     // TaskParent is temporary workspace:
-    TaskParent = (Long *) cholmod_l_malloc (ntasks,   sizeof (Long), cc) ;
+    TaskParent = (Long *) CHOLMOD(malloc) (ntasks,   sizeof (Long), cc) ;
 
-    TaskChildp = (Long *) cholmod_l_calloc (ntasks+2, sizeof (Long), cc) ;
-    TaskChild  = (Long *) cholmod_l_calloc (ntasks+1, sizeof (Long), cc) ;
-    TaskFront  = (Long *) cholmod_l_malloc (nf+1,     sizeof (Long), cc) ;
-    TaskFrontp = (Long *) cholmod_l_calloc (ntasks+2, sizeof (Long), cc) ;
-    TaskStack  = (Long *) cholmod_l_malloc (ntasks+1, sizeof (Long), cc) ;
-    On_stack   = (Long *) cholmod_l_malloc (nf+1,     sizeof (Long), cc) ;
+    TaskChildp = (Long *) CHOLMOD(calloc) (ntasks+2, sizeof (Long), cc) ;
+    TaskChild  = (Long *) CHOLMOD(calloc) (ntasks+1, sizeof (Long), cc) ;
+    TaskFront  = (Long *) CHOLMOD(malloc) (nf+1,     sizeof (Long), cc) ;
+    TaskFrontp = (Long *) CHOLMOD(calloc) (ntasks+2, sizeof (Long), cc) ;
+    TaskStack  = (Long *) CHOLMOD(malloc) (ntasks+1, sizeof (Long), cc) ;
+    On_stack   = (Long *) CHOLMOD(malloc) (nf+1,     sizeof (Long), cc) ;
 
     QRsym->TaskFront  = TaskFront ;
     QRsym->TaskFrontp = TaskFrontp ;
@@ -1613,11 +1613,11 @@ spqr_symbolic *spqr_analyze
 
     // temporary workspace:
     // Stack_stack (s): current stack usage
-    Stack_stack = (Long *) cholmod_l_calloc (ns+2, sizeof (Long), cc) ;
+    Stack_stack = (Long *) CHOLMOD(calloc) (ns+2, sizeof (Long), cc) ;
 
     // permanent part of QRsym:
     // Stack_maxstack (s): peak stack usage if H not kept
-    Stack_maxstack = (Long *) cholmod_l_calloc (ns+2, sizeof (Long), cc) ;
+    Stack_maxstack = (Long *) CHOLMOD(calloc) (ns+2, sizeof (Long), cc) ;
 
     // FUTURE: keep track of maxfn for each stack
 

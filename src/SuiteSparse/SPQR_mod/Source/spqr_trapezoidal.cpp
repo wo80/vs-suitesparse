@@ -122,18 +122,18 @@ template <typename Entry> Long spqr_trapezoidal // rank of R; EMPTY on failure
 
     rnz = Rp [n] ;
 
-    Tp    = (Long  *) cholmod_l_malloc (n+1,      sizeof (Long),  cc) ;
-    Ti    = (Long  *) cholmod_l_malloc (rnz,      sizeof (Long),  cc) ;
-    Tx    = (Entry *) cholmod_l_malloc (rnz,      sizeof (Entry), cc) ;
-    Qtrap = (Long  *) cholmod_l_malloc (n+bncols, sizeof (Long),  cc) ;
+    Tp    = (Long  *) CHOLMOD(malloc) (n+1,      sizeof (Long),  cc) ;
+    Ti    = (Long  *) CHOLMOD(malloc) (rnz,      sizeof (Long),  cc) ;
+    Tx    = (Entry *) CHOLMOD(malloc) (rnz,      sizeof (Entry), cc) ;
+    Qtrap = (Long  *) CHOLMOD(malloc) (n+bncols, sizeof (Long),  cc) ;
 
     if (cc->status < CHOLMOD_OK)
     {
         // out of memory
-        cholmod_l_free (n+1,      sizeof (Long),  Tp,    cc) ;
-        cholmod_l_free (rnz,      sizeof (Long),  Ti,    cc) ;
-        cholmod_l_free (rnz,      sizeof (Entry), Tx,    cc) ;
-        cholmod_l_free (n+bncols, sizeof (Long),  Qtrap, cc) ;
+        CHOLMOD(free) (n+1,      sizeof (Long),  Tp,    cc) ;
+        CHOLMOD(free) (rnz,      sizeof (Long),  Ti,    cc) ;
+        CHOLMOD(free) (rnz,      sizeof (Entry), Tx,    cc) ;
+        CHOLMOD(free) (n+bncols, sizeof (Long),  Qtrap, cc) ;
         return (EMPTY) ;
     }
 

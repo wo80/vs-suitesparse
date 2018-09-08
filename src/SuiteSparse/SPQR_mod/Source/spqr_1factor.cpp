@@ -123,7 +123,7 @@ template <typename Entry> SuiteSparseQR_factorization <Entry> *spqr_1factor
     Ax = (Entry *) A->x ;
 
     QR = (SuiteSparseQR_factorization <Entry> *)
-        cholmod_l_malloc (1, sizeof (SuiteSparseQR_factorization <Entry>), cc) ;
+        CHOLMOD(malloc) (1, sizeof (SuiteSparseQR_factorization <Entry>), cc) ;
 
     if (cc->status < CHOLMOD_OK)
     {
@@ -371,7 +371,7 @@ template <typename Entry> SuiteSparseQR_factorization <Entry> *spqr_1factor
     }
     else
     {
-        cholmod_l_reallocate_sparse (ynz, Y, cc) ;
+        CHOLMOD(reallocate_sparse) (ynz, Y, cc) ;
         Yi = (Long  *) Y->i ;
         Yx = (Entry *) Y->x ;
     }
@@ -380,7 +380,7 @@ template <typename Entry> SuiteSparseQR_factorization <Entry> *spqr_1factor
     {
         // out of memory
         spqr_freefac (&QR, cc) ;
-        cholmod_l_free_sparse (&Y, cc) ;
+        CHOLMOD(free_sparse) (&Y, cc) ;
         return (NULL) ;
     }
 
@@ -486,8 +486,8 @@ template <typename Entry> SuiteSparseQR_factorization <Entry> *spqr_1factor
         // allocate R1
         // ---------------------------------------------------------------------
 
-        R1j = (Long  *) cholmod_l_malloc (r1nz, sizeof (Long ), cc) ;
-        R1x = (Entry *) cholmod_l_malloc (r1nz, sizeof (Entry), cc) ;
+        R1j = (Long  *) CHOLMOD(malloc) (r1nz, sizeof (Long ), cc) ;
+        R1x = (Entry *) CHOLMOD(malloc) (r1nz, sizeof (Entry), cc) ;
         QR->R1j = R1j ;
         QR->R1x = R1x ;
         QR->r1nz = r1nz ;
@@ -496,7 +496,7 @@ template <typename Entry> SuiteSparseQR_factorization <Entry> *spqr_1factor
         {
             // out of memory
             spqr_freefac (&QR, cc) ;
-            cholmod_l_free_sparse (&Y, cc) ;
+            CHOLMOD(free_sparse) (&Y, cc) ;
             return (NULL) ;
         }
 
@@ -690,7 +690,7 @@ template <typename Entry> SuiteSparseQR_factorization <Entry> *spqr_1factor
 
         Long kk ;
         Long *HP1inv, *HPinv ;
-        QR->HP1inv = HP1inv = (Long *) cholmod_l_malloc (m, sizeof (Long), cc) ;
+        QR->HP1inv = HP1inv = (Long *) CHOLMOD(malloc) (m, sizeof (Long), cc) ;
         HPinv = QRnum->HPinv ;
 
         if (cc->status < CHOLMOD_OK)

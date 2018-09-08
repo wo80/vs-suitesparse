@@ -179,7 +179,7 @@ SuiteSparseQR_C_factorization *SuiteSparseQR_C_factorize
 
     SuiteSparseQR_C_factorization *QR ;
     QR = (SuiteSparseQR_C_factorization *)
-        cholmod_l_malloc (1, sizeof (SuiteSparseQR_C_factorization), cc) ;
+        CHOLMOD(malloc) (1, sizeof (SuiteSparseQR_C_factorization), cc) ;
     if (cc->status < CHOLMOD_OK)
     {
         return (NULL) ;
@@ -215,7 +215,7 @@ SuiteSparseQR_C_factorization *SuiteSparseQR_C_symbolic
 
     SuiteSparseQR_C_factorization *QR ;
     QR = (SuiteSparseQR_C_factorization *)
-        cholmod_l_malloc (1, sizeof (SuiteSparseQR_C_factorization), cc) ;
+        CHOLMOD(malloc) (1, sizeof (SuiteSparseQR_C_factorization), cc) ;
     if (cc->status < CHOLMOD_OK)
     {
         // out of memory
@@ -298,7 +298,7 @@ int SuiteSparseQR_C_free
         QR2 = (SuiteSparseQR_factorization <Complex> *) (QR->factors) ;
         spqr_freefac <Complex> (&QR2, cc) ;
     }
-    cholmod_l_free (1, sizeof (SuiteSparseQR_C_factorization), QR, cc) ;
+    CHOLMOD(free) (1, sizeof (SuiteSparseQR_C_factorization), QR, cc) ;
     *QR_handle = NULL ;
     return (TRUE) ;
 }

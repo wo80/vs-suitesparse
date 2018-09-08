@@ -44,8 +44,8 @@ template <typename Entry> int spqr_rmap
     if (Rmap == NULL)
     {
         ASSERT (RmapInv == NULL) ;
-        QR->Rmap    = Rmap    = (Long *) cholmod_l_malloc (n, sizeof(Long), cc);
-        QR->RmapInv = RmapInv = (Long *) cholmod_l_malloc (n, sizeof(Long), cc);
+        QR->Rmap    = Rmap    = (Long *) CHOLMOD(malloc) (n, sizeof(Long), cc);
+        QR->RmapInv = RmapInv = (Long *) CHOLMOD(malloc) (n, sizeof(Long), cc);
         if (cc->status < CHOLMOD_OK)
         {
             // out of memory

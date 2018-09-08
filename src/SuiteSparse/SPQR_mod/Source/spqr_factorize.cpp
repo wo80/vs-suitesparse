@@ -38,17 +38,17 @@
 #define FREE_WORK_PART1 \
 { \
     free_Work <Entry> (Work, ns, n, maxfn, wtsize, cc) ; \
-    if (freeA) cholmod_l_free_sparse (Ahandle, cc) ; \
-    cholmod_l_free (anz, sizeof (Entry), Sx, cc) ; \
+    if (freeA) CHOLMOD(free_sparse) (Ahandle, cc) ; \
+    CHOLMOD(free) (anz, sizeof (Entry), Sx, cc) ; \
     Sx = NULL ; \
 }
 
 // Free Cblock and the Work array itself
 #define FREE_WORK_PART2 \
 { \
-    cholmod_l_free (ns, sizeof (spqr_work <Entry>), Work, cc) ; \
+    CHOLMOD(free) (ns, sizeof (spqr_work <Entry>), Work, cc) ; \
     Work = NULL ; \
-    cholmod_l_free (nf+1, sizeof (Entry *), Cblock, cc) ; \
+    CHOLMOD(free) (nf+1, sizeof (Entry *), Cblock, cc) ; \
     Cblock = NULL ; \
 }
 
@@ -87,20 +87,20 @@ template <typename Entry> spqr_work <Entry> *get_Work
     wtsize = spqr_mult (fchunk + (keepH ? 0:1), maxfn, &ok) ;
 
     Work = (spqr_work <Entry> *)    
-        cholmod_l_malloc (ns, sizeof (spqr_work <Entry>), cc) ;
+        CHOLMOD(malloc) (ns, sizeof (spqr_work <Entry>), cc) ;
 
     if (!ok || cc->status < CHOLMOD_OK)
     {
         // out of memory or Long overflow
-        cholmod_l_free (ns, sizeof (spqr_work <Entry>), Work, cc) ;
+        CHOLMOD(free) (ns, sizeof (spqr_work <Entry>), Work, cc) ;
         ERROR (CHOLMOD_OUT_OF_MEMORY, "out of memory") ;
         return (NULL) ;
     }
 
     for (Long stack = 0 ; stack < ns ; stack++)
     {
-        Work [stack].Fmap = (Long *) cholmod_l_malloc (n, sizeof (Long), cc) ;
-        Work [stack].Cmap = (Long *) cholmod_l_malloc (maxfn, sizeof(Long), cc);
+        Work [stack].Fmap = (Long *) CHOLMOD(malloc) (n, sizeof (Long), cc) ;
+        Work [stack].Cmap = (Long *) CHOLMOD(malloc) (maxfn, sizeof(Long), cc);
         if (keepH)
         {
             // Staircase is a permanent part of H
@@ -110,10 +110,10 @@ template <typename Entry> spqr_work <Entry> *get_Work
         {
             // Staircase workspace reused for each front
             Work [stack].Stair1 =
-                (Long *) cholmod_l_malloc (maxfn, sizeof (Long), cc) ;
+                (Long *) CHOLMOD(malloc) (maxfn, sizeof (Long), cc) ;
         }
         Work [stack].WTwork =
-            (Entry *) cholmod_l_malloc (wtsize, sizeof (Entry), cc) ;
+            (Entry *) CHOLMOD(malloc) (wtsize, sizeof (Entry), cc) ;
         Work [stack].sumfrank = 0 ;
         Work [stack].maxfrank = 0 ;
 
@@ -146,10 +146,10 @@ template <typename Entry> void free_Work
     {
         for (Long stack = 0 ; stack < ns ; stack++)
         {
-            cholmod_l_free (n,      sizeof (Long),   Work [stack].Fmap,   cc) ;
-            cholmod_l_free (maxfn,  sizeof (Long),   Work [stack].Cmap,   cc) ;
-            cholmod_l_free (maxfn,  sizeof (Long),   Work [stack].Stair1, cc) ;
-            cholmod_l_free (wtsize, sizeof (Entry), Work [stack].WTwork, cc) ;
+            CHOLMOD(free) (n,      sizeof (Long),   Work [stack].Fmap,   cc) ;
+            CHOLMOD(free) (maxfn,  sizeof (Long),   Work [stack].Cmap,   cc) ;
+            CHOLMOD(free) (maxfn,  sizeof (Long),   Work [stack].Stair1, cc) ;
+            CHOLMOD(free) (wtsize, sizeof (Entry), Work [stack].WTwork, cc) ;
             Work [stack].Fmap = NULL ;
             Work [stack].Cmap = NULL ;
             Work [stack].Stair1 = NULL ;
@@ -198,7 +198,7 @@ template <typename Entry> spqr_numeric <Entry> *spqr_factorize
         if (freeA)
         {
             // if freeA is true, A must always be freed, even on error
-            cholmod_l_free_sparse (Ahandle, cc) ;
+            CHOLMOD(free_sparse) (Ahandle, cc) ;
         }
         return (NULL) ;
     }
@@ -251,14 +251,14 @@ template <typename Entry> spqr_numeric <Entry> *spqr_factorize
     // allocate workspace
     // -------------------------------------------------------------------------
 
-    cholmod_l_allocate_work (0, MAX (m,nf), 0, cc) ;
+    CHOLMOD(allocate_work) (0, MAX (m,nf), 0, cc) ;
 
     // shared Long workspace
     Wi = (Long *) cc->Iwork ;   // size m, aliased with the rest of Iwork
     Cm = Wi ;                   // size nf
 
     // Cblock is workspace shared by all threads
-    Cblock = (Entry **) cholmod_l_malloc (nf+1, sizeof (Entry *), cc) ;
+    Cblock = (Entry **) CHOLMOD(malloc) (nf+1, sizeof (Entry *), cc) ;
 
     Work = NULL ;               // Work and its contents not yet allocated
     fchunk = MIN (m, FCHUNK) ;
@@ -269,7 +269,7 @@ template <typename Entry> spqr_numeric <Entry> *spqr_factorize
     // -------------------------------------------------------------------------
 
     // create numeric values of S = A(p,q) in row-form in Sx
-    Sx = (Entry *) cholmod_l_malloc (anz, sizeof (Entry), cc) ;
+    Sx = (Entry *) CHOLMOD(malloc) (anz, sizeof (Entry), cc) ;
 
     if (cc->status == CHOLMOD_OK)
     {
@@ -287,7 +287,7 @@ template <typename Entry> spqr_numeric <Entry> *spqr_factorize
     if (freeA)
     {
         // this is done even if out of memory, above
-        cholmod_l_free_sparse (Ahandle, cc) ;
+        CHOLMOD(free_sparse) (Ahandle, cc) ;
         ASSERT (*Ahandle == NULL) ;
     }
     PR (("in spqr_factorize, freed A, status %d\n", cc->status)) ;
@@ -305,7 +305,7 @@ template <typename Entry> spqr_numeric <Entry> *spqr_factorize
     // -------------------------------------------------------------------------
 
     QRnum = (spqr_numeric<Entry> *)
-        cholmod_l_malloc (1, sizeof (spqr_numeric<Entry>), cc) ;
+        CHOLMOD(malloc) (1, sizeof (spqr_numeric<Entry>), cc) ;
     PR (("after allocating numeric object header, status %d\n", cc->status)) ;
 
     if (cc->status < CHOLMOD_OK)
@@ -315,12 +315,12 @@ template <typename Entry> spqr_numeric <Entry> *spqr_factorize
         return (NULL) ;
     }
 
-    Rblock     = (Entry **) cholmod_l_malloc (nf, sizeof (Entry *), cc) ;
-    Rdead      = (char *)   cholmod_l_calloc (n,  sizeof (char),    cc) ;
+    Rblock     = (Entry **) CHOLMOD(malloc) (nf, sizeof (Entry *), cc) ;
+    Rdead      = (char *)   CHOLMOD(calloc) (n,  sizeof (char),    cc) ;
 
     // these may be revised (with ns=1) if we run out of memory
-    Stacks     = (Entry **) cholmod_l_calloc (ns, sizeof (Entry *), cc) ;
-    Stack_size = (Long *)   cholmod_l_calloc (ns, sizeof (Long),    cc) ;
+    Stacks     = (Entry **) CHOLMOD(calloc) (ns, sizeof (Entry *), cc) ;
+    Stack_size = (Long *)   CHOLMOD(calloc) (ns, sizeof (Long),    cc) ;
 
     QRnum->Rblock     = Rblock ;
     QRnum->Rdead      = Rdead ;
@@ -330,12 +330,12 @@ template <typename Entry> spqr_numeric <Entry> *spqr_factorize
     if (keepH)
     {
         // allocate permanent space for Stair, Tau, Hii for each front
-        QRnum->HStair= (Long *)  cholmod_l_malloc (rjsize, sizeof (Long),  cc) ;
-        QRnum->HTau  = (Entry *) cholmod_l_malloc (rjsize, sizeof (Entry), cc) ;
-        QRnum->Hii   = (Long *)  cholmod_l_malloc (hisize, sizeof (Long),  cc) ;
-        QRnum->Hm    = (Long *)  cholmod_l_malloc (nf,     sizeof (Long),  cc) ;
-        QRnum->Hr    = (Long *)  cholmod_l_malloc (nf,     sizeof (Long),  cc) ;
-        QRnum->HPinv = (Long *)  cholmod_l_malloc (m,      sizeof (Long),  cc) ;
+        QRnum->HStair= (Long *)  CHOLMOD(malloc) (rjsize, sizeof (Long),  cc) ;
+        QRnum->HTau  = (Entry *) CHOLMOD(malloc) (rjsize, sizeof (Entry), cc) ;
+        QRnum->Hii   = (Long *)  CHOLMOD(malloc) (hisize, sizeof (Long),  cc) ;
+        QRnum->Hm    = (Long *)  CHOLMOD(malloc) (nf,     sizeof (Long),  cc) ;
+        QRnum->Hr    = (Long *)  CHOLMOD(malloc) (nf,     sizeof (Long),  cc) ;
+        QRnum->HPinv = (Long *)  CHOLMOD(malloc) (m,      sizeof (Long),  cc) ;
     }
     else
     {
@@ -388,7 +388,7 @@ template <typename Entry> spqr_numeric <Entry> *spqr_factorize
             size_t stacksize = (ntasks == 1) ?
                 maxstack : Stack_maxstack [stack] ;
             Stack_size [stack] = stacksize ;
-            Stack = (Entry *) cholmod_l_malloc (stacksize, sizeof (Entry), cc) ;
+            Stack = (Entry *) CHOLMOD(malloc) (stacksize, sizeof (Entry), cc) ;
             Stacks [stack] = Stack ;
             Work [stack].Stack_head = Stack ;
             Work [stack].Stack_top  = Stack + stacksize ;
@@ -411,15 +411,15 @@ template <typename Entry> spqr_numeric <Entry> *spqr_factorize
             {
                 size_t stacksize = (ntasks == 1) ?
                     maxstack : Stack_maxstack [stack] ;
-                cholmod_l_free (stacksize, sizeof (Entry), Stacks [stack], cc) ;
+                CHOLMOD(free) (stacksize, sizeof (Entry), Stacks [stack], cc) ;
             }
         }
-        cholmod_l_free (ns, sizeof (Entry *), Stacks,     cc) ;
-        cholmod_l_free (ns, sizeof (Long),    Stack_size, cc) ;
+        CHOLMOD(free) (ns, sizeof (Entry *), Stacks,     cc) ;
+        CHOLMOD(free) (ns, sizeof (Long),    Stack_size, cc) ;
 
         // free the contents of Work, and the Work array itself
         free_Work <Entry> (Work, ns, n, maxfn, wtsize, cc) ;
-        cholmod_l_free (ns, sizeof (spqr_work <Entry>), Work, cc) ;
+        CHOLMOD(free) (ns, sizeof (spqr_work <Entry>), Work, cc) ;
 
         // punt to a single stack, a single task, and fchunk of 1
         ns = 1 ;
@@ -427,15 +427,15 @@ template <typename Entry> spqr_numeric <Entry> *spqr_factorize
         fchunk = 1 ;
         cc->status = CHOLMOD_OK ;
         Work = get_Work <Entry> (ns, n, maxfn, keepH, fchunk, &wtsize, cc) ;
-        Stacks     = (Entry **) cholmod_l_calloc (ns, sizeof (Entry *), cc) ;
-        Stack_size = (Long *)   cholmod_l_calloc (ns, sizeof (Long),    cc) ;
+        Stacks     = (Entry **) CHOLMOD(calloc) (ns, sizeof (Entry *), cc) ;
+        Stack_size = (Long *)   CHOLMOD(calloc) (ns, sizeof (Long),    cc) ;
         QRnum->Stacks     = Stacks ;
         QRnum->Stack_size = Stack_size ;
         if (cc->status == CHOLMOD_OK)
         {
             Entry *Stack ;
             Stack_size [0] = maxstack ;
-            Stack = (Entry *) cholmod_l_malloc (maxstack, sizeof (Entry), cc) ;
+            Stack = (Entry *) CHOLMOD(malloc) (maxstack, sizeof (Entry), cc) ;
             Stacks [0] = Stack ;
             Work [0].Stack_head = Stack ;
             Work [0].Stack_top  = Stack + maxstack ;
@@ -614,7 +614,7 @@ template <typename Entry> spqr_numeric <Entry> *spqr_factorize
             {
                 // force the block to move by malloc'ing a new one;
                 // this option is mainly for testing only.
-                Cblock [stack] = (Entry *) cholmod_l_malloc (newstacksize,
+                Cblock [stack] = (Entry *) CHOLMOD(malloc) (newstacksize,
                     sizeof (Entry), cc) ;
                 if (Cblock [stack] == NULL)
                 {
@@ -629,7 +629,7 @@ template <typename Entry> spqr_numeric <Entry> *spqr_factorize
                 {
                     // malloc is OK; copy the block over and free the old one
                     memcpy (Cblock [stack], Stack, newstacksize*sizeof(Entry)) ;
-                    cholmod_l_free (stacksize, sizeof (Entry), Stack, cc) ;
+                    CHOLMOD(free) (stacksize, sizeof (Entry), Stack, cc) ;
                 }
                 // the Stack has been shrunk to the new size
                 stacksize = newstacksize ;
@@ -640,7 +640,7 @@ template <typename Entry> spqr_numeric <Entry> *spqr_factorize
                 PR (("Normal shrink of the stack: %ld to %ld\n",
                     stacksize, newstacksize)) ;
                 Cblock [stack] =    // pointer to the new Stack
-                    (Entry *) cholmod_l_realloc (
+                    (Entry *) CHOLMOD(realloc) (
                     newstacksize,   // requested size of Stack, in # of Entries
                     sizeof (Entry), // size of each Entry in the Stack
                     Stack,          // pointer to the old Stack

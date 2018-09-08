@@ -71,7 +71,7 @@ SuiteSparseQR_factorization <Entry> *SuiteSparseQR_symbolic
     spqr_symbolic *QRsym ;
 
     QR = (SuiteSparseQR_factorization <Entry> *)
-        cholmod_l_malloc (1, sizeof (SuiteSparseQR_factorization <Entry>), cc) ;
+        CHOLMOD(malloc) (1, sizeof (SuiteSparseQR_factorization <Entry>), cc) ;
 
     if (cc->status < CHOLMOD_OK)
     {
@@ -130,7 +130,7 @@ SuiteSparseQR_factorization <Entry> *SuiteSparseQR_symbolic
         Long n, k, *Qfill, *Q1fill ;
         Qfill = QRsym->Qfill ;
         n = A->ncol ;
-        Q1fill = (Long *) cholmod_l_malloc (n, sizeof (Long), cc) ;
+        Q1fill = (Long *) CHOLMOD(malloc) (n, sizeof (Long), cc) ;
         QR->Q1fill = Q1fill ;
         if (cc->status < CHOLMOD_OK)
         {
@@ -736,20 +736,20 @@ template <typename Entry> cholmod_dense *SuiteSparseQR_solve    // returns X
 
         Long *Rlive ;
         Entry **Rcolp ;
-        X = cholmod_l_allocate_dense (n, nrhs, n, xtype, cc) ;
+        X = CHOLMOD(allocate_dense) (n, nrhs, n, xtype, cc) ;
         Long maxfrank = QR->QRnum->maxfrank  ;
-        W = cholmod_l_allocate_dense (maxfrank, nrhs, maxfrank, xtype, cc) ;
-        Rlive = (Long *)   cholmod_l_malloc (maxfrank, sizeof (Long),    cc) ;
-        Rcolp = (Entry **) cholmod_l_malloc (maxfrank, sizeof (Entry *), cc) ;
+        W = CHOLMOD(allocate_dense) (maxfrank, nrhs, maxfrank, xtype, cc) ;
+        Rlive = (Long *)   CHOLMOD(malloc) (maxfrank, sizeof (Long),    cc) ;
+        Rcolp = (Entry **) CHOLMOD(malloc) (maxfrank, sizeof (Entry *), cc) ;
         ok = (X != NULL) && (W != NULL) && (cc->status == CHOLMOD_OK) ;
         if (ok)
         {
             spqr_rsolve (QR, system == SPQR_RETX_EQUALS_B, nrhs, ldb, Bx,
                 (Entry *) X->x, Rcolp, Rlive, (Entry *) W->x, cc) ;
         }
-        cholmod_l_free (maxfrank, sizeof (Long),    Rlive, cc) ;
-        cholmod_l_free (maxfrank, sizeof (Entry *), Rcolp, cc) ;
-        cholmod_l_free_dense (&W, cc) ;
+        CHOLMOD(free) (maxfrank, sizeof (Long),    Rlive, cc) ;
+        CHOLMOD(free) (maxfrank, sizeof (Entry *), Rcolp, cc) ;
+        CHOLMOD(free_dense) (&W, cc) ;
 
     }
     else
@@ -759,7 +759,7 @@ template <typename Entry> cholmod_dense *SuiteSparseQR_solve    // returns X
         // X = R'\(E'*B) or R'\B
         // ---------------------------------------------------------------------
 
-        X = cholmod_l_allocate_dense (m, nrhs, m, xtype, cc) ;
+        X = CHOLMOD(allocate_dense) (m, nrhs, m, xtype, cc) ;
         ok = (X != NULL) ;
         if (ok)
         {
@@ -772,7 +772,7 @@ template <typename Entry> cholmod_dense *SuiteSparseQR_solve    // returns X
     {
         // out of memory
         ERROR (CHOLMOD_OUT_OF_MEMORY, "out of memory") ;
-        cholmod_l_free_dense (&X, cc) ;
+        CHOLMOD(free_dense) (&X, cc) ;
         return (NULL) ;
     }
 
@@ -824,11 +824,11 @@ template <typename Entry> cholmod_sparse *SuiteSparseQR_solve    // returns X
     RETURN_IF_XTYPE_INVALID (Bsparse, NULL) ;
     cc->status = CHOLMOD_OK ;
 
-    Bdense = cholmod_l_sparse_to_dense (Bsparse, cc) ;
+    Bdense = CHOLMOD(sparse_to_dense) (Bsparse, cc) ;
     Xdense = SuiteSparseQR_solve <Entry> (system, QR, Bdense, cc) ;
-    cholmod_l_free_dense (&Bdense, cc) ;
-    Xsparse = cholmod_l_dense_to_sparse (Xdense, TRUE, cc) ;
-    cholmod_l_free_dense (&Xdense, cc) ;
+    CHOLMOD(free_dense) (&Bdense, cc) ;
+    Xsparse = CHOLMOD(dense_to_sparse) (Xdense, TRUE, cc) ;
+    CHOLMOD(free_dense) (&Xdense, cc) ;
 
     if (Xsparse == NULL)
     {
@@ -1153,13 +1153,13 @@ template <typename Entry> void spqr_private_Happly
 
 #define FREE_WORK \
 { \
-    cholmod_l_free_dense (&Zdense, cc) ; \
-    cholmod_l_free_dense (&Vdense, cc) ; \
-    cholmod_l_free_dense (&Wdense, cc) ; \
-    cholmod_l_free_dense (&Cdense, cc) ; \
-    cholmod_l_free (maxfn, sizeof (Entry), H_Tau,   cc) ; \
-    cholmod_l_free (maxfn, sizeof (Long),  H_start, cc) ; \
-    cholmod_l_free (maxfn, sizeof (Long),  H_end,   cc) ; \
+    CHOLMOD(free_dense) (&Zdense, cc) ; \
+    CHOLMOD(free_dense) (&Vdense, cc) ; \
+    CHOLMOD(free_dense) (&Wdense, cc) ; \
+    CHOLMOD(free_dense) (&Cdense, cc) ; \
+    CHOLMOD(free) (maxfn, sizeof (Entry), H_Tau,   cc) ; \
+    CHOLMOD(free) (maxfn, sizeof (Long),  H_start, cc) ; \
+    CHOLMOD(free) (maxfn, sizeof (Long),  H_end,   cc) ; \
 }
 
 // returns Y of size m-by-n, or NULL on failure
@@ -1233,7 +1233,7 @@ template <typename Entry> cholmod_dense *SuiteSparseQR_qmult
     // allocate result Y
     // -------------------------------------------------------------------------
 
-    Ydense = cholmod_l_allocate_dense (m, n, m, xtype, cc) ;
+    Ydense = CHOLMOD(allocate_dense) (m, n, m, xtype, cc) ;
     if (cc->status < CHOLMOD_OK)
     {
         // out of memory
@@ -1257,7 +1257,7 @@ template <typename Entry> cholmod_dense *SuiteSparseQR_qmult
     if (method == SPQR_QX || method == SPQR_XQT)
     {
         // Z of size m-by-n is needed only for Q*X and X*Q'
-        Zdense = cholmod_l_allocate_dense (m, n, m, xtype, cc) ;
+        Zdense = CHOLMOD(allocate_dense) (m, n, m, xtype, cc) ;
         ok = (Zdense != NULL) ;
     }
 
@@ -1265,20 +1265,20 @@ template <typename Entry> cholmod_dense *SuiteSparseQR_qmult
     ASSERT (v <= mh) ;
 
     // C is workspace of size v-by-n or m-by-v
-    Cdense = cholmod_l_allocate_dense (v, (method <= SPQR_QX) ? n : m,
+    Cdense = CHOLMOD(allocate_dense) (v, (method <= SPQR_QX) ? n : m,
         v, xtype, cc) ;
     Vdense = NULL ;
     Wdense = NULL ;
 
-    H_Tau   = (Entry *) cholmod_l_malloc (maxfn, sizeof (Entry), cc) ;
-    H_start = (Long *)  cholmod_l_malloc (maxfn, sizeof (Long),  cc) ;
-    H_end   = (Long *)  cholmod_l_malloc (maxfn, sizeof (Long),  cc) ;
+    H_Tau   = (Entry *) CHOLMOD(malloc) (maxfn, sizeof (Entry), cc) ;
+    H_start = (Long *)  CHOLMOD(malloc) (maxfn, sizeof (Long),  cc) ;
+    H_end   = (Long *)  CHOLMOD(malloc) (maxfn, sizeof (Long),  cc) ;
 
     if (!ok || Cdense == NULL || cc->status < CHOLMOD_OK)
     {
         // out of memory; free workspace and result Y
         ERROR (CHOLMOD_OUT_OF_MEMORY, "out of memory") ;
-        cholmod_l_free_dense (&Ydense, cc) ;
+        CHOLMOD(free_dense) (&Ydense, cc) ;
         FREE_WORK ;
         return (NULL) ;
     }
@@ -1309,10 +1309,10 @@ template <typename Entry> cholmod_dense *SuiteSparseQR_qmult
     // -------------------------------------------------------------------------
 
     // V is workspace of size v-by-hchunk
-    Vdense = cholmod_l_allocate_dense (v, hchunk, v, xtype, cc) ;
+    Vdense = CHOLMOD(allocate_dense) (v, hchunk, v, xtype, cc) ;
 
     // W is workspace of size h*h+n*h or h*h+m*h where h = hchunk
-    Wdense = cholmod_l_allocate_dense (hchunk,
+    Wdense = CHOLMOD(allocate_dense) (hchunk,
         hchunk + ((method <= SPQR_QX) ? n : m), hchunk, xtype, cc) ;
 
     // -------------------------------------------------------------------------
@@ -1325,18 +1325,18 @@ template <typename Entry> cholmod_dense *SuiteSparseQR_qmult
         cc->status = CHOLMOD_OK ;
         hchunk = 1 ;
 
-        cholmod_l_free_dense (&Vdense, cc) ;
-        cholmod_l_free_dense (&Wdense, cc) ;
+        CHOLMOD(free_dense) (&Vdense, cc) ;
+        CHOLMOD(free_dense) (&Wdense, cc) ;
 
-        Vdense = cholmod_l_allocate_dense (v, hchunk, v, xtype, cc) ;
-        Wdense = cholmod_l_allocate_dense (hchunk,
+        Vdense = CHOLMOD(allocate_dense) (v, hchunk, v, xtype, cc) ;
+        Wdense = CHOLMOD(allocate_dense) (hchunk,
             hchunk + ((method <= SPQR_QX) ? n : m), hchunk, xtype, cc) ;
 
         if (Vdense == NULL || Wdense == NULL)
         {
             // out of memory; free workspace and result Y
             ERROR (CHOLMOD_OUT_OF_MEMORY, "out of memory") ;
-            cholmod_l_free_dense (&Ydense, cc) ;
+            CHOLMOD(free_dense) (&Ydense, cc) ;
             FREE_WORK ;
             return (NULL) ;
         }
@@ -1462,7 +1462,7 @@ template <typename Entry> cholmod_dense *SuiteSparseQR_qmult
     if (CHECK_BLAS_INT && !cc->blas_ok)
     {
         ERROR (CHOLMOD_INVALID, "problem too large for the BLAS") ;
-        cholmod_l_free_dense (&Ydense, cc) ;
+        CHOLMOD(free_dense) (&Ydense, cc) ;
         return (NULL) ;
     }
 
@@ -1518,11 +1518,11 @@ template <typename Entry> cholmod_sparse *SuiteSparseQR_qmult
     RETURN_IF_XTYPE_INVALID (Xsparse, NULL) ;
     cc->status = CHOLMOD_OK ;
 
-    Xdense = cholmod_l_sparse_to_dense (Xsparse, cc) ;
+    Xdense = CHOLMOD(sparse_to_dense) (Xsparse, cc) ;
     Ydense = SuiteSparseQR_qmult <Entry> (method, QR, Xdense, cc) ;
-    cholmod_l_free_dense (&Xdense, cc) ;
-    Ysparse = cholmod_l_dense_to_sparse (Ydense, TRUE, cc) ;
-    cholmod_l_free_dense (&Ydense, cc) ;
+    CHOLMOD(free_dense) (&Xdense, cc) ;
+    Ysparse = CHOLMOD(dense_to_sparse) (Ydense, TRUE, cc) ;
+    CHOLMOD(free_dense) (&Ydense, cc) ;
 
     if (Ysparse == NULL)
     {
@@ -1617,14 +1617,14 @@ template <typename Entry> cholmod_dense *SuiteSparseQR_min2norm
         cholmod_sparse *AT ;
         cholmod_dense *Y ; 
         // [Q,R,E] = qr (A')
-        AT = cholmod_l_transpose (A, 2, cc) ;
+        AT = CHOLMOD(transpose) (A, 2, cc) ;
         QR = SuiteSparseQR_factorize <Entry> (ordering, tol, AT, cc);
-        cholmod_l_free_sparse (&AT, cc) ;
+        CHOLMOD(free_sparse) (&AT, cc) ;
         // solve Y = R'\(E'*B)
         Y = SuiteSparseQR_solve (SPQR_RTX_EQUALS_ETB, QR, B, cc) ;
         // X = Q*Y
         X = SuiteSparseQR_qmult (SPQR_QX, QR, Y, cc) ;
-        cholmod_l_free_dense (&Y, cc) ;
+        CHOLMOD(free_dense) (&Y, cc) ;
         spqr_freefac (&QR, cc) ;
 
         double t3 = SuiteSparse_time ( ) ;
@@ -1697,11 +1697,11 @@ template <typename Entry> cholmod_sparse *SuiteSparseQR_min2norm    // returns X
     RETURN_IF_XTYPE_INVALID (Bsparse, NULL) ;
     cc->status = CHOLMOD_OK ;
 
-    Bdense = cholmod_l_sparse_to_dense (Bsparse, cc) ;
+    Bdense = CHOLMOD(sparse_to_dense) (Bsparse, cc) ;
     Xdense = SuiteSparseQR_min2norm <Entry> (ordering, tol, A, Bdense, cc) ;
-    cholmod_l_free_dense (&Bdense, cc) ;
-    Xsparse = cholmod_l_dense_to_sparse (Xdense, TRUE, cc) ;
-    cholmod_l_free_dense (&Xdense, cc) ;
+    CHOLMOD(free_dense) (&Bdense, cc) ;
+    Xsparse = CHOLMOD(dense_to_sparse) (Xdense, TRUE, cc) ;
+    CHOLMOD(free_dense) (&Xdense, cc) ;
 
     if (Xsparse == NULL)
     {

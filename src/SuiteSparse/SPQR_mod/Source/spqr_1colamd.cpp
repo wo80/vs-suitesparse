@@ -78,7 +78,7 @@ template <typename Entry> int spqr_1colamd  // TRUE if OK, FALSE otherwise
     // allocate result Q1fill (Y, R1p, P1inv allocated later)
     // -------------------------------------------------------------------------
 
-    Q1fill = (Long *) cholmod_l_malloc (n+bncols, sizeof (Long), cc) ;
+    Q1fill = (Long *) CHOLMOD(malloc) (n+bncols, sizeof (Long), cc) ;
 
     // -------------------------------------------------------------------------
     // allocate workspace
@@ -91,7 +91,7 @@ template <typename Entry> int spqr_1colamd  // TRUE if OK, FALSE otherwise
 
     worksize = ((fill_reducing_ordering) ? 3:2) * n ;
 
-    Work = (Long *) cholmod_l_malloc (worksize, sizeof (Long), cc) ;
+    Work = (Long *) CHOLMOD(malloc) (worksize, sizeof (Long), cc) ;
     Degree = Work ;         // size n
     Qrows  = Work + n ;     // size n
     Winv   = Qrows ;        // Winv and Qrows not needed at the same time
@@ -100,8 +100,8 @@ template <typename Entry> int spqr_1colamd  // TRUE if OK, FALSE otherwise
     if (cc->status < CHOLMOD_OK)
     {
         // out of memory; free everything and return
-        cholmod_l_free (worksize, sizeof (Long), Work, cc) ;
-        cholmod_l_free (n+bncols, sizeof (Long), Q1fill, cc) ;
+        CHOLMOD(free) (worksize, sizeof (Long), Work, cc) ;
+        CHOLMOD(free) (n+bncols, sizeof (Long), Q1fill, cc) ;
         return (FALSE) ;
     }
 
@@ -148,13 +148,13 @@ template <typename Entry> int spqr_1colamd  // TRUE if OK, FALSE otherwise
     // create AT = spones (A')
     // -------------------------------------------------------------------------
 
-    AT = cholmod_l_transpose (A, 0, cc) ;       // [
+    AT = CHOLMOD(transpose) (A, 0, cc) ;       // [
 
     if (cc->status < CHOLMOD_OK)
     {
         // out of memory; free everything and return
-        cholmod_l_free (worksize, sizeof (Long), Work, cc) ;
-        cholmod_l_free (n+bncols, sizeof (Long), Q1fill, cc) ;
+        CHOLMOD(free) (worksize, sizeof (Long), Work, cc) ;
+        CHOLMOD(free) (n+bncols, sizeof (Long), Q1fill, cc) ;
         return (FALSE) ;
     }
 
@@ -311,17 +311,17 @@ template <typename Entry> int spqr_1colamd  // TRUE if OK, FALSE otherwise
         // ---------------------------------------------------------------------
 
         // allocate result arrays R1p and P1inv
-        R1p   = (Long *) cholmod_l_malloc (n1rows+1, sizeof (Long), cc) ;
-        P1inv = (Long *) cholmod_l_malloc (m,        sizeof (Long), cc) ;
+        R1p   = (Long *) CHOLMOD(malloc) (n1rows+1, sizeof (Long), cc) ;
+        P1inv = (Long *) CHOLMOD(malloc) (m,        sizeof (Long), cc) ;
 
         if (cc->status < CHOLMOD_OK)
         {
             // out of memory; free everything and return
-            cholmod_l_free_sparse (&AT, cc) ;
-            cholmod_l_free (worksize, sizeof (Long), Work, cc) ;
-            cholmod_l_free (n+bncols, sizeof (Long), Q1fill, cc) ;
-            cholmod_l_free (n1rows+1, sizeof (Long), R1p, cc) ;
-            cholmod_l_free (m,        sizeof (Long), P1inv, cc) ;
+            CHOLMOD(free_sparse) (&AT, cc) ;
+            CHOLMOD(free) (worksize, sizeof (Long), Work, cc) ;
+            CHOLMOD(free) (n+bncols, sizeof (Long), Q1fill, cc) ;
+            CHOLMOD(free) (n1rows+1, sizeof (Long), R1p, cc) ;
+            CHOLMOD(free) (m,        sizeof (Long), P1inv, cc) ;
             return (FALSE) ;
         }
 
@@ -561,13 +561,13 @@ template <typename Entry> int spqr_1colamd  // TRUE if OK, FALSE otherwise
         if (ordering == SPQR_ORDERING_AMD)
         {
             // use CHOLMOD's interface to AMD to order A'*A
-            cholmod_l_amd (AT, NULL, 0, (Long *) (Q1fill + n1cols), cc) ;
+            CHOLMOD(amd) (AT, NULL, 0, (Long *) (Q1fill + n1cols), cc) ;
         }
 #ifndef NPARTITION
         else if (ordering == SPQR_ORDERING_METIS)
         {
             // use CHOLMOD's interface to METIS to order A'*A (if installed)
-            cholmod_l_metis (AT, NULL, 0, TRUE,
+            CHOLMOD(metis) (AT, NULL, 0, TRUE,
                 (Long *) (Q1fill + n1cols), cc) ;
         }
 #endif
@@ -578,7 +578,7 @@ template <typename Entry> int spqr_1colamd  // TRUE if OK, FALSE otherwise
             cc->supernodal = CHOLMOD_SIMPLICIAL ;
             cc->postorder = TRUE ;
             cholmod_factor *Sc ;
-            Sc = cholmod_l_analyze_p2 (FALSE, AT, NULL, NULL, 0, cc) ;
+            Sc = CHOLMOD(analyze_p2) (FALSE, AT, NULL, NULL, 0, cc) ;
             if (Sc != NULL)
             {
                 // copy perm from Sc->Perm [0:n2cols-1] to Q1fill (n1cols:n)
@@ -595,7 +595,7 @@ template <typename Entry> int spqr_1colamd  // TRUE if OK, FALSE otherwise
                     case CHOLMOD_METIS:  ordering = SPQR_ORDERING_METIS  ;break;
                 }
             }
-            cholmod_l_free_factor (&Sc, cc) ;
+            CHOLMOD(free_factor) (&Sc, cc) ;
             PR (("CHOLMOD used method %d : ordering: %d\n", cc->selected,
                 cc->method [cc->selected].ordering)) ;
         }
@@ -603,7 +603,7 @@ template <typename Entry> int spqr_1colamd  // TRUE if OK, FALSE otherwise
         {
             // use CHOLMOD's interface to COLAMD to order AT
             ordering = SPQR_ORDERING_COLAMD ;
-            cholmod_l_colamd (AT, NULL, 0, TRUE,
+            CHOLMOD(colamd) (AT, NULL, 0, TRUE,
                 (Long *) (Q1fill + n1cols), cc) ;
         }
 
@@ -625,7 +625,7 @@ template <typename Entry> int spqr_1colamd  // TRUE if OK, FALSE otherwise
     // free AT
     // -------------------------------------------------------------------------
 
-    cholmod_l_free_sparse (&AT, cc) ;   // ]
+    CHOLMOD(free_sparse) (&AT, cc) ;   // ]
 
     // -------------------------------------------------------------------------
     // check if the method succeeded
@@ -634,10 +634,10 @@ template <typename Entry> int spqr_1colamd  // TRUE if OK, FALSE otherwise
     if (cc->status < CHOLMOD_OK)
     {
         // out of memory; free everything and return
-        cholmod_l_free (worksize, sizeof (Long), Work, cc) ;
-        cholmod_l_free (n+bncols, sizeof (Long), Q1fill, cc) ;
-        cholmod_l_free (n1rows+1, sizeof (Long), R1p, cc) ;
-        cholmod_l_free (m,        sizeof (Long), P1inv, cc) ;
+        CHOLMOD(free) (worksize, sizeof (Long), Work, cc) ;
+        CHOLMOD(free) (n+bncols, sizeof (Long), Q1fill, cc) ;
+        CHOLMOD(free) (n1rows+1, sizeof (Long), R1p, cc) ;
+        CHOLMOD(free) (m,        sizeof (Long), P1inv, cc) ;
         return (FALSE) ;
     }
 
@@ -698,16 +698,16 @@ template <typename Entry> int spqr_1colamd  // TRUE if OK, FALSE otherwise
     else
     {
         // Y has no entries yet; nnz(Y) will be determined later
-        Y = cholmod_l_allocate_sparse (m-n1rows, n-n1cols+bncols, 0,
+        Y = CHOLMOD(allocate_sparse) (m-n1rows, n-n1cols+bncols, 0,
             FALSE, TRUE, 0, xtype, cc) ;
 
         if (cc->status < CHOLMOD_OK)
         {
             // out of memory; free everything and return
-            cholmod_l_free (worksize, sizeof (Long), Work, cc) ;
-            cholmod_l_free (n+bncols, sizeof (Long), Q1fill, cc) ;
-            cholmod_l_free (n1rows+1, sizeof (Long), R1p, cc) ;
-            cholmod_l_free (m,        sizeof (Long), P1inv, cc) ;
+            CHOLMOD(free) (worksize, sizeof (Long), Work, cc) ;
+            CHOLMOD(free) (n+bncols, sizeof (Long), Q1fill, cc) ;
+            CHOLMOD(free) (n1rows+1, sizeof (Long), R1p, cc) ;
+            CHOLMOD(free) (m,        sizeof (Long), P1inv, cc) ;
             return (FALSE) ;
         }
 
@@ -730,7 +730,7 @@ template <typename Entry> int spqr_1colamd  // TRUE if OK, FALSE otherwise
     // free workspace and return results
     // -------------------------------------------------------------------------
 
-    cholmod_l_free (worksize, sizeof (Long), Work, cc) ;
+    CHOLMOD(free) (worksize, sizeof (Long), Work, cc) ;
 
     *p_Q1fill = Q1fill ;
     *p_R1p    = R1p ;

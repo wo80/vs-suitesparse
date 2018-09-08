@@ -52,12 +52,6 @@ typedef std::complex<double> Complex ;
 */
 
 // -----------------------------------------------------------------------------
-// Long is defined at SuiteSparse_long, from SuiteSparse_config.h
-// -----------------------------------------------------------------------------
-
-#define Long SuiteSparse_long
-
-// -----------------------------------------------------------------------------
 // basic macros
 // -----------------------------------------------------------------------------
 
@@ -92,14 +86,10 @@ typedef std::complex<double> Complex ;
 #include "mex.h"
 #endif
 
-#define ITYPE CHOLMOD_LONG
-#define DTYPE CHOLMOD_DOUBLE
-#define ID SuiteSparse_long_id
-
 // -----------------------------------------------------------------------------
 
 #define ERROR(status,msg) \
-    cholmod_l_error (status, __FILE__, __LINE__, msg, cc)
+    CHOLMOD(error) (status, __FILE__, __LINE__, msg, cc)
 
 // Check a pointer and return if null.  Set status to invalid, unless the
 // status is already "out of memory"
