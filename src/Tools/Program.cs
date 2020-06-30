@@ -15,7 +15,7 @@ namespace suitesparse
         {
             if (args.Length == 0)
             {
-                Console.WriteLine("Please specify a task to run: suitesparse clean|update [args]");
+                Console.WriteLine("Please specify a task to run: mgmt clean|update [args]");
 
                 return;
             }
@@ -179,10 +179,13 @@ namespace suitesparse
             "bin",
             "CXSparse_newfiles",
             "GraphBLAS",
+            "GPUQREngine",
             "include",
             "lib",
             "MATLAB_Tools",
+            "Mongoose",
             "RBio",
+            "SuiteSparse_GPURuntime",
             "share",
             "ssget"
         };

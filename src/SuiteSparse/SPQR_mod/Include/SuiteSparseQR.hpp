@@ -21,7 +21,7 @@ extern "C"
 // Long is defined as SuiteSparse_long, from SuiteSparse_config.h
 // -----------------------------------------------------------------------------
 
-#ifdef DFORCE_INT
+#ifdef FORCE_INT32
 #define CHOLMOD(name) cholmod_ ## name
 #define Long int
 #define ITYPE CHOLMOD_INT

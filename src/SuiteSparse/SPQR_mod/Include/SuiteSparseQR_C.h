@@ -25,7 +25,7 @@ extern "C" {
 #endif
 
 #ifndef Long
-#ifdef DFORCE_INT
+#ifdef FORCE_INT32
 #define Long int
 #else
 #define Long SuiteSparse_long
