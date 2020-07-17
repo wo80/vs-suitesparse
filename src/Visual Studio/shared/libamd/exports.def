@@ -21,6 +21,7 @@ EXPORTS
     colamd_set_defaults
     colamd
     colamd_report
+    symamd
     symamd_report
 
     ccolamd_recommended
