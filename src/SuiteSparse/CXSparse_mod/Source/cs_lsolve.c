@@ -8,10 +8,10 @@ CS_INT cs_lsolve (const cs *L, CS_ENTRY *x)
     n = L->n ; Lp = L->p ; Li = L->i ; Lx = L->x ;
     for (j = 0 ; j < n ; j++)
     {
-        x [j] /= Lx [Lp [j]] ;
+        DIV(x [j], x [j], Lx [Lp [j]]) ;
         for (p = Lp [j]+1 ; p < Lp [j+1] ; p++)
         {
-            x [Li [p]] -= Lx [p] * x [j] ;
+            MULT_SUB(x [Li [p]], Lx [p], x [j]) ;
         }
     }
     return (1) ;

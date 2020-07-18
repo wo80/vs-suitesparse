@@ -4,6 +4,7 @@ cs *cs_multiply (const cs *A, const cs *B)
 {
     CS_INT p, j, nz = 0, anz, *Cp, *Ci, *Bp, m, n, bnz, *w, values, *Bi ;
     CS_ENTRY *x, *Bx, *Cx ;
+    const CS_ENTRY one = ONE;
     cs *C ;
     if (!CS_CSC (A) || !CS_CSC (B)) return (NULL) ;      /* check inputs */
     if (A->n != B->m) return (NULL) ;
@@ -25,7 +26,7 @@ cs *cs_multiply (const cs *A, const cs *B)
         Cp [j] = nz ;                   /* column j of C starts here */
         for (p = Bp [j] ; p < Bp [j+1] ; p++)
         {
-            nz = cs_scatter (A, Bi [p], Bx ? Bx [p] : 1, w, x, j+1, C, nz) ;
+            nz = cs_scatter (A, Bi [p], Bx ? Bx [p] : one, w, x, j+1, C, nz) ;
         }
         if (values) for (p = Cp [j] ; p < nz ; p++) Cx [p] = x [Ci [p]] ;
     }

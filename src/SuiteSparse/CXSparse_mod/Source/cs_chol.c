@@ -6,6 +6,7 @@ csn *cs_chol (const cs *A, const css *S)
     CS_INT top, i, p, k, n, *Li, *Lp, *cp, *pinv, *s, *c, *parent, *Cp, *Ci ;
     cs *L, *C, *E ;
     csn *N ;
+    const CS_ENTRY zero = ZERO;
     if (!CS_CSC (A) || !S || !S->cp || !S->parent) return (NULL) ;
     n = A->n ;
     N = cs_calloc (1, sizeof (csn)) ;       /* allocate result */
@@ -25,34 +26,34 @@ csn *cs_chol (const cs *A, const css *S)
     {
         /* --- Nonzero pattern of L(k,:) ------------------------------------ */
         top = cs_ereach (C, k, parent, s, c) ;      /* find pattern of L(k,:) */
-        x [k] = 0 ;                                 /* x (0:k) is now zero */
+        x [k] = zero;                                 /* x (0:k) is now zero */
         for (p = Cp [k] ; p < Cp [k+1] ; p++)       /* x = full(triu(C(:,k))) */
         {
             if (Ci [p] <= k) x [Ci [p]] = Cx [p] ;
         }
         d = x [k] ;                     /* d = C(k,k) */
-        x [k] = 0 ;                     /* clear x for k+1st iteration */
+        x [k] = zero;                     /* clear x for k+1st iteration */
         /* --- Triangular solve --------------------------------------------- */
         for ( ; top < n ; top++)    /* solve L(0:k-1,0:k-1) * x = C(:,k) */
         {
             i = s [top] ;               /* s [top..n-1] is pattern of L(k,:) */
-            lki = x [i] / Lx [Lp [i]] ; /* L(k,i) = x (i) / L(i,i) */
-            x [i] = 0 ;                 /* clear x for k+1st iteration */
+            DIV(lki, x [i], Lx [Lp [i]]) ; /* L(k,i) = x (i) / L(i,i) */
+            x [i] = zero;                 /* clear x for k+1st iteration */
             for (p = Lp [i] + 1 ; p < c [i] ; p++)
             {
-                x [Li [p]] -= Lx [p] * lki ;
+                MULT_SUB(x [Li [p]], Lx [p], lki) ;
             }
-            d -= lki * CS_CONJ (lki) ;            /* d = d - L(k,i)*L(k,i) */
+            MULT_SUB_CONJ(d, lki, lki) ;            /* d = d - L(k,i)*L(k,i) */
             p = c [i]++ ;
             Li [p] = k ;                /* store L(k,i) in column i */
             Lx [p] = CS_CONJ (lki) ;
         }
         /* --- Compute L(k,k) ----------------------------------------------- */
         if (CS_REAL (d) <= 0 || CS_IMAG (d) != 0)
-	    return (cs_ndone (N, E, c, x, 0)) ; /* not pos def */
+        return (cs_ndone (N, E, c, x, 0)) ; /* not pos def */
         p = c [k]++ ;
         Li [p] = k ;                /* store L(k,k) = sqrt (d) in column k */
-        Lx [p] = sqrt (d) ;
+        Lx [p] = CS_SQRT (d) ;
     }
     Lp [n] = cp [n] ;               /* finalize L */
     return (cs_ndone (N, E, c, x, 1)) ; /* success: free E,s,x; return N */

@@ -10,9 +10,9 @@ CS_INT cs_utsolve (const cs *U, CS_ENTRY *x)
     {
         for (p = Up [j] ; p < Up [j+1]-1 ; p++)
         {
-            x [j] -= CS_CONJ (Ux [p]) * x [Ui [p]] ;
+            MULT_SUB_CONJ(x [j], x [Ui [p]], Ux [p]) ;
         }
-        x [j] /= CS_CONJ (Ux [Up [j+1]-1]) ;
+        DIV_CONJ(x [j], x [j], Ux [Up [j+1]-1]) ;
     }
     return (1) ;
 }

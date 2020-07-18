@@ -184,7 +184,6 @@
     <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_symperm.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_tdfs.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_transpose.c" />
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_updown.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_usolve.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_util.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_utsolve.c" />

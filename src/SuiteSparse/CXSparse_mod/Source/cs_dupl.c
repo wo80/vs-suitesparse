@@ -17,7 +17,7 @@ CS_INT cs_dupl (cs *A)
             i = Ai [p] ;                        /* A(i,j) is nonzero */
             if (w [i] >= q)
             {
-                Ax [w [i]] += Ax [p] ;          /* A(i,j) is a duplicate */
+                ASSEMBLE(Ax [w [i]], Ax [p]) ;          /* A(i,j) is a duplicate */
             }
             else
             {

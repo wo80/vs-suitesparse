@@ -159,9 +159,6 @@
     <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_transpose.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_updown.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_usolve.c">
       <Filter>Source Files</Filter>
     </ClCompile>

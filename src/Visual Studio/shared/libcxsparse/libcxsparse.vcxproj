@@ -99,7 +99,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>CXSparse.lib;CXSparse_complex.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SuiteSparse_config.lib;CXSparse.lib;CXSparse_complex.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
@@ -112,7 +112,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>CXSparse.lib;CXSparse_complex.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SuiteSparse_config.lib;CXSparse.lib;CXSparse_complex.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
@@ -129,7 +129,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>CXSparse.lib;CXSparse_complex.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SuiteSparse_config.lib;CXSparse.lib;CXSparse_complex.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
@@ -146,7 +146,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>CXSparse.lib;CXSparse_complex.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SuiteSparse_config.lib;CXSparse.lib;CXSparse_complex.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>

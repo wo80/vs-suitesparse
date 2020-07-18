@@ -7,6 +7,8 @@ csn *cs_lu (const cs *A, const css *S, double tol)
     CS_ENTRY pivot, *Lx, *Ux, *x ;
     double a, t ;
     CS_INT *Lp, *Li, *Up, *Ui, *pinv, *xi, *q, n, ipiv, k, top, p, i, col, lnz,unz;
+    const CS_ENTRY zero = ZERO;
+    const CS_ENTRY one = ONE;
     if (!CS_CSC (A) || !S) return (NULL) ;          /* check inputs */
     n = A->n ;
     q = S->q ; lnz = S->lnz ; unz = S->unz ;
@@ -19,7 +21,7 @@ csn *cs_lu (const cs *A, const css *S, double tol)
     N->pinv = pinv = cs_malloc (n, sizeof (CS_INT)) ;  /* allocate result pinv */
     if (!L || !U || !pinv) return (cs_ndone (N, NULL, xi, x, 0)) ;
     Lp = L->p ; Up = U->p ;
-    for (i = 0 ; i < n ; i++) x [i] = 0 ;           /* clear workspace */
+    for (i = 0 ; i < n ; i++) x [i] = zero ;           /* clear workspace */
     for (i = 0 ; i < n ; i++) pinv [i] = -1 ;       /* no rows pivotal yet */
     for (k = 0 ; k <= n ; k++) Lp [k] = 0 ;         /* no cols of L yet */
     lnz = unz = 0 ;
@@ -65,16 +67,16 @@ csn *cs_lu (const cs *A, const css *S, double tol)
         Ux [unz++] = pivot ;
         pinv [ipiv] = k ;           /* ipiv is the kth pivot row */
         Li [lnz] = ipiv ;           /* first entry in L(:,k) is L(k,k) = 1 */
-        Lx [lnz++] = 1 ;
+        Lx [lnz++] = one ;
         for (p = top ; p < n ; p++) /* L(k+1:n,k) = x / pivot */
         {
             i = xi [p] ;
             if (pinv [i] < 0)       /* x(i) is an entry in L(:,k) */
             {
                 Li [lnz] = i ;      /* save unpermuted row in L */
-                Lx [lnz++] = x [i] / pivot ;    /* scale pivot column */
+                DIV(Lx [lnz++], x [i], pivot) ;    /* scale pivot column */
             }
-            x [i] = 0 ;             /* x [0..n-1] = 0 for next k */
+            x [i] = zero ;             /* x [0..n-1] = 0 for next k */
         }
     }
     /* --- Finalize L and U ------------------------------------------------- */

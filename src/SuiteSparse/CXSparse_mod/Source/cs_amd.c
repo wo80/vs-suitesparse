@@ -23,6 +23,7 @@ CS_INT *cs_amd (CS_INT order, const cs *A)  /* order 0:natural, 1:Chol, 2:LU, 3:
         k2, k3, jlast, ln, dense, nzmax, mindeg = 0, nvi, nvj, nvk, mark, wnvi,
         ok, cnz, nel = 0, p, p1, p2, p3, p4, pj, pk, pk1, pk2, pn, q, n, m, t ;
     CS_INT h ;
+    const CS_ENTRY zero = ZERO;
     /* --- Construct matrix C ----------------------------------------------- */
     if (!CS_CSC (A) || order <= 0 || order > 3) return (NULL) ; /* check */
     AT = cs_transpose (A, 0) ;              /* compute A' */
@@ -32,7 +33,7 @@ CS_INT *cs_amd (CS_INT order, const cs *A)  /* order 0:natural, 1:Chol, 2:LU, 3:
     dense = CS_MIN (n-2, dense) ;
     if (order == 1 && n == m)
     {
-        C = cs_add (A, AT, 0, 0) ;          /* C = A+A' */
+        C = cs_add (A, AT, zero, zero) ;          /* C = A+A' */
     }
     else if (order == 2)
     {

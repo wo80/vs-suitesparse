@@ -38,14 +38,18 @@ extern "C" {
 #else
 #ifndef NCOMPLEX
 #include <complex.h>
+#ifdef _MSC_VER
+#define cs_complex_t _Dcomplex
+#else
 #define cs_complex_t double _Complex
+#endif
 #endif
 #endif
 
 #define CS_VER 3                    /* CXSparse Version */
 #define CS_SUBVER 2
 #define CS_SUBSUB 0
-#define CS_DATE "Sept 12, 2017"       /* CSparse release date */
+#define CS_DATE "Sept 12, 2017"       /* CXSparse release date */
 #define CS_COPYRIGHT "Copyright (c) Timothy A. Davis, 2006-2016"
 #define CXSPARSE
 
@@ -643,11 +647,13 @@ cs_cld *cs_cl_ddone (cs_cld *D, cs_cl *C, void *w, cs_long_t ok) ;
 #define CS_IMAG(x) cimag(x)
 #define CS_CONJ(x) conj(x)
 #define CS_ABS(x) cabs(x)
+#define CS_SQRT(x) csqrt(x)
 #else
 #define CS_REAL(x) (x)
 #define CS_IMAG(x) (0.)
 #define CS_CONJ(x) (x)
 #define CS_ABS(x) fabs(x)
+#define CS_SQRT(x) sqrt(x)
 #endif
 
 #define CS_MAX(a,b) (((a) > (b)) ? (a) : (b))
@@ -750,6 +756,148 @@ cs_di *cs_i_real (cs_ci *A, int real) ;
 cs_ci *cs_i_complex (cs_di *A, int real) ;
 cs_dl *cs_l_real (cs_cl *A, cs_long_t real) ;
 cs_cl *cs_l_complex (cs_dl *A, cs_long_t real) ;
+#endif
+
+/* no debugging */
+#define ASSERT(expression)
+
+/* -------------------------------------------------------------------------- */
+/* UMFPACK approach to shared real/complex math functions (see umf_version.h) */
+/* -------------------------------------------------------------------------- */
+
+#ifdef CS_COMPLEX
+#define Real _Val[0]
+#define Imag _Val[1]
+#define ZERO _DCOMPLEX_(0.0, 0.0)
+#define ONE _DCOMPLEX_(1.0, 0.0)
+#define MINUS_ONE _DCOMPLEX_(-1.0, 0.0)
+
+/* True if a == 0 */
+#define IS_ZERO(a) \
+    (((a).Real) == 0 && ((a).Imag) == 0)
+
+/* True if a != 0 */
+#define IS_NONZERO(a) \
+    (((a).Real) != 0 && ((a).Imag) != 0)
+
+/* c /= s */
+#define SCALE_DIV(c,s) \
+{ \
+    (c).Real /= (s) ; \
+    (c).Imag /= (s) ; \
+}
+
+/* c *= s */
+#define SCALE(c,s) \
+{ \
+    (c).Real *= (s) ; \
+    (c).Imag *= (s) ; \
+}
+
+/* c += a */
+#define ASSEMBLE(c,a) \
+{ \
+    (c).Real += (a).Real ; \
+    (c).Imag += (a).Imag ; \
+}
+
+/* c = (x) + (y)*i  */
+#define ASSIGN(c,x,y)	\
+{ \
+    (c).Real = x ; \
+    (c).Imag = y ; \
+}
+
+/* c = conj(a)  */
+#define CONJ(c, a) \
+{ \
+    (c).Real = (a).Real ; \
+    (c).Imag = -(a).Imag ; \
+}
+
+/* c = a*b, assert because c cannot be the same as a or b */
+#define MULT(c,a,b) \
+{ \
+    ASSERT (&(c) != &(a) && &(c) != &(b)) ; \
+    (c).Real = (a).Real * (b).Real - (a).Imag * (b).Imag ; \
+    (c).Imag = (a).Imag * (b).Real + (a).Real * (b).Imag ; \
+}
+
+/* c = a*conjugate(b), assert because c cannot be the same as a or b */
+#define MULT_CONJ(c,a,b) \
+{ \
+    ASSERT (&(c) != &(a) && &(c) != &(b)) ; \
+    (c).Real = (a).Real * (b).Real + (a).Imag * (b).Imag ; \
+    (c).Imag = (a).Imag * (b).Real - (a).Real * (b).Imag ; \
+}
+
+/* c += a*b, assert because c cannot be the same as a or b */
+#define MULT_ADD(c,a,b) \
+{ \
+    ASSERT (&(c) != &(a) && &(c) != &(b)) ; \
+    (c).Real += (a).Real * (b).Real - (a).Imag * (b).Imag ; \
+    (c).Imag += (a).Imag * (b).Real + (a).Real * (b).Imag ; \
+}
+
+/* c += a*conjugate(b), assert because c cannot be the same as a or b */
+#define MULT_ADD_CONJ(c,a,b) \
+{ \
+    ASSERT (&(c) != &(a) && &(c) != &(b)) ; \
+    (c).Real += (a).Real * (b).Real + (a).Imag * (b).Imag ; \
+    (c).Imag += (a).Imag * (b).Real - (a).Real * (b).Imag ; \
+}
+
+/* c -= a*b, assert because c cannot be the same as a or b */
+#define MULT_SUB(c,a,b) \
+{ \
+    ASSERT (&(c) != &(a) && &(c) != &(b)) ; \
+    (c).Real -= (a).Real * (b).Real - (a).Imag * (b).Imag ; \
+    (c).Imag -= (a).Imag * (b).Real + (a).Real * (b).Imag ; \
+}
+
+/* c -= a*conjugate(b), assert because c cannot be the same as a or b */
+#define MULT_SUB_CONJ(c,a,b) \
+{ \
+    ASSERT (&(c) != &(a) && &(c) != &(b)) ; \
+    (c).Real -= (a).Real * (b).Real + (a).Imag * (b).Imag ; \
+    (c).Imag -= (a).Imag * (b).Real - (a).Real * (b).Imag ; \
+}
+
+/* c = a/b, using function pointer */
+#define DIV(c,a,b) \
+{ \
+    (void) SuiteSparse_config.divcomplex_func \
+        ((a).Real, (a).Imag, (b).Real, (b).Imag, \
+	&((c).Real), &((c).Imag)) ; \
+}
+
+/* c = a/conjugate(b), using function pointer */
+#define DIV_CONJ(c,a,b) \
+{ \
+    (void) SuiteSparse_config.divcomplex_func \
+        ((a).Real, (a).Imag, (b).Real, (-(b).Imag), \
+	&((c).Real), &((c).Imag)) ; \
+}
+#else
+#define ZERO 0.0
+#define ONE 1.0
+#define MINUS_ONE -1.0
+
+#define IS_ZERO(x)	((x) == 0.)
+#define IS_NONZERO(x)	((x) != 0.)
+
+#define SCALE_DIV(c,s)		    { (c) /= (s) ; }
+#define SCALE(c,s)		    { (c) *= (s) ; }
+#define ASSIGN(c,x,y)	    { (c) = (x) ; }
+#define ASSEMBLE(c,a)		    { (c) += (a) ; }
+#define MULT(c,a,b)		    { (c) = (a) * (b) ; }
+#define MULT_CONJ(c,a,b)	    { (c) = (a) * (b) ; }
+#define MULT_ADD(c,a,b)		    { (c) += (a) * (b) ; }
+#define MULT_ADD_CONJ(c,a,b)	    { (c) += (a) * (b) ; }
+#define MULT_SUB(c,a,b)		    { (c) -= (a) * (b) ; }
+#define MULT_SUB_CONJ(c,a,b)	    { (c) -= (a) * (b) ; }
+#define DIV(c,a,b)		    { (c) = (a) / (b) ; }
+#define DIV_CONJ(c,a,b)		    { (c) = (a) / (b) ; }
 #endif
 
 #ifdef __cplusplus

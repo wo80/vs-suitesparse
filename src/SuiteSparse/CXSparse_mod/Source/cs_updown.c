@@ -4,6 +4,7 @@ CS_INT cs_updown (cs *L, CS_INT sigma, const cs *C, const CS_INT *parent)
 {
     CS_INT n, p, f, j, *Lp, *Li, *Cp, *Ci ;
     CS_ENTRY *Lx, *Cx, alpha, gamma, w1, w2, *w ;
+    const CS_ENTRY zero = ZERO;
     double beta = 1, beta2 = 1, delta ;
 #ifdef CS_COMPLEX
     cs_complex_t phase ;
@@ -16,12 +17,12 @@ CS_INT cs_updown (cs *L, CS_INT sigma, const cs *C, const CS_INT *parent)
     if (!w) return (0) ;                            /* out of memory */
     f = Ci [p] ;
     for ( ; p < Cp [1] ; p++) f = CS_MIN (f, Ci [p]) ;  /* f = min (find (C)) */
-    for (j = f ; j != -1 ; j = parent [j]) w [j] = 0 ;  /* clear workspace w */
+    for (j = f ; j != -1 ; j = parent [j]) w [j] = zero ;  /* clear workspace w */
     for (p = Cp [0] ; p < Cp [1] ; p++) w [Ci [p]] = Cx [p] ; /* w = C */
     for (j = f ; j != -1 ; j = parent [j])          /* walk path f up to root */
     {
         p = Lp [j] ;
-        alpha = w [j] / Lx [p] ;                    /* alpha = w(j) / L(j,j) */
+        DIV(alpha, w [j], Lx [p]) ;                    /* alpha = w(j) / L(j,j) */
         beta2 = beta*beta + sigma*alpha*CS_CONJ(alpha) ;
         if (beta2 <= 0) break ;                     /* not positive definite */
         beta2 = sqrt (beta2) ;
