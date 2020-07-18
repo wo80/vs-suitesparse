@@ -101,7 +101,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libsuitesparse", "Visual St
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libmetis", "Visual Studio\shared\libmetis\libmetis.vcxproj", "{563E14AA-7102-4CF4-91CD-ED0EFFF9EAED}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CXSparse_complex", "Visual Studio\static\CXSparse\CXSparse_complex\CXSparse_complex.vcxproj", "{FA2E7C2B-5128-49C5-944F-FFE02D1FAB18}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CXSparse_complex", "Visual Studio\static\CXSparse\CXSparse_complex.vcxproj", "{FA2E7C2B-5128-49C5-944F-FFE02D1FAB18}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcxsparse", "Visual Studio\shared\libcxsparse\libcxsparse.vcxproj", "{260465C4-7968-4430-AD55-61F0803469F9}"
 EndProject
