@@ -74,7 +74,8 @@ csn *cs_lu (const cs *A, const css *S, double tol)
             if (pinv [i] < 0)       /* x(i) is an entry in L(:,k) */
             {
                 Li [lnz] = i ;      /* save unpermuted row in L */
-                DIV(Lx [lnz++], x [i], pivot) ;    /* scale pivot column */
+                DIV(Lx [lnz], x [i], pivot) ;    /* scale pivot column */
+                lnz++;
             }
             x [i] = zero ;             /* x [0..n-1] = 0 for next k */
         }

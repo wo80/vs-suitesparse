@@ -801,20 +801,6 @@ cs_cl *cs_l_complex (cs_dl *A, cs_long_t real) ;
     (c).Imag += (a).Imag ; \
 }
 
-/* c = (x) + (y)*i  */
-#define ASSIGN(c,x,y)	\
-{ \
-    (c).Real = x ; \
-    (c).Imag = y ; \
-}
-
-/* c = conj(a)  */
-#define CONJ(c, a) \
-{ \
-    (c).Real = (a).Real ; \
-    (c).Imag = -(a).Imag ; \
-}
-
 /* c = a*b, assert because c cannot be the same as a or b */
 #define MULT(c,a,b) \
 { \
@@ -888,7 +874,6 @@ cs_cl *cs_l_complex (cs_dl *A, cs_long_t real) ;
 
 #define SCALE_DIV(c,s)		    { (c) /= (s) ; }
 #define SCALE(c,s)		    { (c) *= (s) ; }
-#define ASSIGN(c,x,y)	    { (c) = (x) ; }
 #define ASSEMBLE(c,a)		    { (c) += (a) ; }
 #define MULT(c,a,b)		    { (c) = (a) * (b) ; }
 #define MULT_CONJ(c,a,b)	    { (c) = (a) * (b) ; }
