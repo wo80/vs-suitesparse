@@ -15,162 +15,162 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_add.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_add.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_amd.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_amd.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_chol.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_chol.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_cholsol.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_cholsol.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_compress.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_compress.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_convert.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_convert.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_counts.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_counts.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_cumsum.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_cumsum.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_dfs.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_dfs.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_dmperm.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_dmperm.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_droptol.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_droptol.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_dropzeros.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_dropzeros.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_dupl.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_dupl.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_entry.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_entry.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_ereach.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_ereach.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_etree.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_etree.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_fkeep.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_fkeep.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_gaxpy.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_gaxpy.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_happly.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_happly.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_house.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_house.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_ipvec.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_ipvec.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_leaf.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_leaf.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_load.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_load.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_lsolve.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_lsolve.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_ltsolve.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_ltsolve.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_lu.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_lu.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_lusol.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_lusol.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_malloc.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_malloc.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_maxtrans.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_maxtrans.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_multiply.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_multiply.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_norm.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_norm.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_permute.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_permute.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_pinv.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_pinv.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_post.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_post.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_print.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_print.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_pvec.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_pvec.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_qr.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_qr.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_qrsol.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_qrsol.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_randperm.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_randperm.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_reach.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_reach.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_scatter.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_scatter.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_scc.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_scc.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_schol.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_schol.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_spsolve.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_spsolve.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_sqr.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_sqr.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_symperm.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_symperm.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_tdfs.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_tdfs.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_transpose.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_transpose.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_usolve.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_usolve.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_util.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_util.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CXSparse_mod\Source\cs_utsolve.c">
+    <ClCompile Include="..\..\..\mod\CXSparse\Source\cs_utsolve.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\SuiteSparse\CXSparse_mod\Include\cs.h">
+    <ClInclude Include="..\..\..\mod\CXSparse\Include\cs.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

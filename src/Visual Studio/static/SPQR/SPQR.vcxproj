@@ -19,46 +19,46 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_1colamd.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_1factor.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_1fixed.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_analyze.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_append.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_assemble.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_cpack.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_csize.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_cumsum.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_debug.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_factorize.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_fcsize.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_freefac.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_freenum.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_freesym.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_front.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_fsize.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_happly.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_happly_work.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_hpinv.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_kernel.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_larftb.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_maxcolnorm.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_panel.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_parallel.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_rconvert.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_rcount.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_rhpack.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_rmap.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_rsolve.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_shift.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_stranspose1.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_stranspose2.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_tol.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_trapezoidal.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\spqr_type.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\SuiteSparseQR.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\SuiteSparseQR_C.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\SuiteSparseQR_expert.cpp" />
-    <ClCompile Include="..\..\..\SuiteSparse\SPQR_mod\Source\SuiteSparseQR_qmult.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_1colamd.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_1factor.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_1fixed.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_analyze.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_append.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_assemble.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_cpack.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_csize.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_cumsum.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_debug.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_factorize.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_fcsize.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_freefac.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_freenum.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_freesym.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_front.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_fsize.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_happly.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_happly_work.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_hpinv.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_kernel.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_larftb.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_maxcolnorm.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_panel.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_parallel.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_rconvert.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_rcount.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_rhpack.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_rmap.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_rsolve.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_shift.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_stranspose1.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_stranspose2.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_tol.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_trapezoidal.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_type.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\SuiteSparseQR.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\SuiteSparseQR_C.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\SuiteSparseQR_expert.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\SuiteSparseQR_qmult.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{EAEE47D7-78FB-44EF-A9B1-52182025CF42}</ProjectGuid>
@@ -109,16 +109,16 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\CAMD\include;$(SolutionDir)SuiteSparse\CCOLAMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\CHOLMOD\include;$(SolutionDir)SuiteSparse\metis-5.1.0\include;$(SolutionDir)SuiteSparse\SPQR_mod\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\CAMD\include;$(SolutionDir)SuiteSparse\CCOLAMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\CHOLMOD\include;$(SolutionDir)SuiteSparse\metis-5.1.0\include;$(SolutionDir)mod\SPQR\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\CAMD\include;$(SolutionDir)SuiteSparse\CCOLAMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\CHOLMOD\include;$(SolutionDir)SuiteSparse\metis-5.1.0\include;$(SolutionDir)SuiteSparse\SPQR_mod\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\CAMD\include;$(SolutionDir)SuiteSparse\CCOLAMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\CHOLMOD\include;$(SolutionDir)SuiteSparse\metis-5.1.0\include;$(SolutionDir)mod\SPQR\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\CAMD\include;$(SolutionDir)SuiteSparse\CCOLAMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\CHOLMOD\include;$(SolutionDir)SuiteSparse\metis-5.1.0\include;$(SolutionDir)SuiteSparse\SPQR_mod\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\CAMD\include;$(SolutionDir)SuiteSparse\CCOLAMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\CHOLMOD\include;$(SolutionDir)SuiteSparse\metis-5.1.0\include;$(SolutionDir)mod\SPQR\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\CAMD\include;$(SolutionDir)SuiteSparse\CCOLAMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\CHOLMOD\include;$(SolutionDir)SuiteSparse\metis-5.1.0\include;$(SolutionDir)SuiteSparse\SPQR_mod\Include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\CAMD\include;$(SolutionDir)SuiteSparse\CCOLAMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\CHOLMOD\include;$(SolutionDir)SuiteSparse\metis-5.1.0\include;$(SolutionDir)mod\SPQR\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
