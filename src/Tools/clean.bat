@@ -1,1 +1,0 @@
-mgmt clean -all

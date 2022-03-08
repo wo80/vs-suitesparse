@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Linq;
-using System.Net;
+using System.Net.Http;
 using System.Text.RegularExpressions;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace suitesparse
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             if (args.Length == 0)
             {
@@ -28,7 +28,7 @@ namespace suitesparse
             }
             else if (task.Equals("update") || task.Equals("u"))
             {
-                Updater.Run(args.Slice(1));
+                await Updater.Run(args.Slice(1));
             }
             else
             {
@@ -41,10 +41,11 @@ namespace suitesparse
 
     class Updater
     {
-        const string URL = "http://faculty.cse.tamu.edu/davis/suitesparse.html";
-        const string RX = "href=\"([^\"]*)\"><span class=\"style_1\">SuiteSparse</span><span> v([\\.\\d]+)</span></a>";
+        const string URL = "https://raw.githubusercontent.com/DrTimothyAldenDavis/SuiteSparse/master/SuiteSparse_config/SuiteSparse_config.mk";
+        const string DL = "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/refs/heads/master.zip";
+        const string RX = "SUITESPARSE_VERSION = ([\\.\\d]+)";
 
-        public static void Run(string[] args)
+        public static async Task Run(string[] args)
         {
             Console.WriteLine("Running update task ...");
 
@@ -60,19 +61,13 @@ namespace suitesparse
                 if (item.Equals("-check", StringComparison.OrdinalIgnoreCase))
                 {
                     Console.WriteLine("Installed version: " + task.GetInstalledVersion());
-                    Console.WriteLine("Latest version: " + task.GetLatestVersion());
+                    Console.WriteLine("Latest version: " + await task.GetLatestVersion());
                 }
                 else if (item.Equals("-download", StringComparison.OrdinalIgnoreCase))
                 {
-                    Console.WriteLine("Latest version: " + task.GetLatestVersion());
+                    Console.WriteLine("Latest version: " + await task.GetLatestVersion());
 
-                    task.DownloadLatestVersion();
-
-                    while (!task.DownloadCompleted)
-                    {
-                        // Block main thread while download is in progress.
-                        Thread.Sleep(1000);
-                    }
+                    await task.DownloadLatestVersion();
                 }
             }
         }
@@ -80,10 +75,6 @@ namespace suitesparse
         string installedVersion;
         string latestVersion;
         string downloadUrl;
-
-        private volatile bool downloadCompleted;
-
-        public bool DownloadCompleted { get { return downloadCompleted; } }
 
         string GetInstalledVersion()
         {
@@ -94,7 +85,7 @@ namespace suitesparse
             installedVersion = "n/a";
 
             string root = Helper.GetRootDirectory("SuiteSparse");
-            string path = Path.Combine(root, "README.txt");
+            string path = Path.Combine(root, "README.md");
 
             if (File.Exists(path))
             {
@@ -114,27 +105,27 @@ namespace suitesparse
             return installedVersion;
         }
 
-        string GetLatestVersion()
+        async Task<string> GetLatestVersion()
         {
             latestVersion = "n/a";
 
-            using (var client = new WebClient())
+            using (var client = new HttpClient())
             {
-                string page = client.DownloadString(URL);
+                string page = await client.GetStringAsync(URL);
 
                 var match = Regex.Match(page, RX);
 
                 if (match.Success)
                 {
-                    downloadUrl = match.Groups[1].Value;
-                    latestVersion = match.Groups[2].Value;
+                    latestVersion = match.Groups[1].Value;
+                    downloadUrl = DL.Replace("{version}", latestVersion);
                 }
             }
 
             return latestVersion;
         }
 
-        void DownloadLatestVersion()
+        async Task DownloadLatestVersion()
         {
             if (string.IsNullOrEmpty(downloadUrl))
             {
@@ -146,25 +137,29 @@ namespace suitesparse
             string root = Helper.GetRootDirectory();
             string path = Path.Combine(root, Path.GetFileName(uri.LocalPath));
 
-            using (var client = new WebClient())
+            IProgress<float> progress = new Progress<float>(p =>
             {
-                client.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadCompletedCallback);
-                client.DownloadProgressChanged += new DownloadProgressChangedEventHandler(DownloadProgressCallback);
+                if (p < 1f)
+                {
+                    Console.Write("\rDownloading ... {0:0.0}%", p * 100f);
+                }
+                else
+                {
+                     Console.WriteLine("\rDownloading ... Done!");
+                }
+            });
 
-                client.DownloadFileAsync(uri, path);
+            using (var client = new HttpClient())
+            {
+                //client.Timeout = TimeSpan.FromMinutes(5);
+
+                // Create a file stream to store the downloaded data.
+                using (var file = new FileStream(path, FileMode.Create, FileAccess.Write, FileShare.None)) {
+
+                    // Use the custom extension method below to download the data.
+                    await client.DownloadAsync(uri, file, progress, CancellationToken.None);
+                }
             }
-        }
-
-        private void DownloadProgressCallback(object sender, DownloadProgressChangedEventArgs e)
-        {
-            Console.Write("\rDownloading ... {0}%", e.ProgressPercentage);
-        }
-
-        private void DownloadCompletedCallback(object sender, AsyncCompletedEventArgs e)
-        {
-            Console.WriteLine("\rDownloading ... Done!");
-
-            downloadCompleted = true;
         }
     }
 
@@ -176,6 +171,7 @@ namespace suitesparse
     {
         static string[] directories = new string[]
         {
+            ".github",
             "bin",
             "CXSparse_newfiles",
             "GraphBLAS",
@@ -185,6 +181,7 @@ namespace suitesparse
             "MATLAB_Tools",
             "Mongoose",
             "RBio",
+            "SLIP_LU",
             "SuiteSparse_GPURuntime",
             "share",
             "ssget"
@@ -410,5 +407,66 @@ namespace suitesparse
             return true;
         }
     }
+
+    #endregion
+
+    #region Extension methods
+
+    // https://stackoverflow.com/questions/20661652/progress-bar-with-httpclient
+
+    static class Extensions
+    {
+        public static async Task DownloadAsync(this HttpClient client, Uri requestUri, Stream destination, IProgress<float> progress = null, CancellationToken cancellationToken = default)
+        {
+            // Get the http headers first to examine the content length
+            using (var response = await client.GetAsync(requestUri, HttpCompletionOption.ResponseHeadersRead))
+            {
+                var contentLength = response.Content.Headers.ContentLength;
+
+                using (var download = await response.Content.ReadAsStreamAsync())
+                {
+
+                    // Ignore progress reporting when no progress reporter was 
+                    // passed or when the content length is unknown
+                    if (progress == null || !contentLength.HasValue)
+                    {
+                        await download.CopyToAsync(destination);
+                        return;
+                    }
+
+                    // Convert absolute progress (bytes downloaded) into relative progress (0% - 100%)
+                    var relativeProgress = new Progress<long>(totalBytes => progress.Report((float)totalBytes / contentLength.Value));
+                    // Use extension method to report progress while downloading
+                    await download.CopyToAsync(destination, 81920, relativeProgress, cancellationToken);
+                    progress.Report(1);
+                }
+            }
+        }
+
+        public static async Task CopyToAsync(this Stream source, Stream destination, int bufferSize, IProgress<long> progress = null, CancellationToken cancellationToken = default)
+        {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+            if (!source.CanRead)
+                throw new ArgumentException("Has to be readable", nameof(source));
+            if (destination == null)
+                throw new ArgumentNullException(nameof(destination));
+            if (!destination.CanWrite)
+                throw new ArgumentException("Has to be writable", nameof(destination));
+            if (bufferSize < 0)
+                throw new ArgumentOutOfRangeException(nameof(bufferSize));
+
+            var buffer = new byte[bufferSize];
+            long totalBytesRead = 0;
+            int bytesRead;
+            while ((bytesRead = await source.ReadAsync(buffer, 0, buffer.Length, cancellationToken).ConfigureAwait(false)) != 0)
+            {
+                await destination.WriteAsync(buffer, 0, bytesRead, cancellationToken).ConfigureAwait(false);
+                totalBytesRead += bytesRead;
+                progress?.Report(totalBytesRead);
+            }
+        }
+    }
+
     #endregion
 }
