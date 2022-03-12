@@ -1,5 +1,7 @@
 LIBRARY libamd
 EXPORTS
+    SuiteSparse_version
+
     amd_order
     amd_valid
     amd_defaults

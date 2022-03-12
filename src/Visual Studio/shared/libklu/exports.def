@@ -1,5 +1,7 @@
 LIBRARY libklu
 EXPORTS
+    SuiteSparse_version
+
     klu_defaults
     klu_analyze
     klu_analyze_given

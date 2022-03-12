@@ -1,5 +1,6 @@
 LIBRARY libspqr
 EXPORTS
+    SuiteSparse_version
     SuiteSparse_free
     SuiteSparseQR_C
     SuiteSparseQR_C_QR

@@ -1,5 +1,7 @@
 LIBRARY libumfpack
 EXPORTS
+    SuiteSparse_version
+
     umfpack_di_col_to_triplet
     umfpack_di_defaults
     umfpack_di_free_numeric

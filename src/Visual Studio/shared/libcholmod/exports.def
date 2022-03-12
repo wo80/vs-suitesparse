@@ -1,5 +1,7 @@
 LIBRARY libcholmod
 EXPORTS
+    SuiteSparse_version
+
     cholmod_check_common
     cholmod_check_sparse
     cholmod_check_dense
