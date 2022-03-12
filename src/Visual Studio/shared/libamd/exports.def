@@ -32,3 +32,34 @@ EXPORTS
     ccolamd_report
     csymamd
     csymamd_report
+
+    amd_l_order
+    amd_l_valid
+    amd_l_defaults
+    amd_l_control
+    amd_l_info
+    amd_l2
+    amd_l_aat
+    amd_l_postorder
+
+    camd_l_order
+    camd_l_valid
+    camd_l_cvalid
+    camd_l_defaults
+    camd_l_control
+    camd_l_info
+    camd_l2
+    
+    colamd_l_recommended
+    colamd_l_set_defaults
+    colamd_l
+    colamd_l_report
+    symamd_l
+    symamd_l_report
+
+    ccolamd_l_recommended
+    ccolamd_l_set_defaults
+    ccolamd_l
+    ccolamd_l_report
+    csymamd_l
+    csymamd_l_report
