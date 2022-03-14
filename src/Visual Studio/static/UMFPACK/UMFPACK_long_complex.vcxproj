@@ -20,7 +20,7 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{DDBD9256-D996-4F15-9C30-43087F2ADE25}</ProjectGuid>
-    <RootNamespace>UMFPACK</RootNamespace>
+    <RootNamespace>UMFPACK_long_complex</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
