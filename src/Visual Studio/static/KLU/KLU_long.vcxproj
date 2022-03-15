@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|Win32">
@@ -21,9 +21,10 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
-    <ProjectGuid>{F9FB79A9-CED0-4770-B053-5B56878560FA}</ProjectGuid>
-    <RootNamespace>BTF</RootNamespace>
+    <ProjectGuid>{3ef69acf-7b9a-460c-ad4c-21873a003500}</ProjectGuid>
+    <RootNamespace>KLUlong</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>KLU_long</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -71,27 +72,31 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\BTF\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\BTF\include;$(SolutionDir)SuiteSparse\KLU\include;$(IncludePath)</IncludePath>
     <LinkIncremental>true</LinkIncremental>
+    <IntDir>$(Configuration)\long\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\BTF\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\BTF\include;$(SolutionDir)SuiteSparse\KLU\include;$(IncludePath)</IncludePath>
     <LinkIncremental>false</LinkIncremental>
+    <IntDir>$(Configuration)\long\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\BTF\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\BTF\include;$(SolutionDir)SuiteSparse\KLU\include;$(IncludePath)</IncludePath>
     <LinkIncremental>true</LinkIncremental>
+    <IntDir>$(Platform)\$(Configuration)\long\</IntDir>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\BTF\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\BTF\include;$(SolutionDir)SuiteSparse\KLU\include;$(IncludePath)</IncludePath>
     <LinkIncremental>false</LinkIncremental>
+    <IntDir>$(Platform)\$(Configuration)\long\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;DLONG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -105,7 +110,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32;NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;DLONG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -119,7 +124,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>_DEBUG;DLONG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -133,7 +138,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>NDEBUG;DLONG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
     </ClCompile>
     <Link>
@@ -143,9 +148,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\SuiteSparse\BTF\Source\btf_maxtrans.c" />
-    <ClCompile Include="..\..\..\SuiteSparse\BTF\Source\btf_order.c" />
-    <ClCompile Include="..\..\..\SuiteSparse\BTF\Source\btf_strongcomp.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_analyze.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_analyze_given.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_defaults.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_diagnostics.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_dump.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_extract.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_factor.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_free_numeric.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_free_symbolic.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_kernel.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_memory.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_refactor.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_scale.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_solve.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_sort.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_tsolve.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
