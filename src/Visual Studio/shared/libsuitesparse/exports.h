@@ -35,6 +35,7 @@ EXPORT int csymamd_C  /* return (1) if OK, (0) otherwise */
 );
 
 EXPORT cholmod_common* cholmod_init();
+EXPORT cholmod_common* cholmod_l_init();
 
 #ifdef __cplusplus
 }

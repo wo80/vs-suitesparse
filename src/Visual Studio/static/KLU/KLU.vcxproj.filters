@@ -66,5 +66,128 @@
     <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_tsolve.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_analyze.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_analyze_given.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_defaults.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_diagnostics.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_dump.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_extract.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_factor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_free_numeric.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_free_symbolic.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_kernel.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_memory.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_refactor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_scale.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_solve.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_sort.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_tsolve.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_diagnostics.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_dump.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_extract.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_factor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_free_numeric.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_kernel.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_refactor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_scale.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_solve.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_sort.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_tsolve.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_diagnostics.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_dump.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_extract.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_factor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_free_numeric.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_kernel.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_refactor.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_scale.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_solve.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_sort.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_tsolve.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

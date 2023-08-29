@@ -32,6 +32,14 @@ EXPORTS
     umfpack_di_transpose
     umfpack_di_triplet_to_col
     umfpack_di_wsolve
+    umfpack_di_copy_numeric
+    umfpack_di_copy_symbolic
+    umfpack_di_deserialize_numeric
+    umfpack_di_deserialize_symbolic
+    umfpack_di_serialize_numeric_size
+    umfpack_di_serialize_numeric
+    umfpack_di_serialize_symbolic_size
+    umfpack_di_serialize_symbolic
 
     umfpack_dl_col_to_triplet
     umfpack_dl_defaults
@@ -63,7 +71,15 @@ EXPORTS
     umfpack_dl_transpose
     umfpack_dl_triplet_to_col
     umfpack_dl_wsolve
-
+    umfpack_dl_copy_numeric
+    umfpack_dl_copy_symbolic
+    umfpack_dl_deserialize_numeric
+    umfpack_dl_deserialize_symbolic
+    umfpack_dl_serialize_numeric_size
+    umfpack_dl_serialize_numeric
+    umfpack_dl_serialize_symbolic_size
+    umfpack_dl_serialize_symbolic
+    
     umfpack_zi_col_to_triplet
     umfpack_zi_defaults
     umfpack_zi_free_numeric
@@ -94,6 +110,14 @@ EXPORTS
     umfpack_zi_transpose
     umfpack_zi_triplet_to_col
     umfpack_zi_wsolve
+    umfpack_zi_copy_numeric
+    umfpack_zi_copy_symbolic
+    umfpack_zi_deserialize_numeric
+    umfpack_zi_deserialize_symbolic
+    umfpack_zi_serialize_numeric_size
+    umfpack_zi_serialize_numeric
+    umfpack_zi_serialize_symbolic_size
+    umfpack_zi_serialize_symbolic
 
     umfpack_zl_col_to_triplet
     umfpack_zl_defaults
@@ -125,3 +149,11 @@ EXPORTS
     umfpack_zl_transpose
     umfpack_zl_triplet_to_col
     umfpack_zl_wsolve
+    umfpack_zl_copy_numeric
+    umfpack_zl_copy_symbolic
+    umfpack_zl_deserialize_numeric
+    umfpack_zl_deserialize_symbolic
+    umfpack_zl_serialize_numeric_size
+    umfpack_zl_serialize_numeric
+    umfpack_zl_serialize_symbolic_size
+    umfpack_zl_serialize_symbolic

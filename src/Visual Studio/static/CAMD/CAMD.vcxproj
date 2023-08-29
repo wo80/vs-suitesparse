@@ -26,6 +26,17 @@
     <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_defaults.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_dump.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_info.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_l1.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_l2.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_l_aat.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_l_control.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_l_defaults.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_l_dump.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_l_info.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_l_order.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_l_postorder.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_l_preprocess.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_l_valid.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_order.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_postorder.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_preprocess.c" />

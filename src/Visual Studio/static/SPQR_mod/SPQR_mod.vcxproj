@@ -19,21 +19,50 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_1.c" />
-    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_2.c" />
-    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_aat.c" />
-    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_control.c" />
-    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_defaults.c" />
-    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_dump.c" />
-    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_info.c" />
-    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_order.c" />
-    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_postorder.c" />
-    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_preprocess.c" />
-    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_valid.c" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_1colamd.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_1factor.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_1fixed.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_analyze.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_append.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_assemble.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_cpack.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_csize.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_cumsum.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_debug.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_factorize.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_fcsize.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_freefac.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_freenum.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_freesym.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_front.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_fsize.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_happly.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_happly_work.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_hpinv.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_kernel.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_larftb.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_maxcolnorm.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_panel.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_parallel.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_rconvert.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_rcount.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_rhpack.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_rmap.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_rsolve.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_shift.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_stranspose1.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_stranspose2.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_tol.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_trapezoidal.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\spqr_type.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\SuiteSparseQR.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\SuiteSparseQR_C.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\SuiteSparseQR_expert.cpp" />
+    <ClCompile Include="..\..\..\mod\SPQR\Source\SuiteSparseQR_qmult.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1F748101-9AE9-45F1-9AC7-29F03DB3AA59}</ProjectGuid>
-    <RootNamespace>CAMD_long</RootNamespace>
+    <ProjectGuid>{EAEE47D7-78FB-44EF-A9B1-52182025CF42}</ProjectGuid>
+    <RootNamespace>SPQR_mod</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -80,27 +109,23 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\CAMD\include;$(IncludePath)</IncludePath>
-    <IntDir>$(Configuration)\long\</IntDir>
+    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\CAMD\include;$(SolutionDir)SuiteSparse\CCOLAMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\CHOLMOD\include;$(SolutionDir)mod\SPQR\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\CAMD\include;$(IncludePath)</IncludePath>
-    <IntDir>$(Platform)\$(Configuration)\long\</IntDir>
+    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\CAMD\include;$(SolutionDir)SuiteSparse\CCOLAMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\CHOLMOD\include;$(SolutionDir)mod\SPQR\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\CAMD\include;$(IncludePath)</IncludePath>
-    <IntDir>$(Configuration)\long\</IntDir>
+    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\CAMD\include;$(SolutionDir)SuiteSparse\CCOLAMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\CHOLMOD\include;$(SolutionDir)mod\SPQR\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\CAMD\include;$(IncludePath)</IncludePath>
-    <IntDir>$(Platform)\$(Configuration)\long\</IntDir>
+    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\CAMD\include;$(SolutionDir)SuiteSparse\CCOLAMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\CHOLMOD\include;$(SolutionDir)mod\SPQR\Include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>DLONG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>__MINGW32__;FORCE_INT32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -111,7 +136,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>DLONG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>__MINGW32__;FORCE_INT32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -124,7 +149,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>DLONG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>__MINGW32__;FORCE_INT32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -139,7 +164,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>DLONG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>__MINGW32__;FORCE_INT32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

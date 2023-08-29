@@ -20,6 +20,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Check\cholmod_check.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Check\cholmod_l_check.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Check\cholmod_l_read.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Check\cholmod_l_write.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Check\cholmod_read.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Check\cholmod_write.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_amd.c" />
@@ -27,6 +30,18 @@
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_colamd.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_etree.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_factorize.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_amd.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_analyze.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_colamd.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_etree.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_factorize.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_postorder.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_rcond.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_resymbol.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_rowcolcounts.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_rowfac.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_solve.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_spsolve.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_postorder.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_rcond.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_resymbol.c" />
@@ -44,6 +59,21 @@
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_dense.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_error.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_factor.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_l_aat.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_l_add.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_l_band.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_l_change_factor.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_l_common.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_l_complex.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_l_copy.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_l_dense.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_l_error.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_l_factor.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_l_memory.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_l_sparse.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_l_transpose.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_l_triplet.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_l_version.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_memory.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_sparse.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_transpose.c" />
@@ -51,6 +81,15 @@
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_version.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_drop.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_horzcat.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_l_drop.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_l_horzcat.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_l_norm.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_l_scale.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_l_sdmult.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_l_ssmult.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_l_submatrix.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_l_symmetry.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_l_vertcat.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_norm.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_scale.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_sdmult.c" />
@@ -58,14 +97,26 @@
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_submatrix.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_symmetry.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_vertcat.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Modify\cholmod_l_rowadd.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Modify\cholmod_l_rowdel.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Modify\cholmod_l_updown.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Modify\cholmod_rowadd.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Modify\cholmod_rowdel.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Modify\cholmod_updown.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Partition\cholmod_camd.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Partition\cholmod_ccolamd.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Partition\cholmod_csymamd.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Partition\cholmod_l_camd.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Partition\cholmod_l_ccolamd.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Partition\cholmod_l_csymamd.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Partition\cholmod_l_metis.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Partition\cholmod_l_nesdis.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Partition\cholmod_metis.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Partition\cholmod_metis_wrapper.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Partition\cholmod_nesdis.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Supernodal\cholmod_l_super_numeric.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Supernodal\cholmod_l_super_solve.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Supernodal\cholmod_l_super_symbolic.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Supernodal\cholmod_super_numeric.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Supernodal\cholmod_super_solve.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Supernodal\cholmod_super_symbolic.c" />
@@ -122,13 +173,13 @@
     <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\CAMD\include;$(SolutionDir)SuiteSparse\CCOLAMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\CHOLMOD\include;$(SolutionDir)SuiteSparse\metis-5.1.0\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
-    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\CAMD\include;$(SolutionDir)SuiteSparse\CCOLAMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\CHOLMOD\include;$(SolutionDir)SuiteSparse\metis-5.1.0\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\CAMD\include;$(SolutionDir)SuiteSparse\CCOLAMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\CHOLMOD\include;$(SolutionDir)SuiteSparse\CHOLMOD;$(SolutionDir)SuiteSparse\CHOLMOD\SuiteSparse_metis\GKlib;$(SolutionDir)SuiteSparse\CHOLMOD\SuiteSparse_metis\include;$(SolutionDir)SuiteSparse\CHOLMOD\SuiteSparse_metis\libmetis;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\CAMD\include;$(SolutionDir)SuiteSparse\CCOLAMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\CHOLMOD\include;$(SolutionDir)SuiteSparse\metis-5.1.0\include;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
-    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\CAMD\include;$(SolutionDir)SuiteSparse\CCOLAMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\CHOLMOD\include;$(SolutionDir)SuiteSparse\metis-5.1.0\include;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\CAMD\include;$(SolutionDir)SuiteSparse\CCOLAMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\CHOLMOD\include;$(SolutionDir)SuiteSparse\CHOLMOD;$(SolutionDir)SuiteSparse\CHOLMOD\SuiteSparse_metis\GKlib;$(SolutionDir)SuiteSparse\CHOLMOD\SuiteSparse_metis\include;$(SolutionDir)SuiteSparse\CHOLMOD\SuiteSparse_metis\libmetis;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>

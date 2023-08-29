@@ -52,11 +52,10 @@
     <WholeProgramOptimization>true</WholeProgramOptimization>
     <CharacterSet>MultiByte</CharacterSet>
   </PropertyGroup>
-  
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
   </ImportGroup>
-  <ImportGroup Label="Shared" >
+  <ImportGroup Label="Shared">
   </ImportGroup>
   <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
@@ -87,7 +86,6 @@
     <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\BTF\include;$(SolutionDir)SuiteSparse\KLU\include;$(IncludePath)</IncludePath>
     <LinkIncremental>false</LinkIncremental>
   </PropertyGroup>
-  
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -144,7 +142,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  
   <ItemGroup>
     <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu.c" />
     <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_analyze.c" />
@@ -157,12 +154,53 @@
     <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_free_numeric.c" />
     <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_free_symbolic.c" />
     <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_kernel.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_analyze.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_analyze_given.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_defaults.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_diagnostics.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_dump.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_extract.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_factor.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_free_numeric.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_free_symbolic.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_kernel.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_memory.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_refactor.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_scale.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_solve.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_sort.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_l_tsolve.c" />
     <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_memory.c" />
     <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_refactor.c" />
     <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_scale.c" />
     <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_solve.c" />
     <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_sort.c" />
     <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_tsolve.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_diagnostics.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_dump.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_extract.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_factor.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_free_numeric.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_kernel.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_refactor.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_scale.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_solve.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_sort.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_tsolve.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_diagnostics.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_dump.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_extract.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_factor.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_free_numeric.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_kernel.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_refactor.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_scale.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_solve.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_sort.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z_tsolve.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
