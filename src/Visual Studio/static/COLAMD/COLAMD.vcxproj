@@ -26,6 +26,7 @@
     <ProjectGuid>{5440B090-54F7-4F68-A6F8-8FF4407BA94D}</ProjectGuid>
     <RootNamespace>COLAMD</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>colamd_static</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

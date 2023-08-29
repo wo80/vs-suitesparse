@@ -24,6 +24,7 @@
     <ProjectGuid>{95C13B60-CA5E-4C82-912D-081C326DB18D}</ProjectGuid>
     <RootNamespace>KLU</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>klu_static</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

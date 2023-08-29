@@ -46,6 +46,7 @@
     <ProjectGuid>{37AC03AC-D08D-4DC7-BAFA-A42668F26FDE}</ProjectGuid>
     <RootNamespace>CAMD</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>camd_static</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

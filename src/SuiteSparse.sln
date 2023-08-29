@@ -15,7 +15,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CCOLAMD", "Visual Studio\st
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "COLAMD", "Visual Studio\static\COLAMD\COLAMD.vcxproj", "{5440B090-54F7-4F68-A6F8-8FF4407BA94D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcholmod", "Visual Studio\shared\libcholmod\libcholmod.vcxproj", "{217979AF-AAC8-478E-AB7A-3709F4A455F6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cholmod", "Visual Studio\shared\cholmod\cholmod.vcxproj", "{217979AF-AAC8-478E-AB7A-3709F4A455F6}"
 	ProjectSection(ProjectDependencies) = postProject
 		{9F7D4E16-A582-4B8E-9781-BF5A100395A9} = {9F7D4E16-A582-4B8E-9781-BF5A100395A9}
 		{C16CF823-472C-4DC4-9A46-C1B7F8832721} = {C16CF823-472C-4DC4-9A46-C1B7F8832721}
@@ -28,14 +28,14 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CSparse", "Visual Studio\st
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CXSparse", "Visual Studio\static\CXSparse\CXSparse.vcxproj", "{6C40C83C-F087-4297-B178-D7AC6854858E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcsparse", "Visual Studio\shared\libcsparse\libcsparse.vcxproj", "{D98139B6-BB95-4CDD-A81C-928FD768F43D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "csparse", "Visual Studio\shared\csparse\csparse.vcxproj", "{D98139B6-BB95-4CDD-A81C-928FD768F43D}"
 	ProjectSection(ProjectDependencies) = postProject
 		{4A1D2586-FE46-4AF9-A50B-6D551D68E6AB} = {4A1D2586-FE46-4AF9-A50B-6D551D68E6AB}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UMFPACK", "Visual Studio\static\UMFPACK\UMFPACK.vcxproj", "{4D6C0FED-E45A-4790-9873-B6BAA9E3AF40}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libumfpack", "Visual Studio\shared\libumfpack\libumfpack.vcxproj", "{DDAC4AB0-1C9D-45C5-94C7-7A31C94EDF83}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "umfpack", "Visual Studio\shared\umfpack\umfpack.vcxproj", "{DDAC4AB0-1C9D-45C5-94C7-7A31C94EDF83}"
 	ProjectSection(ProjectDependencies) = postProject
 		{217979AF-AAC8-478E-AB7A-3709F4A455F6} = {217979AF-AAC8-478E-AB7A-3709F4A455F6}
 		{4D6C0FED-E45A-4790-9873-B6BAA9E3AF40} = {4D6C0FED-E45A-4790-9873-B6BAA9E3AF40}
@@ -43,7 +43,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libumfpack", "Visual Studio
 		{DEDB9F5A-04AD-4151-A886-69361FFE0D1C} = {DEDB9F5A-04AD-4151-A886-69361FFE0D1C}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libspqr", "Visual Studio\shared\libspqr\libspqr.vcxproj", "{67CB3D4A-EE1D-40B0-966A-97AB230AB7EE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "spqr", "Visual Studio\shared\spqr\spqr.vcxproj", "{67CB3D4A-EE1D-40B0-966A-97AB230AB7EE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{217979AF-AAC8-478E-AB7A-3709F4A455F6} = {217979AF-AAC8-478E-AB7A-3709F4A455F6}
 		{C16CF823-472C-4DC4-9A46-C1B7F8832721} = {C16CF823-472C-4DC4-9A46-C1B7F8832721}
@@ -59,7 +59,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BTF", "Visual Studio\static
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KLU", "Visual Studio\static\KLU\KLU.vcxproj", "{95C13B60-CA5E-4C82-912D-081C326DB18D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libklu", "Visual Studio\shared\libklu\libklu.vcxproj", "{B908439C-701C-45C5-B478-11972FEF26A4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "klu", "Visual Studio\shared\klu\klu.vcxproj", "{B908439C-701C-45C5-B478-11972FEF26A4}"
 	ProjectSection(ProjectDependencies) = postProject
 		{95C13B60-CA5E-4C82-912D-081C326DB18D} = {95C13B60-CA5E-4C82-912D-081C326DB18D}
 		{C16CF823-472C-4DC4-9A46-C1B7F8832721} = {C16CF823-472C-4DC4-9A46-C1B7F8832721}
@@ -67,7 +67,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libklu", "Visual Studio\sha
 		{F9FB79A9-CED0-4770-B053-5B56878560FA} = {F9FB79A9-CED0-4770-B053-5B56878560FA}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libamd", "Visual Studio\shared\libamd\libamd.vcxproj", "{DEDB9F5A-04AD-4151-A886-69361FFE0D1C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "amd", "Visual Studio\shared\amd\amd.vcxproj", "{DEDB9F5A-04AD-4151-A886-69361FFE0D1C}"
 	ProjectSection(ProjectDependencies) = postProject
 		{0ADA7D88-1D80-4EE6-B4F1-4C24B6FA2E30} = {0ADA7D88-1D80-4EE6-B4F1-4C24B6FA2E30}
 		{363370C3-13F8-4EF2-8F32-35282F7AE255} = {363370C3-13F8-4EF2-8F32-35282F7AE255}
@@ -76,7 +76,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libamd", "Visual Studio\sha
 		{C16CF823-472C-4DC4-9A46-C1B7F8832721} = {C16CF823-472C-4DC4-9A46-C1B7F8832721}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libsuitesparse", "Visual Studio\shared\libsuitesparse\libsuitesparse.vcxproj", "{C59B1D75-CE65-4E33-AD81-430F334DB8D7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libsuitesparse", "Visual Studio\shared\suitesparse\libsuitesparse.vcxproj", "{C59B1D75-CE65-4E33-AD81-430F334DB8D7}"
 	ProjectSection(ProjectDependencies) = postProject
 		{0ADA7D88-1D80-4EE6-B4F1-4C24B6FA2E30} = {0ADA7D88-1D80-4EE6-B4F1-4C24B6FA2E30}
 		{363370C3-13F8-4EF2-8F32-35282F7AE255} = {363370C3-13F8-4EF2-8F32-35282F7AE255}
@@ -91,7 +91,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libsuitesparse", "Visual St
 		{F9FB79A9-CED0-4770-B053-5B56878560FA} = {F9FB79A9-CED0-4770-B053-5B56878560FA}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libcxsparse", "Visual Studio\shared\libcxsparse\libcxsparse.vcxproj", "{260465C4-7968-4430-AD55-61F0803469F9}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cxsparse", "Visual Studio\shared\cxsparse\cxsparse.vcxproj", "{260465C4-7968-4430-AD55-61F0803469F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
