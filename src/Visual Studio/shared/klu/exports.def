@@ -1,4 +1,4 @@
-LIBRARY libklu
+LIBRARY klu
 EXPORTS
     SuiteSparse_version
 

@@ -1,4 +1,4 @@
-LIBRARY libcsparse
+LIBRARY csparse
 EXPORTS
     cs_add
     cs_cholsol

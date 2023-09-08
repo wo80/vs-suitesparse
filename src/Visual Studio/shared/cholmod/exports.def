@@ -1,4 +1,4 @@
-LIBRARY libcholmod
+LIBRARY cholmod
 EXPORTS
     SuiteSparse_version
 

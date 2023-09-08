@@ -1,4 +1,4 @@
-LIBRARY libumfpack
+LIBRARY umfpack
 EXPORTS
     SuiteSparse_version
 

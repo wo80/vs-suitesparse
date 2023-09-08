@@ -1,4 +1,4 @@
-LIBRARY libspqr
+LIBRARY spqr
 EXPORTS
     SuiteSparse_version
     SuiteSparse_free

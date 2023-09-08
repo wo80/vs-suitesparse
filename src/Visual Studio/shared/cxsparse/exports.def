@@ -1,4 +1,4 @@
-LIBRARY libcxsparse
+LIBRARY cxsparse
 EXPORTS
     SuiteSparse_version
 
