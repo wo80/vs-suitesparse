@@ -1,6 +1,15 @@
 LIBRARY amd
 EXPORTS
+    SuiteSparse_start
+    SuiteSparse_finish
+    SuiteSparse_malloc
+    SuiteSparse_calloc
+    SuiteSparse_realloc
+    SuiteSparse_tic
+    SuiteSparse_toc
+    SuiteSparse_time
     SuiteSparse_version
+    SuiteSparse_free
 
     amd_order
     amd_valid
