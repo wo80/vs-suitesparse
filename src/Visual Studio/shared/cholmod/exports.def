@@ -27,6 +27,8 @@ EXPORTS
     cholmod_band_inplace
     cholmod_bisect
     cholmod_calloc
+    cholmod_camd
+    cholmod_ccolamd
     cholmod_change_factor
     cholmod_check_common
     cholmod_check_dense
@@ -38,12 +40,14 @@ EXPORTS
     cholmod_check_triplet
     cholmod_clear_flag
     cholmod_colamd
+    cholmod_collapse_septree
     cholmod_copy
     cholmod_copy_dense
     cholmod_copy_dense2
     cholmod_copy_factor
     cholmod_copy_sparse
     cholmod_copy_triplet
+    cholmod_csymamd
     cholmod_defaults
     cholmod_dense_to_sparse
     cholmod_dense_xtype
@@ -66,6 +70,7 @@ EXPORTS
     cholmod_free_work
     cholmod_horzcat
     cholmod_hypot
+    cholmod_lsolve_pattern
     cholmod_malloc
     cholmod_maxrank
     cholmod_metis
@@ -78,7 +83,6 @@ EXPORTS
     cholmod_pack_factor
     cholmod_postorder
     cholmod_print_common
-    cholmod_print_common
     cholmod_print_dense
     cholmod_print_factor
     cholmod_print_parent
@@ -87,7 +91,9 @@ EXPORTS
     cholmod_print_subset
     cholmod_print_triplet
     cholmod_ptranspose
+    cholmod_rcond
     cholmod_read_dense
+    cholmod_read_matrix
     cholmod_read_sparse
     cholmod_read_triplet
     cholmod_realloc
@@ -98,6 +104,7 @@ EXPORTS
     cholmod_reallocate_triplet
     cholmod_resymbol
     cholmod_resymbol_noperm
+    cholmod_row_lsubtree
     cholmod_row_subtree
     cholmod_rowadd
     cholmod_rowadd_mark
@@ -137,6 +144,7 @@ EXPORTS
     cholmod_updown_mask
     cholmod_updown_mask2
     cholmod_updown_solve
+    cholmod_version
     cholmod_vertcat
     cholmod_write_dense
     cholmod_write_sparse
@@ -158,6 +166,8 @@ EXPORTS
     cholmod_l_band_inplace
     cholmod_l_bisect
     cholmod_l_calloc
+    cholmod_l_camd
+    cholmod_l_ccolamd
     cholmod_l_change_factor
     cholmod_l_check_common
     cholmod_l_check_dense
@@ -169,12 +179,14 @@ EXPORTS
     cholmod_l_check_triplet
     cholmod_l_clear_flag
     cholmod_l_colamd
+    cholmod_l_collapse_septree
     cholmod_l_copy
     cholmod_l_copy_dense
     cholmod_l_copy_dense2
     cholmod_l_copy_factor
     cholmod_l_copy_sparse
     cholmod_l_copy_triplet
+    cholmod_l_csymamd
     cholmod_l_defaults
     cholmod_l_dense_to_sparse
     cholmod_l_dense_xtype
@@ -197,6 +209,7 @@ EXPORTS
     cholmod_l_free_work
     cholmod_l_horzcat
     cholmod_l_hypot
+    cholmod_l_lsolve_pattern
     cholmod_l_malloc
     cholmod_l_maxrank
     cholmod_l_metis
@@ -209,7 +222,6 @@ EXPORTS
     cholmod_l_pack_factor
     cholmod_l_postorder
     cholmod_l_print_common
-    cholmod_l_print_common
     cholmod_l_print_dense
     cholmod_l_print_factor
     cholmod_l_print_parent
@@ -218,7 +230,9 @@ EXPORTS
     cholmod_l_print_subset
     cholmod_l_print_triplet
     cholmod_l_ptranspose
+    cholmod_l_rcond
     cholmod_l_read_dense
+    cholmod_l_read_matrix
     cholmod_l_read_sparse
     cholmod_l_read_triplet
     cholmod_l_realloc
@@ -229,6 +243,7 @@ EXPORTS
     cholmod_l_reallocate_triplet
     cholmod_l_resymbol
     cholmod_l_resymbol_noperm
+    cholmod_l_row_lsubtree
     cholmod_l_row_subtree
     cholmod_l_rowadd
     cholmod_l_rowadd_mark
@@ -268,6 +283,7 @@ EXPORTS
     cholmod_l_updown_mask
     cholmod_l_updown_mask2
     cholmod_l_updown_solve
+    cholmod_l_version
     cholmod_l_vertcat
     cholmod_l_write_dense
     cholmod_l_write_sparse
