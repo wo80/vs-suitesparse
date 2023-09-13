@@ -25,6 +25,7 @@
     <ClCompile Include="..\..\..\SuiteSparse\SPQR\Source\spqr_analyze.cpp" />
     <ClCompile Include="..\..\..\SuiteSparse\SPQR\Source\spqr_append.cpp" />
     <ClCompile Include="..\..\..\SuiteSparse\SPQR\Source\spqr_assemble.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\SPQR\Source\spqr_cholmod_wrappers.cpp" />
     <ClCompile Include="..\..\..\SuiteSparse\SPQR\Source\spqr_cpack.cpp" />
     <ClCompile Include="..\..\..\SuiteSparse\SPQR\Source\spqr_csize.cpp" />
     <ClCompile Include="..\..\..\SuiteSparse\SPQR\Source\spqr_cumsum.cpp" />

@@ -135,5 +135,8 @@
     <ClCompile Include="..\..\..\SuiteSparse\SPQR\Source\SuiteSparseQR_qmult.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\SPQR\Source\spqr_cholmod_wrappers.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

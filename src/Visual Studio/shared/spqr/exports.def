@@ -13,3 +13,5 @@ EXPORTS
     SuiteSparseQR_C_free
     SuiteSparseQR_C_solve
     SuiteSparseQR_C_qmult
+    SuiteSparseQR_i_C
+    SuiteSparseQR_i_C_QR
