@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.1.32228.430
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "AMD", "Visual Studio\static\AMD\AMD.vcxproj", "{363370C3-13F8-4EF2-8F32-35282F7AE255}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "amd_static", "Visual Studio\static\AMD\AMD.vcxproj", "{363370C3-13F8-4EF2-8F32-35282F7AE255}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{D8840865-D20E-4C15-80B0-54C822A65E7C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SuiteSparse_config", "Visual Studio\static\SuiteSparse_config\SuiteSparse_config.vcxproj", "{C16CF823-472C-4DC4-9A46-C1B7F8832721}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "suitesparse_config_static", "Visual Studio\static\SuiteSparse_config\SuiteSparse_config.vcxproj", "{C16CF823-472C-4DC4-9A46-C1B7F8832721}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CAMD", "Visual Studio\static\CAMD\CAMD.vcxproj", "{37AC03AC-D08D-4DC7-BAFA-A42668F26FDE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "camd_static", "Visual Studio\static\CAMD\CAMD.vcxproj", "{37AC03AC-D08D-4DC7-BAFA-A42668F26FDE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CCOLAMD", "Visual Studio\static\CCOLAMD\CCOLAMD.vcxproj", "{0ADA7D88-1D80-4EE6-B4F1-4C24B6FA2E30}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ccolamd_static", "Visual Studio\static\CCOLAMD\CCOLAMD.vcxproj", "{0ADA7D88-1D80-4EE6-B4F1-4C24B6FA2E30}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "COLAMD", "Visual Studio\static\COLAMD\COLAMD.vcxproj", "{5440B090-54F7-4F68-A6F8-8FF4407BA94D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "colamd_static", "Visual Studio\static\COLAMD\COLAMD.vcxproj", "{5440B090-54F7-4F68-A6F8-8FF4407BA94D}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cholmod", "Visual Studio\shared\cholmod\cholmod.vcxproj", "{217979AF-AAC8-478E-AB7A-3709F4A455F6}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -22,18 +22,18 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cholmod", "Visual Studio\sh
 		{DEDB9F5A-04AD-4151-A886-69361FFE0D1C} = {DEDB9F5A-04AD-4151-A886-69361FFE0D1C}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CHOLMOD", "Visual Studio\static\CHOLMOD\CHOLMOD.vcxproj", "{9F7D4E16-A582-4B8E-9781-BF5A100395A9}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cholmod_static", "Visual Studio\static\CHOLMOD\CHOLMOD.vcxproj", "{9F7D4E16-A582-4B8E-9781-BF5A100395A9}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CSparse", "Visual Studio\static\CSparse\CSparse.vcxproj", "{4A1D2586-FE46-4AF9-A50B-6D551D68E6AB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "csparse_static", "Visual Studio\static\CSparse\CSparse.vcxproj", "{4A1D2586-FE46-4AF9-A50B-6D551D68E6AB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CXSparse", "Visual Studio\static\CXSparse\CXSparse.vcxproj", "{6C40C83C-F087-4297-B178-D7AC6854858E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cxsparse_static", "Visual Studio\static\CXSparse\CXSparse.vcxproj", "{6C40C83C-F087-4297-B178-D7AC6854858E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "csparse", "Visual Studio\shared\csparse\csparse.vcxproj", "{D98139B6-BB95-4CDD-A81C-928FD768F43D}"
 	ProjectSection(ProjectDependencies) = postProject
 		{4A1D2586-FE46-4AF9-A50B-6D551D68E6AB} = {4A1D2586-FE46-4AF9-A50B-6D551D68E6AB}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "UMFPACK", "Visual Studio\static\UMFPACK\UMFPACK.vcxproj", "{4D6C0FED-E45A-4790-9873-B6BAA9E3AF40}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "umfpack_static", "Visual Studio\static\UMFPACK\UMFPACK.vcxproj", "{4D6C0FED-E45A-4790-9873-B6BAA9E3AF40}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "umfpack", "Visual Studio\shared\umfpack\umfpack.vcxproj", "{DDAC4AB0-1C9D-45C5-94C7-7A31C94EDF83}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -53,11 +53,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "spqr", "Visual Studio\share
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "static", "static", "{22826D4B-958B-42ED-8CA9-F6604C6157F1}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SPQR", "Visual Studio\static\SPQR\SPQR.vcxproj", "{EAEE47D7-78FB-44EF-A9B1-52182025CF42}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "spqr_static", "Visual Studio\static\SPQR\SPQR.vcxproj", "{EAEE47D7-78FB-44EF-A9B1-52182025CF42}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "BTF", "Visual Studio\static\BTF\BTF.vcxproj", "{F9FB79A9-CED0-4770-B053-5B56878560FA}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "btf_static", "Visual Studio\static\BTF\BTF.vcxproj", "{F9FB79A9-CED0-4770-B053-5B56878560FA}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KLU", "Visual Studio\static\KLU\KLU.vcxproj", "{95C13B60-CA5E-4C82-912D-081C326DB18D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "klu_static", "Visual Studio\static\KLU\KLU.vcxproj", "{95C13B60-CA5E-4C82-912D-081C326DB18D}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "paru_static", "Visual Studio\static\ParU\ParU.vcxproj", "{B7B9962E-8364-486B-A3F4-B9862BA5B2D4}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "klu", "Visual Studio\shared\klu\klu.vcxproj", "{B908439C-701C-45C5-B478-11972FEF26A4}"
 	ProjectSection(ProjectDependencies) = postProject
@@ -92,6 +94,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libsuitesparse", "Visual St
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "cxsparse", "Visual Studio\shared\cxsparse\cxsparse.vcxproj", "{260465C4-7968-4430-AD55-61F0803469F9}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "paru", "Visual Studio\shared\paru\paru.vcxproj", "{FAF917A5-8F97-4E8A-860B-69E9887A5BD9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -261,6 +265,22 @@ Global
 		{260465C4-7968-4430-AD55-61F0803469F9}.Release|Win32.Build.0 = Release|Win32
 		{260465C4-7968-4430-AD55-61F0803469F9}.Release|x64.ActiveCfg = Release|x64
 		{260465C4-7968-4430-AD55-61F0803469F9}.Release|x64.Build.0 = Release|x64
+		{B7B9962E-8364-486B-A3F4-B9862BA5B2D4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B7B9962E-8364-486B-A3F4-B9862BA5B2D4}.Debug|Win32.Build.0 = Debug|Win32
+		{B7B9962E-8364-486B-A3F4-B9862BA5B2D4}.Debug|x64.ActiveCfg = Debug|x64
+		{B7B9962E-8364-486B-A3F4-B9862BA5B2D4}.Debug|x64.Build.0 = Debug|x64
+		{B7B9962E-8364-486B-A3F4-B9862BA5B2D4}.Release|Win32.ActiveCfg = Release|Win32
+		{B7B9962E-8364-486B-A3F4-B9862BA5B2D4}.Release|Win32.Build.0 = Release|Win32
+		{B7B9962E-8364-486B-A3F4-B9862BA5B2D4}.Release|x64.ActiveCfg = Release|x64
+		{B7B9962E-8364-486B-A3F4-B9862BA5B2D4}.Release|x64.Build.0 = Release|x64
+		{FAF917A5-8F97-4E8A-860B-69E9887A5BD9}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FAF917A5-8F97-4E8A-860B-69E9887A5BD9}.Debug|Win32.Build.0 = Debug|Win32
+		{FAF917A5-8F97-4E8A-860B-69E9887A5BD9}.Debug|x64.ActiveCfg = Debug|x64
+		{FAF917A5-8F97-4E8A-860B-69E9887A5BD9}.Debug|x64.Build.0 = Debug|x64
+		{FAF917A5-8F97-4E8A-860B-69E9887A5BD9}.Release|Win32.ActiveCfg = Release|Win32
+		{FAF917A5-8F97-4E8A-860B-69E9887A5BD9}.Release|Win32.Build.0 = Release|Win32
+		{FAF917A5-8F97-4E8A-860B-69E9887A5BD9}.Release|x64.ActiveCfg = Release|x64
+		{FAF917A5-8F97-4E8A-860B-69E9887A5BD9}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -286,6 +306,8 @@ Global
 		{DEDB9F5A-04AD-4151-A886-69361FFE0D1C} = {D8840865-D20E-4C15-80B0-54C822A65E7C}
 		{C59B1D75-CE65-4E33-AD81-430F334DB8D7} = {D8840865-D20E-4C15-80B0-54C822A65E7C}
 		{260465C4-7968-4430-AD55-61F0803469F9} = {D8840865-D20E-4C15-80B0-54C822A65E7C}
+		{B7B9962E-8364-486B-A3F4-B9862BA5B2D4} = {22826D4B-958B-42ED-8CA9-F6604C6157F1}
+		{FAF917A5-8F97-4E8A-860B-69E9887A5BD9} = {D8840865-D20E-4C15-80B0-54C822A65E7C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5595FCF2-498D-4BCC-91D6-B889791E43DC}
