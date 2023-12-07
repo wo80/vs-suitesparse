@@ -150,6 +150,7 @@
     <ClCompile Include="..\..\..\SuiteSparse\BTF\Source\btf_maxtrans.c" />
     <ClCompile Include="..\..\..\SuiteSparse\BTF\Source\btf_order.c" />
     <ClCompile Include="..\..\..\SuiteSparse\BTF\Source\btf_strongcomp.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\BTF\Source\btf_version.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -21,5 +21,8 @@
     <ClCompile Include="..\..\..\SuiteSparse\CCOLAMD\Source\ccolamd_l.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CCOLAMD\Source\ccolamd_version.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

@@ -252,6 +252,7 @@
     <ClCompile Include="..\..\..\SuiteSparse\UMFPACK\Source2\umfpack_dl_wsolve.c" />
     <ClCompile Include="..\..\..\SuiteSparse\UMFPACK\Source2\umfpack_gn_tictoc.c" />
     <ClCompile Include="..\..\..\SuiteSparse\UMFPACK\Source2\umfpack_gn_timer.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\UMFPACK\Source2\umfpack_version.c" />
     <ClCompile Include="..\..\..\SuiteSparse\UMFPACK\Source2\umfpack_zi_col_to_triplet.c" />
     <ClCompile Include="..\..\..\SuiteSparse\UMFPACK\Source2\umfpack_zi_copy_numeric.c" />
     <ClCompile Include="..\..\..\SuiteSparse\UMFPACK\Source2\umfpack_zi_copy_symbolic.c" />

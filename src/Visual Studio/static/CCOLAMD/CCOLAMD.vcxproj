@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="..\..\..\SuiteSparse\CCOLAMD\Source\ccolamd.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CCOLAMD\Source\ccolamd_l.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CCOLAMD\Source\ccolamd_version.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{0ADA7D88-1D80-4EE6-B4F1-4C24B6FA2E30}</ProjectGuid>

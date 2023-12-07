@@ -41,6 +41,7 @@
     <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_postorder.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_preprocess.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_valid.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CAMD\Source\camd_version.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{37AC03AC-D08D-4DC7-BAFA-A42668F26FDE}</ProjectGuid>

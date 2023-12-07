@@ -178,6 +178,7 @@
     <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_solve.c" />
     <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_sort.c" />
     <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_tsolve.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_version.c" />
     <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_z.c" />
     <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl.c" />
     <ClCompile Include="..\..\..\SuiteSparse\KLU\Source\klu_zl_diagnostics.c" />

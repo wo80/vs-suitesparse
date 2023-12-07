@@ -152,6 +152,7 @@
     <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_post_tree.c" />
     <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_preprocess.c" />
     <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_valid.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_version.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

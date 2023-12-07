@@ -70,6 +70,7 @@
     <ClCompile Include="..\..\..\SuiteSparse\CXSparse\Source\cs_usolve.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CXSparse\Source\cs_util.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CXSparse\Source\cs_utsolve.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CXSparse\Source\cxsparse_version.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6C40C83C-F087-4297-B178-D7AC6854858E}</ProjectGuid>

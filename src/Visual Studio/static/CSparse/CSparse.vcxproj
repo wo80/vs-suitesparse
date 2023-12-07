@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\SuiteSparse\CSparse\Source\csparse_version.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CSparse\Source\cs_add.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CSparse\Source\cs_amd.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CSparse\Source\cs_chol.c" />
