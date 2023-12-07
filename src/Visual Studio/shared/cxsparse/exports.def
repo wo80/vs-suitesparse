@@ -2,6 +2,8 @@ LIBRARY cxsparse
 EXPORTS
     SuiteSparse_version
 
+    cxsparse_version
+
     cs_di_add
     cs_di_cholsol
     cs_di_dupl

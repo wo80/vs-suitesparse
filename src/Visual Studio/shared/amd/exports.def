@@ -19,6 +19,7 @@ EXPORTS
     amd_2
     amd_aat
     amd_postorder
+    amd_version
 
     camd_order
     camd_valid
@@ -27,11 +28,13 @@ EXPORTS
     camd_control
     camd_info
     camd_2
+    camd_version
     
     colamd_recommended
     colamd_set_defaults
     colamd
     colamd_report
+    colamd_version
     symamd
     symamd_report
 
@@ -39,6 +42,7 @@ EXPORTS
     ccolamd_set_defaults
     ccolamd
     ccolamd_report
+    ccolamd_version
     csymamd
     csymamd_report
 

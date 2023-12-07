@@ -1,5 +1,7 @@
 LIBRARY csparse
 EXPORTS
+    csparse_version
+
     cs_add
     cs_cholsol
     cs_compress

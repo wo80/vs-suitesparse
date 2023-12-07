@@ -21,6 +21,7 @@ EXPORTS
     klu_realloc
     klu_add_size_t
     klu_mult_size_t
+    klu_version
 
     klu_l_analyze
     klu_l_analyze_given
@@ -120,6 +121,7 @@ EXPORTS
     btf_maxtrans
     btf_order
     btf_strongcomp
+    btf_version
 
     btf_l_maxtrans
     btf_l_order

@@ -19,6 +19,7 @@ EXPORTS
     amd_2
     amd_aat
     amd_postorder
+    amd_version
 
     camd_order
     camd_valid
@@ -27,11 +28,13 @@ EXPORTS
     camd_control
     camd_info
     camd_2
+    camd_version
 
     colamd_recommended
     colamd_set_defaults
     colamd
     colamd_report
+    colamd_version
     symamd
     symamd_report
 
@@ -39,6 +42,7 @@ EXPORTS
     ccolamd_set_defaults
     ccolamd
     ccolamd_report
+    ccolamd_version
     csymamd
     csymamd_report
 
@@ -351,6 +355,7 @@ EXPORTS
     cholmod_l_write_sparse
     cholmod_l_zeros
 
+    csparse_version
     cs_add
     cs_cholsol
     cs_compress
@@ -398,6 +403,7 @@ EXPORTS
     cs_spsolve
     cs_tdfs
 
+    cxsparse_version
     cs_di_add
     cs_di_cholsol
     cs_di_dupl
@@ -530,6 +536,7 @@ EXPORTS
     klu_realloc
     klu_add_size_t
     klu_mult_size_t
+    klu_version
 
     klu_l_analyze
     klu_l_analyze_given
@@ -621,6 +628,7 @@ EXPORTS
     btf_maxtrans
     btf_order
     btf_strongcomp
+    btf_version
 
     btf_l_maxtrans
     btf_l_order
@@ -637,7 +645,11 @@ EXPORTS
     SuiteSparseQR_C_free
     SuiteSparseQR_C_solve
     SuiteSparseQR_C_qmult
+    SuiteSparseQR_C_version
+    SuiteSparseQR_i_C
+    SuiteSparseQR_i_C_QR
 
+    umfpack_version
     umfpack_di_col_to_triplet
     umfpack_di_defaults
     umfpack_di_free_numeric
