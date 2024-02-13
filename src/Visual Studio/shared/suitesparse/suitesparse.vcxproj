@@ -21,7 +21,7 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{C59B1D75-CE65-4E33-AD81-430F334DB8D7}</ProjectGuid>
-    <RootNamespace>libsuitesparse</RootNamespace>
+    <RootNamespace>suitesparse</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />

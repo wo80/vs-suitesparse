@@ -78,7 +78,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "amd", "Visual Studio\shared
 		{C16CF823-472C-4DC4-9A46-C1B7F8832721} = {C16CF823-472C-4DC4-9A46-C1B7F8832721}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libsuitesparse", "Visual Studio\shared\suitesparse\libsuitesparse.vcxproj", "{C59B1D75-CE65-4E33-AD81-430F334DB8D7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "suitesparse", "Visual Studio\shared\suitesparse\suitesparse.vcxproj", "{C59B1D75-CE65-4E33-AD81-430F334DB8D7}"
 	ProjectSection(ProjectDependencies) = postProject
 		{0ADA7D88-1D80-4EE6-B4F1-4C24B6FA2E30} = {0ADA7D88-1D80-4EE6-B4F1-4C24B6FA2E30}
 		{363370C3-13F8-4EF2-8F32-35282F7AE255} = {363370C3-13F8-4EF2-8F32-35282F7AE255}
