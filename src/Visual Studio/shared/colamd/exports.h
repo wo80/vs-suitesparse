@@ -4,7 +4,6 @@
 #define EXPORT __declspec(dllexport)
 
 #include <colamd.h>
-#include <ccolamd.h>
 
 /* make it easy for C++ programs to include exported methods */
 #ifdef __cplusplus
@@ -21,16 +20,14 @@ EXPORT int symamd_C  /* return (1) if OK, (0) otherwise */
     int stats[COLAMD_STATS]  /* output statistics and error codes */
 );
 
-EXPORT int csymamd_C  /* return (1) if OK, (0) otherwise */
+EXPORT int symamd_l_C
 (
-    int n,  /* number of rows and columns of A */
-    int A[],  /* row indices of A */
-    int p[],  /* column pointers of A */
-    int perm[],  /* output permutation, size n_col+1 */
-    double knobs [CCOLAMD_KNOBS],/* parameters (uses defaults if NULL) */
-    int stats [CCOLAMD_STATS], /* output statistics and error codes */
-    int cmember[], /* Constraint set of A */
-    int stype /* 0: use both parts, >0: upper, <0: lower */
+    SuiteSparse_long n,
+    SuiteSparse_long A[],
+    SuiteSparse_long p[],
+    SuiteSparse_long perm[],
+    double knobs[COLAMD_KNOBS],
+    SuiteSparse_long stats[COLAMD_STATS]
 );
 
 #ifdef __cplusplus

@@ -1,0 +1,27 @@
+LIBRARY ccolamd
+EXPORTS
+    SuiteSparse_start
+    SuiteSparse_finish
+    SuiteSparse_malloc
+    SuiteSparse_calloc
+    SuiteSparse_realloc
+    SuiteSparse_tic
+    SuiteSparse_toc
+    SuiteSparse_time
+    SuiteSparse_version
+    SuiteSparse_free
+
+    ccolamd_recommended
+    ccolamd_set_defaults
+    ccolamd
+    ccolamd_report
+    ccolamd_version
+    csymamd
+    csymamd_report
+
+    ccolamd_l_recommended
+    ccolamd_l_set_defaults
+    ccolamd_l
+    ccolamd_l_report
+    csymamd_l
+    csymamd_l_report
