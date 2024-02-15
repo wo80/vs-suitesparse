@@ -41,9 +41,11 @@ namespace suitesparse
 
     class Updater
     {
-        const string URL = "https://raw.githubusercontent.com/DrTimothyAldenDavis/SuiteSparse/master/SuiteSparse_config/SuiteSparse_config.mk";
+        const string URL = "https://raw.githubusercontent.com/DrTimothyAldenDavis/SuiteSparse/dev/SuiteSparse_config/CMakeLists.txt";
         const string DL = "https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/refs/heads/master.zip";
-        const string RX = "SUITESPARSE_VERSION = ([\\.\\d]+)";
+        const string RX_MAJOR = "SUITESPARSE_VERSION_MAJOR\\s+([\\.\\d]+)";
+        const string RX_MINOR = "SUITESPARSE_VERSION_MINOR\\s+([\\.\\d]+)";
+        const string RX_SUB = "SUITESPARSE_VERSION_SUB\\s+([\\.\\d]+)";
 
         public static async Task Run(string[] args)
         {
@@ -53,17 +55,17 @@ namespace suitesparse
 
             if (args.IsNullOrEmpty())
             {
-                args = new string[] { "-check" };
+                args = new string[] { "--check" };
             }
 
             foreach (var item in args)
             {
-                if (item.Equals("-check", StringComparison.OrdinalIgnoreCase))
+                if (item.Equals("--check", StringComparison.OrdinalIgnoreCase))
                 {
                     Console.WriteLine("Installed version: " + task.GetInstalledVersion());
                     Console.WriteLine("Latest version: " + await task.GetLatestVersion());
                 }
-                else if (item.Equals("-download", StringComparison.OrdinalIgnoreCase))
+                else if (item.Equals("--download", StringComparison.OrdinalIgnoreCase))
                 {
                     Console.WriteLine("Latest version: " + await task.GetLatestVersion());
 
@@ -113,11 +115,13 @@ namespace suitesparse
             {
                 string page = await client.GetStringAsync(URL);
 
-                var match = Regex.Match(page, RX);
+                var m1 = Regex.Match(page, RX_MAJOR);
+                var m2 = Regex.Match(page, RX_MINOR);
+                var m3 = Regex.Match(page, RX_SUB);
 
-                if (match.Success)
+                if (m1.Success && m2.Success && m3.Success)
                 {
-                    latestVersion = match.Groups[1].Value;
+                    latestVersion = m1.Groups[1].Value + "." + m2.Groups[1].Value + "." + m3.Groups[1].Value;
                     downloadUrl = DL.Replace("{version}", latestVersion);
                 }
             }
@@ -173,26 +177,27 @@ namespace suitesparse
         {
             ".github",
             "bin",
-            "CXSparse_newfiles",
-            "GraphBLAS",
             "GPUQREngine",
+            "GraphBLAS",
             "include",
             "lib",
             "MATLAB_Tools",
             "Mongoose",
             "RBio",
-            "SLIP_LU",
-            "SuiteSparse_GPURuntime",
-            "share",
-            "ssget"
+            "SPEX",
+            "ssget",
+            "SuiteSparse_GPURuntime"
         };
         static string[] files = new string[]
         {
+            ".gitattributes",
+            ".gitignore",
             "Contents.m",
             "CSparse_to_CXSparse",
             "Makefile",
             "SuiteSparse_demo.m",
             "SuiteSparse_install.m",
+            "SuiteSparse_paths.m",
             "SuiteSparse_test.m"
         };
 
@@ -204,12 +209,12 @@ namespace suitesparse
 
             if (args.IsNullOrEmpty())
             {
-                args = new string[] { "-default" };
+                args = new string[] { "--default" };
             }
 
             foreach (var item in args)
             {
-                if (item.Equals("-all", StringComparison.OrdinalIgnoreCase))
+                if (item.Equals("--all", StringComparison.OrdinalIgnoreCase))
                 {
                     task.CleanupDefault();
                     task.CleanupDocs();
@@ -218,23 +223,23 @@ namespace suitesparse
                     task.CleanupMatlab();
                     task.CleanupBuild();
                 }
-                else if (item.Equals("-default", StringComparison.OrdinalIgnoreCase))
+                else if (item.Equals("--default", StringComparison.OrdinalIgnoreCase))
                 {
                     task.CleanupDefault();
                 }
-                else if (item.Equals("-docs", StringComparison.OrdinalIgnoreCase))
+                else if (item.Equals("--docs", StringComparison.OrdinalIgnoreCase))
                 {
                     task.CleanupDocs();
                 }
-                else if (item.Equals("-tests", StringComparison.OrdinalIgnoreCase))
+                else if (item.Equals("--tests", StringComparison.OrdinalIgnoreCase))
                 {
                     task.CleanupTests();
                 }
-                else if (item.Equals("-matlab", StringComparison.OrdinalIgnoreCase))
+                else if (item.Equals("--matlab", StringComparison.OrdinalIgnoreCase))
                 {
                     task.CleanupMatlab();
                 }
-                else if (item.Equals("-build", StringComparison.OrdinalIgnoreCase))
+                else if (item.Equals("--build", StringComparison.OrdinalIgnoreCase))
                 {
                     task.CleanupBuild();
                 }

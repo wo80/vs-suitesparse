@@ -19,9 +19,6 @@
     <Filter Include="Source Files\Cholesky">
       <UniqueIdentifier>{ac2a7ec0-31af-45a8-a07d-6066e94c4760}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Core">
-      <UniqueIdentifier>{8e1754d6-8f96-4818-9fd2-b5b55c785a04}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\MatrixOps">
       <UniqueIdentifier>{f77b3311-c675-469d-875d-c80842111172}</UniqueIdentifier>
     </Filter>
@@ -33,6 +30,9 @@
     </Filter>
     <Filter Include="Source Files\Supernodal">
       <UniqueIdentifier>{9d103bf3-1c49-45fa-9726-9598079e678a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Utility">
+      <UniqueIdentifier>{521c7379-ddb7-4a11-9b7a-71f9cdbd8e15}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -80,51 +80,6 @@
     </ClCompile>
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_spsolve.c">
       <Filter>Source Files\Cholesky</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_aat.c">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_add.c">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_band.c">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_change_factor.c">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_common.c">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_complex.c">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_copy.c">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_dense.c">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_error.c">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_factor.c">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_memory.c">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_sparse.c">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_transpose.c">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_triplet.c">
-      <Filter>Source Files\Core</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Core\cholmod_version.c">
-      <Filter>Source Files\Core</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_drop.c">
       <Filter>Source Files\MatrixOps</Filter>
@@ -185,6 +140,528 @@
     </ClCompile>
     <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Partition\cholmod_metis.c">
       <Filter>Source Files\Partition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Check\cholmod_l_check.c">
+      <Filter>Source Files\Check</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Check\cholmod_l_read.c">
+      <Filter>Source Files\Check</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Check\cholmod_l_write.c">
+      <Filter>Source Files\Check</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_amd.c">
+      <Filter>Source Files\Cholesky</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_analyze.c">
+      <Filter>Source Files\Cholesky</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_colamd.c">
+      <Filter>Source Files\Cholesky</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_etree.c">
+      <Filter>Source Files\Cholesky</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_factorize.c">
+      <Filter>Source Files\Cholesky</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_postorder.c">
+      <Filter>Source Files\Cholesky</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_rcond.c">
+      <Filter>Source Files\Cholesky</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_resymbol.c">
+      <Filter>Source Files\Cholesky</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_rowcolcounts.c">
+      <Filter>Source Files\Cholesky</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_rowfac.c">
+      <Filter>Source Files\Cholesky</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_solve.c">
+      <Filter>Source Files\Cholesky</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Cholesky\cholmod_l_spsolve.c">
+      <Filter>Source Files\Cholesky</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_l_drop.c">
+      <Filter>Source Files\MatrixOps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_l_horzcat.c">
+      <Filter>Source Files\MatrixOps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_l_norm.c">
+      <Filter>Source Files\MatrixOps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_l_scale.c">
+      <Filter>Source Files\MatrixOps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_l_sdmult.c">
+      <Filter>Source Files\MatrixOps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_l_ssmult.c">
+      <Filter>Source Files\MatrixOps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_l_submatrix.c">
+      <Filter>Source Files\MatrixOps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_l_symmetry.c">
+      <Filter>Source Files\MatrixOps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\MatrixOps\cholmod_l_vertcat.c">
+      <Filter>Source Files\MatrixOps</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Modify\cholmod_l_rowadd.c">
+      <Filter>Source Files\Modify</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Modify\cholmod_l_rowdel.c">
+      <Filter>Source Files\Modify</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Modify\cholmod_l_updown.c">
+      <Filter>Source Files\Modify</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Supernodal\cholmod_l_super_numeric.c">
+      <Filter>Source Files\Supernodal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Supernodal\cholmod_l_super_solve.c">
+      <Filter>Source Files\Supernodal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Supernodal\cholmod_l_super_symbolic.c">
+      <Filter>Source Files\Supernodal</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Partition\cholmod_metis_wrapper.c">
+      <Filter>Source Files\Partition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Partition\cholmod_l_camd.c">
+      <Filter>Source Files\Partition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Partition\cholmod_l_ccolamd.c">
+      <Filter>Source Files\Partition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Partition\cholmod_l_csymamd.c">
+      <Filter>Source Files\Partition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Partition\cholmod_l_metis.c">
+      <Filter>Source Files\Partition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Partition\cholmod_l_nesdis.c">
+      <Filter>Source Files\Partition</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_aat.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_add.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_add_size_t.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_alloc_factor.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_alloc_work.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_allocate_dense.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_allocate_factor.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_allocate_sparse.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_allocate_triplet.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_allocate_work.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_band.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_band_nnz.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_calloc.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_change_factor.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_clear_flag.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_copy.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_copy_dense.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_copy_dense2.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_copy_factor.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_copy_sparse.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_copy_triplet.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_cumsum.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_dbound.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_defaults.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_dense_nnz.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_dense_to_sparse.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_divcomplex.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_ensure_dense.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_error.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_eye.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_factor_to_sparse.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_finish.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_free.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_free_dense.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_free_factor.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_free_sparse.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_free_triplet.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_free_work.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_hypot.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_aat.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_add.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_add_size_t.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_alloc_factor.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_alloc_work.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_allocate_dense.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_allocate_factor.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_allocate_sparse.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_allocate_triplet.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_allocate_work.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_band.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_band_nnz.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_calloc.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_change_factor.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_clear_flag.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_copy.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_copy_dense.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_copy_dense2.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_copy_factor.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_copy_sparse.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_copy_triplet.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_cumsum.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_dbound.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_defaults.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_dense_nnz.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_dense_to_sparse.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_divcomplex.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_ensure_dense.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_error.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_eye.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_factor_to_sparse.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_finish.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_free.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_free_dense.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_free_factor.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_free_sparse.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_free_triplet.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_free_work.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_hypot.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_malloc.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_maxrank.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_mult_size_t.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_nnz.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_ones.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_pack_factor.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_ptranspose.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_realloc.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_realloc_multiple.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_reallocate_column.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_reallocate_factor.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_reallocate_sparse.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_reallocate_triplet.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_sbound.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_score_comp.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_set_empty.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_sort.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_sparse_to_dense.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_sparse_to_triplet.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_speye.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_spzeros.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_start.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_transpose.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_transpose_sym.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_transpose_unsym.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_triplet_to_sparse.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_version.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_xtype.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_l_zeros.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_malloc.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_maxrank.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_memdebug.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_mult_size_t.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_mult_uint64_t.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_nnz.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_ones.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_pack_factor.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_ptranspose.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_realloc.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_realloc_multiple.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_reallocate_column.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_reallocate_factor.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_reallocate_sparse.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_reallocate_triplet.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_sbound.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_score_comp.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_set_empty.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_sort.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_sparse_to_dense.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_sparse_to_triplet.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_speye.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_spzeros.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_start.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_transpose.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_transpose_sym.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_transpose_unsym.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_triplet_to_sparse.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_version.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_xtype.c">
+      <Filter>Source Files\Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CHOLMOD\Utility\cholmod_zeros.c">
+      <Filter>Source Files\Utility</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -70,11 +70,13 @@
     <ClCompile Include="..\..\..\SuiteSparse\CXSparse\Source\cs_usolve.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CXSparse\Source\cs_util.c" />
     <ClCompile Include="..\..\..\SuiteSparse\CXSparse\Source\cs_utsolve.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\CXSparse\Source\cxsparse_version.c" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6C40C83C-F087-4297-B178-D7AC6854858E}</ProjectGuid>
     <RootNamespace>CXSparse</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>cxsparse_static</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -148,6 +150,7 @@
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NCOMPLEX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -176,6 +179,7 @@
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_CRT_SECURE_NO_WARNINGS;NCOMPLEX;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>

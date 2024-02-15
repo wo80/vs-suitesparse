@@ -1,0 +1,16 @@
+LIBRARY spqr
+EXPORTS
+    SuiteSparseQR_C
+    SuiteSparseQR_C_QR
+    SuiteSparseQR_C_backslash
+    SuiteSparseQR_C_backslash_default
+    SuiteSparseQR_C_backslash_sparse
+    SuiteSparseQR_C_factorize
+    SuiteSparseQR_C_symbolic
+    SuiteSparseQR_C_numeric
+    SuiteSparseQR_C_free
+    SuiteSparseQR_C_solve
+    SuiteSparseQR_C_qmult
+    SuiteSparseQR_C_version
+    SuiteSparseQR_i_C
+    SuiteSparseQR_i_C_QR

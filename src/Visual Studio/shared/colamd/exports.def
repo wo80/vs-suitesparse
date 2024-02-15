@@ -1,0 +1,16 @@
+LIBRARY colamd
+EXPORTS
+    colamd_recommended
+    colamd_set_defaults
+    colamd
+    colamd_report
+    colamd_version
+    symamd
+    symamd_report
+
+    colamd_l_recommended
+    colamd_l_set_defaults
+    colamd_l
+    colamd_l_report
+    symamd_l
+    symamd_l_report

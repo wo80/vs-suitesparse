@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{b7b9962e-8364-486b-a3f4-b9862ba5b2d4}</ProjectGuid>
+    <RootNamespace>ParU</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>paru_static</ProjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\CAMD\include;$(SolutionDir)SuiteSparse\CCOLAMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\CHOLMOD\include;$(SolutionDir)SuiteSparse\UMFPACK\include;$(SolutionDir)SuiteSparse\UMFPACK\source;$(SolutionDir)SuiteSparse\ParU\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(SolutionDir)SuiteSparse\SuiteSparse_config;$(SolutionDir)SuiteSparse\AMD\include;$(SolutionDir)SuiteSparse\CAMD\include;$(SolutionDir)SuiteSparse\CCOLAMD\include;$(SolutionDir)SuiteSparse\COLAMD\include;$(SolutionDir)SuiteSparse\CHOLMOD\include;$(SolutionDir)SuiteSparse\UMFPACK\include;$(SolutionDir)SuiteSparse\UMFPACK\source;$(SolutionDir)SuiteSparse\ParU\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>_DEBUG;_CONSOLE;BLAS_UNDERSCORE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;_CONSOLE;BLAS_UNDERSCORE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\SuiteSparse\ParU\Include\ParU.hpp" />
+    <ClInclude Include="..\..\..\SuiteSparse\ParU\Include\ParU_C.h" />
+    <ClInclude Include="..\..\..\SuiteSparse\ParU\Include\ParU_definitions.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_analyze.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_assemble.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_assemble_row2U.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_backward.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_bin_search.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_c.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_create_element.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_cumsum.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_dgemm.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_Diag_update.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_factorize.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_finalize_perm.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_front.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_fs_factorize.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_full_summed.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_gaxpy.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_hash.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_heap.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_init_rel.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_init_rowFronts.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_intersection.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_lsolve.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_mem.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_memcpy.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_memset.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_norms.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_perm.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_pivotal.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_print.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_prior_assemble.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_residual.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_solve.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_tasked_dgemm.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_tasked_trsm.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_trsm.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_tuples.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_update_rel_ind.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_update_rowDeg.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_usolve.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_version.cpp" />
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_write.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

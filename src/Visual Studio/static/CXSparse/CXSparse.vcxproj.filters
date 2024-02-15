@@ -168,5 +168,8 @@
     <ClCompile Include="..\..\..\SuiteSparse\CXSparse\Source\cs_utsolve.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\CXSparse\Source\cxsparse_version.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

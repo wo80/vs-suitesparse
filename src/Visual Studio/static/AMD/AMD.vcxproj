@@ -22,6 +22,7 @@
     <ProjectGuid>{363370C3-13F8-4EF2-8F32-35282F7AE255}</ProjectGuid>
     <RootNamespace>AMD</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>amd_static</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -134,11 +135,24 @@
     <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_defaults.c" />
     <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_dump.c" />
     <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_info.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_l1.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_l2.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_l_aat.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_l_control.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_l_defaults.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_l_dump.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_l_info.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_l_order.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_l_postorder.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_l_post_tree.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_l_preprocess.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_l_valid.c" />
     <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_order.c" />
     <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_postorder.c" />
     <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_post_tree.c" />
     <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_preprocess.c" />
     <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_valid.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\AMD\Source\amd_version.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

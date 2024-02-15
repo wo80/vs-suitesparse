@@ -24,6 +24,7 @@
     <ProjectGuid>{F9FB79A9-CED0-4770-B053-5B56878560FA}</ProjectGuid>
     <RootNamespace>BTF</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+    <ProjectName>btf_static</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -121,6 +122,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -135,6 +137,7 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
@@ -143,9 +146,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\SuiteSparse\BTF\Source\btf_l_maxtrans.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\BTF\Source\btf_l_order.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\BTF\Source\btf_l_strongcomp.c" />
     <ClCompile Include="..\..\..\SuiteSparse\BTF\Source\btf_maxtrans.c" />
     <ClCompile Include="..\..\..\SuiteSparse\BTF\Source\btf_order.c" />
     <ClCompile Include="..\..\..\SuiteSparse\BTF\Source\btf_strongcomp.c" />
+    <ClCompile Include="..\..\..\SuiteSparse\BTF\Source\btf_version.c" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
