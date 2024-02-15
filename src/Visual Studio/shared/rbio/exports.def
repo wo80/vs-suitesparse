@@ -1,0 +1,17 @@
+LIBRARY rbio
+EXPORTS
+    RBkind_i
+    RBkind
+    RBread_i
+    RBread
+    RBreadraw_i
+    RBreadraw
+    RBwrite_i
+    RBwrite
+    RBget_entry_i
+    RBget_entry
+    RBput_entry_i
+    RBput_entry
+    RBok_i
+    RBok
+    RBio_version
