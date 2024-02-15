@@ -1,16 +1,5 @@
 LIBRARY cholmod
 EXPORTS
-    SuiteSparse_start
-    SuiteSparse_finish
-    SuiteSparse_malloc
-    SuiteSparse_calloc
-    SuiteSparse_realloc
-    SuiteSparse_free
-    SuiteSparse_tic
-    SuiteSparse_toc
-    SuiteSparse_time
-    SuiteSparse_version
-
     cholmod_aat
     cholmod_add
     cholmod_allocate_dense

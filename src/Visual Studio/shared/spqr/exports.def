@@ -1,7 +1,5 @@
 LIBRARY spqr
 EXPORTS
-    SuiteSparse_version
-    SuiteSparse_free
     SuiteSparseQR_C
     SuiteSparseQR_C_QR
     SuiteSparseQR_C_backslash

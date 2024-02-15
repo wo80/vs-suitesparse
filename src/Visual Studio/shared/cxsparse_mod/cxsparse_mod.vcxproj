@@ -81,7 +81,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>suitesparseconfig_static.lib;cxsparse_mod_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>suitesparseconfig.lib;cxsparse_mod_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -99,7 +99,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>suitesparseconfig_static.lib;cxsparse_mod_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>suitesparseconfig.lib;cxsparse_mod_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -113,7 +113,7 @@
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
-      <AdditionalDependencies>suitesparseconfig_static.lib;cxsparse_mod_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>suitesparseconfig.lib;cxsparse_mod_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
@@ -132,7 +132,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
-      <AdditionalDependencies>suitesparseconfig_static.lib;cxsparse_mod_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>suitesparseconfig.lib;cxsparse_mod_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>$(OutDir)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>

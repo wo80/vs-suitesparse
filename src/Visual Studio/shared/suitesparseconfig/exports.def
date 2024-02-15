@@ -1,0 +1,39 @@
+LIBRARY suitesparseconfig
+EXPORTS
+    SuiteSparse_config_malloc_func_get
+    SuiteSparse_config_calloc_func_get
+    SuiteSparse_config_realloc_func_get
+    SuiteSparse_config_free_func_get
+    SuiteSparse_config_printf_func_get
+    SuiteSparse_config_hypot_func_get
+    SuiteSparse_config_divcomplex_func_get
+
+    SuiteSparse_config_malloc_func_set
+    SuiteSparse_config_calloc_func_set
+    SuiteSparse_config_realloc_func_set
+    SuiteSparse_config_free_func_set
+    SuiteSparse_config_printf_func_set
+    SuiteSparse_config_hypot_func_set
+    SuiteSparse_config_divcomplex_func_set
+
+    SuiteSparse_config_malloc
+    SuiteSparse_config_calloc
+    SuiteSparse_config_realloc
+    SuiteSparse_config_free
+    SuiteSparse_config_hypot
+    SuiteSparse_config_divcomplex
+
+    SuiteSparse_malloc
+    SuiteSparse_calloc
+    SuiteSparse_realloc
+    SuiteSparse_free
+    SuiteSparse_start
+    SuiteSparse_finish
+    SuiteSparse_tic
+    SuiteSparse_toc
+    SuiteSparse_time
+    SuiteSparse_hypot
+    SuiteSparse_divcomplex
+    SuiteSparse_version
+    SuiteSparse_BLAS_library
+    SuiteSparse_BLAS_integer_size

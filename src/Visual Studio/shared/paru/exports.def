@@ -1,16 +1,5 @@
 LIBRARY paru
 EXPORTS
-    SuiteSparse_start
-    SuiteSparse_finish
-    SuiteSparse_malloc
-    SuiteSparse_calloc
-    SuiteSparse_realloc
-    SuiteSparse_tic
-    SuiteSparse_toc
-    SuiteSparse_time
-    SuiteSparse_version
-    SuiteSparse_free
-
     ParU_C_Version
     ParU_C_Init_Control
     ParU_C_Analyze

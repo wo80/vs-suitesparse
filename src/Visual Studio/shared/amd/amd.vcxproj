@@ -96,7 +96,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>suitesparseconfig_static.lib;amd_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>suitesparseconfig.lib;amd_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
@@ -109,7 +109,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>suitesparseconfig_static.lib;amd_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>suitesparseconfig.lib;amd_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
@@ -126,7 +126,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>suitesparseconfig_static.lib;amd_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>suitesparseconfig.lib;amd_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>
@@ -143,7 +143,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>suitesparseconfig_static.lib;amd_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>suitesparseconfig.lib;amd_static.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ModuleDefinitionFile>exports.def</ModuleDefinitionFile>
     </Link>
   </ItemDefinitionGroup>

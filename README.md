@@ -2,7 +2,6 @@
 
 This is a Visual Studio solution for [SuiteSparse](https://github.com/DrTimothyAldenDavis/SuiteSparse). As of version 7.2, SuiteSparse has a mature CMake build system, making this repository kind of obsolete. There are some differences, though:
 
-* SuiteSparse_config is linked statically into each shared libary.
 * BTF and KLU are linked into a single shared libary _klu.dll_.
 * All-in-one library _suitesparse.dll_ containing all SuiteSparse solvers.
 

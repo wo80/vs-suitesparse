@@ -1,16 +1,5 @@
 LIBRARY colamd
 EXPORTS
-    SuiteSparse_start
-    SuiteSparse_finish
-    SuiteSparse_malloc
-    SuiteSparse_calloc
-    SuiteSparse_realloc
-    SuiteSparse_tic
-    SuiteSparse_toc
-    SuiteSparse_time
-    SuiteSparse_version
-    SuiteSparse_free
-
     colamd_recommended
     colamd_set_defaults
     colamd

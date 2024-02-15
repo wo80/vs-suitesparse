@@ -13,6 +13,12 @@ else ()
   message(FATAL_ERROR "This project is for Visual Studio only.")
 endif ()
 
+if (BLA_STATIC)
+  find_package ( BLAS REQUIRED )
+  find_package ( LAPACK REQUIRED )
+  target_link_libraries(suitesparse PRIVATE BLAS::BLAS LAPACK::LAPACK)
+endif ()
+
 # look for SuiteSparse packages:
 find_package(SuiteSparse_config 7.6.0 REQUIRED)
 find_package(AMD 3.3.1 REQUIRED)

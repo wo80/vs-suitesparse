@@ -1,16 +1,5 @@
 LIBRARY klu
 EXPORTS
-    SuiteSparse_start
-    SuiteSparse_finish
-    SuiteSparse_malloc
-    SuiteSparse_calloc
-    SuiteSparse_realloc
-    SuiteSparse_tic
-    SuiteSparse_toc
-    SuiteSparse_time
-    SuiteSparse_version
-    SuiteSparse_free
-
     klu_analyze
     klu_analyze_given
     klu_alloc_symbolic
@@ -110,14 +99,6 @@ EXPORTS
     klu_zl_condest
     klu_zl_flops
     
-    amd_order
-    colamd
-    colamd_recommended
-
-    amd_l_order
-    colamd_l
-    colamd_l_recommended
-
     btf_maxtrans
     btf_order
     btf_strongcomp
