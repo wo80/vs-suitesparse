@@ -3,7 +3,7 @@
 This is a Visual Studio solution for [SuiteSparse](https://github.com/DrTimothyAldenDavis/SuiteSparse). As of version 7.2, SuiteSparse has a mature CMake build system, making this repository kind of obsolete. There are some differences, though:
 
 * Modified CXSparse allowing factorization of complex matrices.
-* BTF and KLU are linked into a single shared libary _klu.dll_.
+* BTF and KLU are linked into a single shared library _klu.dll_.
 * All-in-one library _suitesparse.dll_ containing all SuiteSparse solvers.
 
 ## Instructions
