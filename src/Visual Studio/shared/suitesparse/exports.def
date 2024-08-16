@@ -660,19 +660,35 @@ EXPORTS
     btf_l_maxtrans
     btf_l_order
     btf_l_strongcomp
-
+    
     ParU_C_Version
-    ParU_C_Init_Control
+    ParU_C_InitControl
     ParU_C_Analyze
     ParU_C_Factorize
     ParU_C_Solve_Axx
     ParU_C_Solve_Axb
     ParU_C_Solve_AXX
     ParU_C_Solve_AXB
+    ParU_C_Solve_Lxx
+    ParU_C_Solve_LXX
+    ParU_C_Solve_Uxx
+    ParU_C_Solve_UXX
+    ParU_C_Perm
+    ParU_C_Perm_X
+    ParU_C_InvPerm
+    ParU_C_InvPerm_X
     ParU_C_Residual_bAx
     ParU_C_Residual_BAX
-    ParU_C_Freenum
-    ParU_C_Freesym
+    ParU_C_Get_INT64
+    ParU_C_Get_FP64
+    ParU_C_Get_Control_INT64
+    ParU_C_Get_Control_FP64
+    ParU_C_Get_Control_CONSTCHAR
+    ParU_C_Set_Control_INT64
+    ParU_C_Set_Control_FP64
+    ParU_C_FreeNumeric
+    ParU_C_FreeSymbolic
+    ParU_C_FreeControl
 
     SuiteSparseQR_C
     SuiteSparseQR_C_QR

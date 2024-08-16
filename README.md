@@ -8,7 +8,7 @@ This is a Visual Studio solution for [SuiteSparse](https://github.com/DrTimothyA
 
 ## Instructions
 
-The repository does not contain the SuiteSparse source code. It can be obtained from https://github.com/DrTimothyAldenDavis/SuiteSparse. The Visual Studio solution was tested with SuiteSparse version [7.6.0](https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/refs/tags/v7.6.0.zip), but should also work with newer versions. Download the latest version and extract it to the `src` folder (a subfolder `SuiteSparse` should be created automatically). To check if everything is in its right place, make sure that the file `src/SuiteSparse/README.txt` exists.
+The repository does not contain the SuiteSparse source code. It can be obtained from https://github.com/DrTimothyAldenDavis/SuiteSparse. The Visual Studio solution was tested with SuiteSparse version [7.8.1](https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/refs/tags/v7.8.1.zip), but should also work with newer versions. Download the latest version and extract it to the `src` folder (a subfolder `SuiteSparse` should be created automatically). To check if everything is in its right place, make sure that the file `src/SuiteSparse/README.txt` exists.
 
 To build the solution, some projects require BLAS and LAPACK. Please read the wiki page [BLAS and LAPACK](https://github.com/wo80/vs-suitesparse/wiki/BLAS-and-LAPACK) for instructions on how to resolve these dependencies.
 

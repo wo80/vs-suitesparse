@@ -15,18 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\SuiteSparse\ParU\Include\ParU.hpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SuiteSparse\ParU\Include\ParU_C.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\SuiteSparse\ParU\Include\ParU_definitions.h">
+    <ClInclude Include="..\..\..\SuiteSparse\ParU\Include\ParU.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_analyze.cpp">
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\ParU_Analyze.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_assemble.cpp">
@@ -35,13 +29,10 @@
     <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_assemble_row2U.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_backward.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_bin_search.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_c.cpp">
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\ParU_C.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_create_element.cpp">
@@ -53,13 +44,31 @@
     <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_dgemm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_Diag_update.cpp">
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_diag_update.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_factorize.cpp">
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_dtrsm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_exec_tasks.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\ParU_Factorize.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_finalize_perm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_free_work.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\ParU_FreeControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\ParU_FreeNumeric.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\ParU_FreeSymbolic.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_front.cpp">
@@ -74,6 +83,9 @@
     <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_gaxpy.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\ParU_Get.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_hash.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -86,10 +98,16 @@
     <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_init_rowFronts.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\ParU_InitControl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
     <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_intersection.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_lsolve.cpp">
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\ParU_InvPerm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\ParU_LSolve.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_mem.cpp">
@@ -104,7 +122,10 @@
     <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_norms.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_perm.cpp">
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_nthreads.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\ParU_Perm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_pivotal.cpp">
@@ -116,22 +137,25 @@
     <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_prior_assemble.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_residual.cpp">
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\ParU_Residual.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_solve.cpp">
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\ParU_Set.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\ParU_Solve.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_tasked_dgemm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_tasked_trsm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_trsm.cpp">
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_tasked_dtrsm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_tuples.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_umfpack_info.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_update_rel_ind.cpp">
@@ -140,10 +164,10 @@
     <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_update_rowDeg.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_usolve.cpp">
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\ParU_USolve.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_version.cpp">
+    <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\ParU_Version.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\SuiteSparse\ParU\Source\paru_write.cpp">

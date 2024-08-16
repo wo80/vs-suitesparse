@@ -157,3 +157,12 @@ EXPORTS
     umfpack_zl_serialize_numeric
     umfpack_zl_serialize_symbolic_size
     umfpack_zl_serialize_symbolic
+    
+    umfpack_di_paru_symbolic
+    umfpack_dl_paru_symbolic
+    umfpack_zi_paru_symbolic
+    umfpack_zl_paru_symbolic
+    umfpack_di_paru_free_sw
+    umfpack_dl_paru_free_sw
+    umfpack_zi_paru_free_sw
+    umfpack_zl_paru_free_sw
