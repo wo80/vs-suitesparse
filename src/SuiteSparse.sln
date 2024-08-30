@@ -143,6 +143,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rbio_static", "Visual Studi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "rbio", "Visual Studio\shared\rbio\rbio.vcxproj", "{DA19B2D0-E4CE-4B88-ADCA-7D509BD016E7}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "btf", "Visual Studio\shared\btf\btf.vcxproj", "{EDDF9FAE-2862-4409-BCA5-DD6EC9F93CB4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -391,6 +393,14 @@ Global
 		{DA19B2D0-E4CE-4B88-ADCA-7D509BD016E7}.Release|Win32.Build.0 = Release|Win32
 		{DA19B2D0-E4CE-4B88-ADCA-7D509BD016E7}.Release|x64.ActiveCfg = Release|x64
 		{DA19B2D0-E4CE-4B88-ADCA-7D509BD016E7}.Release|x64.Build.0 = Release|x64
+		{EDDF9FAE-2862-4409-BCA5-DD6EC9F93CB4}.Debug|Win32.ActiveCfg = Debug|Win32
+		{EDDF9FAE-2862-4409-BCA5-DD6EC9F93CB4}.Debug|Win32.Build.0 = Debug|Win32
+		{EDDF9FAE-2862-4409-BCA5-DD6EC9F93CB4}.Debug|x64.ActiveCfg = Debug|x64
+		{EDDF9FAE-2862-4409-BCA5-DD6EC9F93CB4}.Debug|x64.Build.0 = Debug|x64
+		{EDDF9FAE-2862-4409-BCA5-DD6EC9F93CB4}.Release|Win32.ActiveCfg = Release|Win32
+		{EDDF9FAE-2862-4409-BCA5-DD6EC9F93CB4}.Release|Win32.Build.0 = Release|Win32
+		{EDDF9FAE-2862-4409-BCA5-DD6EC9F93CB4}.Release|x64.ActiveCfg = Release|x64
+		{EDDF9FAE-2862-4409-BCA5-DD6EC9F93CB4}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -426,6 +436,7 @@ Global
 		{FB395F3B-D9D4-440B-9277-04EE4AA542E8} = {D8840865-D20E-4C15-80B0-54C822A65E7C}
 		{570BF5E2-29F2-42F0-B078-40BF3D12670E} = {22826D4B-958B-42ED-8CA9-F6604C6157F1}
 		{DA19B2D0-E4CE-4B88-ADCA-7D509BD016E7} = {D8840865-D20E-4C15-80B0-54C822A65E7C}
+		{EDDF9FAE-2862-4409-BCA5-DD6EC9F93CB4} = {D8840865-D20E-4C15-80B0-54C822A65E7C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5595FCF2-498D-4BCC-91D6-B889791E43DC}

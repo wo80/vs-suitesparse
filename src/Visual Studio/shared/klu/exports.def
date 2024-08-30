@@ -98,12 +98,3 @@ EXPORTS
     klu_zl_extract
     klu_zl_condest
     klu_zl_flops
-    
-    btf_maxtrans
-    btf_order
-    btf_strongcomp
-    btf_version
-
-    btf_l_maxtrans
-    btf_l_order
-    btf_l_strongcomp
